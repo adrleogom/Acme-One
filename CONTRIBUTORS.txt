@@ -9,4 +9,5 @@
 # they accept any liabilities with respect to them.
 
 - Rafael Corchuelo (corchu@us.es)
+- Paula Ferreira Jiménez (pauferjim@alum.us.es)
 - Adriana Leon Gomez (adrleogom@alum.us.es)
