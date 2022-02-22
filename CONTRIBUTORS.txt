@@ -12,3 +12,5 @@ This project was contributed by the following people:
 
 - Rafael Corchuelo (corchu@us.es)
 - Carmen Galvan Lopez (cargallop2@us.es)
+- Paula Ferreira Jiménez (pauferjim@alum.us.es)
+- Adriana Leon Gomez (adrleogom@alum.us.es)
