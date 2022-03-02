@@ -20,7 +20,11 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.carmen" action="https://github.com/carmengl00"/>
-		
+			<acme:menu-suboption code="master.menu.anonymous.alvaro" action="https://twitter.com/makeamate_es"/>
+			<acme:menu-suboption code="master.menu.anonymous.abraham" action="https://www.wuolah.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.beatriz" action="https://ev.us.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.paula" action="https://www.twitch.tv/alexelcapo"/>
+			<acme:menu-suboption code="master.menu.anonymous.adriana" action="https://makeamatelpmaster.gatsbyjs.io"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
