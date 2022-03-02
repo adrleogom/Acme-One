@@ -18,8 +18,11 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.alvaro = 29509546V: Escalante Castro, Álvaro
+master.menu.anonymous.abraham = 49304181R: Cobelo Galindo, Abraham
+master.menu.anonymous.beatriz = 54183337Y: Llamas Sainz-Pardo, Beatriz
+master.menu.anonymous.paula= 77940094V: Ferreira Jiménez, Paula
+master.menu.anonymous.adriana = 79158986R: León Gómez, Adriana
 
 # master.menu.administrator ###################################################
 
