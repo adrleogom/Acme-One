@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>615</x>
+      <y>205</y>
+      <w>155</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+inventor
+--
++ company: String {NotBlank, Length(1, 101)}
++ statement: String {NotBlank, Length(1, 256)}
++ furtherInfo: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>365</x>
+      <y>285</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+chirp
+bg=yellow
+--
++ creation: Date {Temoral(TIMESTAMP)}
++ title: String {NotBlank, Length(1, 101)}
++ body: String {NotBlank, Length(1, 256)}
++ email: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>195</x>
+      <y>285</y>
+      <w>155</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>bg=gray
+&lt;&lt;Entity&gt;&gt;
+announcement
+--
++ creation: Date {Temoral(TIMESTAMP), Past}
++ title: String {NotBlank, Length(1, 101)}
++ body: String {NotBlank, Length(1, 256)}
++ flag: boolean
++ furtherInfo: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>460</y>
+      <w>190</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Component
+bg=red
+--
++ name: String {NotBlank, Length(1,101)}
++ code: String {Pattern(^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), unique}
++ technology: String {NotBlank, Length(1,101)}
++ retailPrice: double {Min(1)}
++ furtherInfo: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>795</x>
+      <y>455</y>
+      <w>195</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+tool
+bg=red
+--
++ name: String {NotBlank, Length(1,101)}
++ code: String {Pattern(“^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), unique}
++ technology: String {NotBlank, Length(1, 101)}
++ retailPrice: double {Min(0)}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>705</x>
+      <y>495</y>
+      <w>100</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+m2=1
+allows to work with &gt;</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>285</y>
+      <w>195</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+toolkit
+bg=red
+--
++ code: String {Pattern(^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), unique)}
++ title: String {NotBlank, Length(1,101)}
++ description: String {NotBlank, Length(1, 256)}
++ assemblyNotes: String {NotBlank, Length(1, 256)}
++ furtherInfo: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>345</y>
+      <w>135</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
+m2=1..*</panel_attributes>
+    <additional_attributes>250.0;10.0;250.0;100.0;10.0;100.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>345</y>
+      <w>185</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;340.0;100.0;340.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>125</x>
+      <y>200</y>
+      <w>155</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+patron
+--
++ company: String {NotBlank, Length(1, 101)}
++ statement: String {NotBlank, Length(1, 256)}
++ furtherInfo: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>355</x>
+      <y>190</y>
+      <w>190</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+patronage
+--
++ status: Status
++ code: String {Pattern(^[A-Z]{3}-[0-9]{3}(-[A-Z])?$), unique}
++ legalStuff: String {NotBlank, Length(1,256)}
++ budget: double {Min(1)}
++ period: Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>285</y>
+      <w>65</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>bg=black
+&lt;&lt;Enum&gt;&gt;
+Status
+--
++ PROPOSED
++ ACCEPTED
++ DENIED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>275</x>
+      <y>220</y>
+      <w>90</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+m2=1
+provides &gt;</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>230</y>
+      <w>85</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1
+m2=1..*
+&lt; recieves</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>345</x>
+      <y>60</y>
+      <w>220</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+patronage report
+--
++ sequence: int {NotBlank, Pattern(〈patronage-code〉:〈serial-number〉}
++ creation: Date {Past}
++ memorandum: String {NotBlank, Length(1, 256)}
++ furtherInfo: String {URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>195</x>
+      <y>85</y>
+      <w>160</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+exchanges &gt;
+m1=0..*
+m2=1</panel_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>85</y>
+      <w>125</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+m2=1
+&lt; exchanges</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0;220.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>275</x>
+      <y>390</y>
+      <w>235</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+&lt;&lt;Form&gt;&gt;
+patronDashboard
+--
++ totalNumberOfProposedPatronages: double
++ totalNumberOfAcceptedPatronages: double
++ totalNumberOfDeniedPatronages: double
++ averageOfBudgetOfProposedPatronagesGroupedByCurrency: double
++ averageOfBudgetOfAcceptedPatronagesGroupedByCurrency: double
++ averageOfBudgetOfDeniedPatronagesGroupedByCurrency: double
++ deviationOfBudgetOfProposedPatronagesGroupedByCurrency: double
++ deviationOfBudgetOfAcceptedPatronagesGroupedByCurrency: double
++ deviationOfBudgetOfDeniedPatronagesGroupedByCurrency: double
++ minimumOfBudgetOfProposedPatronagesGroupedByCurrency: double
++ minimumOfBudgetOfAcceptedPatronagesGroupedByCurrency: double
++ minimumOfBudgetOfDeniedPatronagesGroupedByCurrency: double
++ maximumOfBudgetOfProposedPatronagesGroupedByCurrency: double
++ maximumOfBudgetOfAcceptedPatronagesGroupedByCurrency: double
++ maximumOfBudgetOfDeniedPatronagesGroupedByCurrency: double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>390</y>
+      <w>260</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>bg=blue
+&lt;&lt;Form&gt;&gt;
+adminDashboard
+--
++ totalnumberOfComponents: int
++ averageRetailPriceOfComponentsGroupedByTechnologyAndCurrency: double
++ deviationRetailPriceOfComponentsGroupedByTechnologyAndCurrency: double
++ minimumRetailPriceOfComponentsGroupedByTechnologyAndCurrency: double
++ maximumRetailPriceOfComponentsGroupedByTechnologyAndCurrency: double
++ totalNumberOfTools: int
++ averageRetailPriceOfToolsGroupedByCurrency: double
++ deviationRetailPriceOfToolsGroupedByCurrency: double
++ minimumRetailPriceOfToolsGroupedByCurrency: double
++ maximumRetailPriceOfToolsGroupedByCurrency: double
++ totalNumberOfProposedPatronages: int
++ totalNumberOfAcceptedPatronages: int
++ totalNumberOfDeniedPatronages: int
++ averageBudgetOfProposedPatronages: double
++ averageBudgetOfAcceptedPatronages: double
++ averageBudgetOfDeniedPatronages: double
++ deviationBudgetOfProposedPatronages: double
++ deviationBudgetOfAcceptedPatronages: double
++ deviationBudgetOfDeniedPatronages: double
++ minimumBudgetOfProposedPatronages: double
++ minimumBudgetOfAcceptedPatronages: double
++ minimumBudgetOfDeniedPatronages: double
++ maximumBudgetOfProposedPatronages: double
++ maximumBudgetOfAcceptedPatronages: double
++ maximumBudgetOfDeniedPatronages: double</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
