@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>0</y>
+      <w>306</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Shout
+--
++ moment: Date {NotNull,Temporal(TIMESTAMP), Past}
++ author: String {NotBlank}
++ text: String {NotBlank}
++ info: String{URL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>243</y>
+      <w>234</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Role&gt;&gt;
+Employer
+--
++ company: String {NotBlank}
++ sector: String {NotBlank}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>171</x>
+      <y>423</y>
+      <w>351</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Job
+--
++ reference: String {Unique, NotBlank, Lenght(5, 15)}
++ title: String {NotBlank}
++ deadline: Date {Temporal(TIMESTAMP)}
++ salary: Money
++ score: double {Range(0, 100), Digits(2, 2)}
++ description: String {NotBlank}
++ moreInfo: String {URL}
++ draftMode: boolean
++ / avaliable: boolean {Transient}
++ / spam: boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>513</x>
+      <y>369</y>
+      <w>225</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*
+Registered by &gt;</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;190.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>234</x>
+      <y>693</y>
+      <w>189</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Duty
+--
++ title: String{NotBlank}
++ description: String {NotBlank}
++ workLoaddouble: {Digits(3, 2), Min(0), Max(100)}
++ moreInfo: String {Url}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>612</y>
+      <w>45</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>216</y>
+      <w>162</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+spam iff
+the number of spam words
+found in the title and/or
+description exceeds the
+system threshold.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>63</x>
+      <y>297</y>
+      <w>126</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0;120.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>180</x>
+      <y>198</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>bg=green
+avaliable iff
+not draftMode and
+not deadlineover</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>252</y>
+      <w>27</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>333</x>
+      <y>207</y>
+      <w>108</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>bg=green
+salary must
+be positive</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>351</x>
+      <y>243</y>
+      <w>27</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>522</y>
+      <w>198</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Datatype&gt;&gt;
+DefaultUserIdentity
+--
++ name: String: {NotBlank}
++ surname: String {NotBlank}
++ email: String {NotBlank, Email}
++ /fullName: String {NotBlank}
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>711</y>
+      <w>189</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Datatype&gt;&gt;
+UserIdentity
+--
++ phone: Phone
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>765</x>
+      <y>621</y>
+      <w>27</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>540</y>
+      <w>153</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Serializable
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>936</x>
+      <y>675</y>
+      <w>315</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+Dashboard
+--
++ averageNumberOfJobsPerEmployer: Double
++ averageNumberOfApplicationsPerWorer: Double
++ averageNumberOfApplicationsPerEmployer: Double
++ ratioOfPendingApplications: Double
++ ratioOfAcceptedApplications: Double
++ ratioOfRejectedApplications: Double
+bg=green
+ </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1017</x>
+      <y>576</y>
+      <w>27</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>882</x>
+      <y>306</y>
+      <w>243</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Application
+--
+bg=green
++ reference: String {NotBlank, Unique}
++ moment: Date {Past, TIMESTAMP}
++ status: ApplicationStatus
++ statement: String {NotBlank}
++ skills: String {NotBlank}
++ qualifications: String {NotBlank}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>162</y>
+      <w>198</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+ApplicationsStatus
+--
++ PENDING
++ ACCEPTED
++ REJECTED
+bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
