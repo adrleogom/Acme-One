@@ -2,6 +2,7 @@ package acme.entities.component;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
@@ -13,6 +14,7 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.toolkit.Toolkit;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -64,5 +66,10 @@ public class Component extends AbstractEntity {
 	@OneToMany
 	protected Component             component;
 	
+	
+	@NotNull
+	@Valid
+	@ManyToOne(optional=false)
+	protected Toolkit               toolkit;
 	
 }
