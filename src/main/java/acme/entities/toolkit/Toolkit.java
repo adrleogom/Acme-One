@@ -2,10 +2,10 @@ package acme.entities.toolkit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.AbstractEntity;
@@ -27,15 +27,15 @@ public class Toolkit extends AbstractEntity{
 		protected String			code;
 	
 		@NotBlank
-		@Max(100)
+		@Length(min= 0, max=100)
 		protected String			title;
 	
 		@NotBlank
-		@Max(255)
+		@Length(min= 0, max=255)
 		protected String			description;
 	
 		@NotBlank
-		@Max(255)
+		@Length(min= 0, max=255)
 		protected String			assemblyNotes;
 		
 		@URL
