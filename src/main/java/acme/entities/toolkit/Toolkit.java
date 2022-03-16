@@ -2,7 +2,10 @@ package acme.entities.toolkit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -46,8 +49,15 @@ public class Toolkit extends AbstractEntity{
 
 		// Relationships ----------------------------------------------------------
 		
-		//@NotNull
-		//@Valid
-		//@ManyToOne(optional = false)
-		//protected Component component;
+		@NotNull
+		@Valid
+		@OneToMany
+		protected Component component;
+		
+		@NotNull
+		@Valid
+		@OneToMany
+		protected Tool tool;
+		
+		
 }
