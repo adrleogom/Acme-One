@@ -15,7 +15,8 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.AbstractEntity;
-import acme.patronage.Status;
+import acme.roles.Inventor;
+import acme.roles.Patron;
 
 public class Patronage extends AbstractEntity {
 
