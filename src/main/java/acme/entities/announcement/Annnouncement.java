@@ -43,7 +43,7 @@ public class Annnouncement {
 	protected Boolean flag;
 	
 	@URL
-	protected String link;
+	protected String furtherInfo;
 	
 	// Derived Attributes----------------------------------------------------------------------------
 	
