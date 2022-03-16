@@ -3,11 +3,14 @@ package acme.entities.tool;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Max;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.AbstractEntity;
@@ -26,7 +29,7 @@ public class Tool extends AbstractEntity{
 		// Attributes -------------------------------------------------------------
 
 		@NotBlank
-		@Max(100)
+		@Length(min=1,max=100)
 		protected String			name;
 		
 		@Pattern(regexp = "^[A-Z]{3}-[0-\r\n"+ "9]{3}(-[A-Z])?$")
@@ -34,11 +37,11 @@ public class Tool extends AbstractEntity{
 		protected String			code;
 
 		@NotBlank
-		@Max(100)
+		@Length(min=1,max=100)
 		protected String			tecnology;
 
 		@NotBlank
-		@Max(255)
+		@Length(min=1,max=255)
 		protected String			description;
 		
 		@Positive
@@ -52,10 +55,10 @@ public class Tool extends AbstractEntity{
 
 		// Relationships ----------------------------------------------------------
 		
-		//@NotNull
-		//@Valid
-		//@ManyToOne(optional = false)
-		//protected Component component;
+		@NotNull
+		@Valid
+		@ManyToOne(optional = false)
+		protected Component component;
 
 }
 
