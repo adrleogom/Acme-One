@@ -18,12 +18,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
-public class Annnouncement extends AbstractEntity{
+public class Annnouncement  extends AbstractEntity {
 	
 	// Serialisation Identifier-------------------------------------------------------------------
-	
-	protected static final long serialVersionUID=1l;
+	protected static final long		serialVersionUID	= 1L;
 	
 	// Attributes---------------------------------------------------------------------------------
 	
