@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import acme.entities.item.Item;
+import acme.entities.toolkit.Toolkit;
 import acme.framework.entities.AbstractEntity;
 
 public class Quantity extends AbstractEntity{
@@ -26,4 +27,10 @@ public class Quantity extends AbstractEntity{
 			@Valid
 			@ManyToOne(optional = false)
 			protected Item item;
+			
+			@NotNull
+			@Valid
+			@ManyToOne(optional=false)
+			protected Toolkit toolkit;
+			
 }

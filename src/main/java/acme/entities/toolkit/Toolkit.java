@@ -2,14 +2,12 @@ package acme.entities.toolkit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.quantity.Quantity;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,9 +45,6 @@ public class Toolkit extends AbstractEntity{
 		// Derived attributes -----------------------------------------------------
 
 		// Relationships ----------------------------------------------------------
-		@NotBlank
-		@OneToMany
-		protected Quantity			quantity;
 			
 		
 		

@@ -1,6 +1,6 @@
 package acme.entities.patronage;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,13 +14,14 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class PatronageReport {
+public class PatronageReport extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 	
