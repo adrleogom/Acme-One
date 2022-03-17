@@ -11,18 +11,17 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-
-public class Annnouncement {
+public class Annnouncement  extends AbstractEntity {
 	
 	// Serialisation Identifier-------------------------------------------------------------------
-	
-	protected static final long serialVersionUID=1l;
+	protected static final long		serialVersionUID	= 1L;
 	
 	// Attributes---------------------------------------------------------------------------------
 	
