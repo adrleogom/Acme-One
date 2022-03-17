@@ -7,8 +7,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import acme.entities.item.Item;
+import acme.framework.entities.AbstractEntity;
 
-public class Quantity {
+public class Quantity extends AbstractEntity{
 	
 	// Serialisation identifier -----------------------------------------------
 
