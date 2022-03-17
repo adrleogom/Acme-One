@@ -3,6 +3,7 @@ package acme.entities.patronage;
 import java.sql.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,7 +18,12 @@ import org.hibernate.validator.constraints.URL;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
 import acme.roles.Patron;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Getter
+@Setter
 public class Patronage extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
