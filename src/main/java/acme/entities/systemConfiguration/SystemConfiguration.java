@@ -2,6 +2,7 @@ package acme.entities.systemConfiguration;
 import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -22,26 +23,25 @@ public class SystemConfiguration  extends AbstractEntity {
 	// Attributes---------------------------------------------------------------------------------
 	
 	@NotBlank
-	protected String acceptedCurrencies = "EUR, USD, GBP";
+	protected String acceptedCurrencies;
 	
 	@NotBlank
-	protected String systemCurrency = "EUR";
+	@Pattern(regexp = "^[A-Z]{3}?$")
+	protected String systemCurrency;
 	
 	@NotBlank
-	protected String strongSpamWords = "sex, sexo, hard core, viagra, cialis";
+	protected String strongSpamWords;
 	
-	@NotBlank
 	@Range(min=0, max=100)
-	@Digits(integer=2, fraction=2)
-	protected Double strongSpamThreshold = 10.00;
+	@Digits(integer=3, fraction=2)
+	protected double strongSpamThreshold;
 	
 	@NotBlank
-	protected String weakSpamWords = "sexy, nigeria, you've won, has ganado, one million, un millón";
+	protected String weakSpamWords;
 	
-	@NotBlank
 	@Range(min=0, max=100)
-	@Digits(integer=2, fraction=2)
-	protected Double weakSpamThreshold = 25.00;
+	@Digits(integer=3, fraction=2)
+	protected double weakSpamThreshold;
 	
 	// Derived Attributes----------------------------------------------------------------------------
 	
