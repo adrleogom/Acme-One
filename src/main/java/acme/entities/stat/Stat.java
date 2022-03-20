@@ -1,4 +1,4 @@
-package acme.entitites.stat;
+package acme.entities.stat;
 
 import java.io.Serializable;
 
@@ -14,7 +14,7 @@ public class Stat implements Serializable{
 	
 	Double average;
 	Double deviation;
-	Double min;
-	Double man;
+	Double minimum;
+	Double maximum;
 
 }

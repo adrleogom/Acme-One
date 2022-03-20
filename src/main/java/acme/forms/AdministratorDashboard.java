@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.springframework.data.util.Pair;
 
-import acme.entitites.stat.Stat;
+import acme.entities.stat.Stat;
 import lombok.Getter;
 import lombok.Setter;
 
