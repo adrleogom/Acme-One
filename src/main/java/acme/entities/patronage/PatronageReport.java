@@ -4,12 +4,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -30,9 +32,9 @@ public class PatronageReport extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 
-	@Pattern(regexp = "^<[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4,6}>$")
+	@Digits(integer=4, fraction=0)
 	@Column(unique = true)
-	protected String			sequenceNumber;
+	protected Integer			sNumber;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
@@ -46,10 +48,15 @@ public class PatronageReport extends AbstractEntity {
 	protected String			link;
 	
 	// Derived attributes -----------------------------------------------------
-
+	public String sequeceNumber() {
+		return this.patronage.getCode() + ":" + this.sNumber;
+	}
+	
 	
 	// Relationships ----------------------------------------------------------
-	@JoinColumn(name = "patronageId", referencedColumnName = "id")
+	@NotNull
+	@ManyToOne(optional=false)
+	@Valid
 	protected Patronage			patronage;
 	
 }
