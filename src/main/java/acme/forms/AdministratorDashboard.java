@@ -2,6 +2,9 @@ package acme.forms;
 
 
 import java.io.Serializable;
+import java.util.Map;
+
+import org.springframework.data.util.Pair;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,58 +20,27 @@ public class AdministratorDashboard implements Serializable{
 
 	// Attributes -------------------------------------------------------------
 
+	int totalNumberComponents;
+	int totalNumberTools;
 	
-	//Components
-	 Integer totalNumberOfComponents;
-	 Integer averageComponentsRetailPriceEUR;
-	 Integer averageComponentsRetailPriceGBP;
-	 Integer averageComponentsRetailPriceUSD;
-	 Integer deviationComponentsRetailPriceEUR;
-	 Integer deviationComponentsRetailPriceGBP;
-	 Integer deviationComponentsRetailPriceUSD;
-	 Integer minComponentsRetailPriceEUR;
-	 Integer minComponentsRetailPriceGBP;
-	 Integer minComponentsRetailPriceUSD;
-	 Integer maxComponentsRetailPriceEUR;
-	 Integer maxComponentsRetailPriceGBP;
-	 Integer maxComponentsRetailPriceUSD;
-	 
-	 
-	 //Tools
-	 Integer totalNumberOfTools;
-	 Integer averageToolsRetailPriceEUR;
-	 Integer averageToolsRetailPriceGBP;
-	 Integer averageToolsRetailPriceUSD;
-	 Integer deviationToolsRetailPriceEUR;
-	 Integer deviationToolsRetailPriceGBP;
-	 Integer deviationToolsRetailPriceUSD;
-	 Integer minToolsRetailPriceEUR;
-	 Integer minToolsRetailPriceGBP;
-	 Integer minToolsRetailPriceUSD;
-	 Integer maxToolsRetailPriceEUR;
-	 Integer maxToolsRetailPriceGBP;
-	 Integer maxToolsRetailPriceUSD;
-	 	 
-	 
-	 //Proposed patronages
-	 Integer totalNumberProposedPatronages;
-	 Integer deviationBudgetProposedPatronages;
-	 Integer averageBudgetProposedPatronages;
-	 Integer minBudgetProposedPatronages;
-	 Integer maxBudgetProposedPatronages;
-
-	 //Accepted patronages
-	 Integer totalNumberAccepedPatronages;
-	 Integer deviationBudgetAcceptedPatronages;
-	 Integer averageBudgetAcceptedPatronages;
-	 Integer minBudgetAcceptedPatronages;
-	 Integer maxBudgetAcceptedPatronages;
-
-	 //Denied patronages
-	 Integer totalNumberDeniedPatronages;
-	 Integer deviationBudgetDeniedPatronages;
-	 Integer averageBudgetDeniedPatronages; 
-	 Integer minBudgetDeniedPatronages;
-	 Integer maxBudgetDeniedPatronages;
+	Map<Pair<String,String>,Double>averageRetailPriceComponents;
+	Map<Pair<String,String>,Double>deviationRetailPriceComponents;
+	Map<Pair<String,String>,Double>minRetailPriceComponents;
+	Map<Pair<String,String>,Double>maxRetailPriceComponents;
+	
+	Map<String,Double> averageRetailPriceTools;
+	Map<String,Double> deviationRetailPriceTools;
+	Map<String,Double> maxRetailPriceTools;
+	Map<String,Double> minRetailPriceTools;
+	
+	int totalNumberProposedPatronages;
+	int totalNumberAcceptedPatronages;
+	int totalNumberDeniedPatronages;
+	
+	Map<String,Double> averageBudgetByCurrency;
+	Map<String,Double> deviationBudgetByCurrency;
+	Map<String,Double> minBudgetByCurrency;
+	Map<String,Double> maxBudgetByCurrency;
+	
 
 }
