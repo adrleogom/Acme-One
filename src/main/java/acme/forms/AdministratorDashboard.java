@@ -2,7 +2,11 @@ package acme.forms;
 
 
 import java.io.Serializable;
+import java.util.Map;
 
+import org.springframework.data.util.Pair;
+
+import acme.entities.stat.Stat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,58 +21,16 @@ public class AdministratorDashboard implements Serializable{
 
 	// Attributes -------------------------------------------------------------
 
+	int totalNumberComponents;
+	Map<Pair<String,String>,Stat>retailPriceOfComponents;
 	
-	//Components
-	 Integer totalNumberOfComponents;
-	 Integer averageComponentsRetailPriceEUR;
-	 Integer averageComponentsRetailPriceGBP;
-	 Integer averageComponentsRetailPriceUSD;
-	 Integer deviationComponentsRetailPriceEUR;
-	 Integer deviationComponentsRetailPriceGBP;
-	 Integer deviationComponentsRetailPriceUSD;
-	 Integer minComponentsRetailPriceEUR;
-	 Integer minComponentsRetailPriceGBP;
-	 Integer minComponentsRetailPriceUSD;
-	 Integer maxComponentsRetailPriceEUR;
-	 Integer maxComponentsRetailPriceGBP;
-	 Integer maxComponentsRetailPriceUSD;
-	 
-	 
-	 //Tools
-	 Integer totalNumberOfTools;
-	 Integer averageToolsRetailPriceEUR;
-	 Integer averageToolsRetailPriceGBP;
-	 Integer averageToolsRetailPriceUSD;
-	 Integer deviationToolsRetailPriceEUR;
-	 Integer deviationToolsRetailPriceGBP;
-	 Integer deviationToolsRetailPriceUSD;
-	 Integer minToolsRetailPriceEUR;
-	 Integer minToolsRetailPriceGBP;
-	 Integer minToolsRetailPriceUSD;
-	 Integer maxToolsRetailPriceEUR;
-	 Integer maxToolsRetailPriceGBP;
-	 Integer maxToolsRetailPriceUSD;
-	 	 
-	 
-	 //Proposed patronages
-	 Integer totalNumberProposedPatronages;
-	 Integer deviationBudgetProposedPatronages;
-	 Integer averageBudgetProposedPatronages;
-	 Integer minBudgetProposedPatronages;
-	 Integer maxBudgetProposedPatronages;
+	int totalNumberTools;
+	Map<Pair<String,String>,Stat>retailPriceOfTools;
 
-	 //Accepted patronages
-	 Integer totalNumberAccepedPatronages;
-	 Integer deviationBudgetAcceptedPatronages;
-	 Integer averageBudgetAcceptedPatronages;
-	 Integer minBudgetAcceptedPatronages;
-	 Integer maxBudgetAcceptedPatronages;
-
-	 //Denied patronages
-	 Integer totalNumberDeniedPatronages;
-	 Integer deviationBudgetDeniedPatronages;
-	 Integer averageBudgetDeniedPatronages; 
-	 Integer minBudgetDeniedPatronages;
-	 Integer maxBudgetDeniedPatronages;
+	
+	int totalNumberOfPatronages;
+	Map<Pair<String,String>,Stat>budgetOfPatronages;
+	
+	
 
 }
