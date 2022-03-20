@@ -6,13 +6,15 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -39,19 +41,24 @@ public class Patronage extends AbstractEntity {
 	
 	@Column(unique=true)
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
+	@NotBlank
 	protected String code;
 	
 	@NotBlank
 	@Length(min = 1, max = 255)
 	protected String legalStuff;
 	
-	@Positive
+	@Min(0)
 	protected double budget;
 	
 	@Temporal(TemporalType.DATE)
+	@Past
+	@NotNull
 	protected Date				initialDate;
 
 	@Temporal(TemporalType.DATE)
+	@Past
+	@NotNull
 	protected Date				finalDate;
 	
 	@URL
@@ -61,9 +68,13 @@ public class Patronage extends AbstractEntity {
 
 
 	// Relationships ----------------------------------------------------------
-	@JoinColumn(name = "patronId", referencedColumnName = "id")
+	@ManyToOne(optional=false)
+	@Valid
+	@NotNull
 	protected Patron			patron;
 
-	@JoinColumn(name = "inventorId", referencedColumnName = "id")
+	@ManyToOne(optional=false)
+	@Valid
+	@NotNull
 	protected Inventor			inventor;
 }
