@@ -9,6 +9,7 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,6 +24,7 @@ public class Item extends AbstractEntity{
 	
 		// Attributes -------------------------------------------------------------
 
+		@NotBlank
 		protected ItemType			itemType;
 		
 		@NotBlank
@@ -30,7 +32,7 @@ public class Item extends AbstractEntity{
 		protected String			name;
 		
 		@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$") 
-		@Column
+		@Column(unique = true)
 		protected String			code;
 	
 		@NotBlank
@@ -42,10 +44,10 @@ public class Item extends AbstractEntity{
 		protected String			description;
 		
 		@Positive
-		protected Double			retailPrice;
+		protected Money			retailPrice;
 		
 		@URL
-		protected String			link;
+		protected String			furtherInfo;
 		
 	
 		// Derived attributes -----------------------------------------------------
