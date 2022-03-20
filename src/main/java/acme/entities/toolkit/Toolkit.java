@@ -42,7 +42,7 @@ public class Toolkit extends AbstractEntity{
 		protected String			assemblyNotes;
 		
 		@URL
-		protected String			link;
+		protected String			furtherInfo;
 
 
 		// Derived attributes -----------------------------------------------------
