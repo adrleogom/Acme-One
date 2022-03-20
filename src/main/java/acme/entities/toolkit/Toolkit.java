@@ -2,7 +2,7 @@ package acme.entities.toolkit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -30,15 +30,15 @@ public class Toolkit extends AbstractEntity{
 		protected String			code;
 	
 		@NotBlank
-		@Length(min= 0, max=100)
+		@Length(min= 1, max=100)
 		protected String			title;
 	
 		@NotBlank
-		@Length(min= 0, max=255)
+		@Length(min= 1, max=255)
 		protected String			description;
 	
 		@NotBlank
-		@Length(min= 0, max=255)
+		@Length(min= 1, max=255)
 		protected String			assemblyNotes;
 		
 		@URL
@@ -48,16 +48,10 @@ public class Toolkit extends AbstractEntity{
 		// Derived attributes -----------------------------------------------------
 
 		// Relationships ----------------------------------------------------------
-		
 		@NotNull
 		@Valid
-		@OneToMany
-		protected Component component;
-		
-		@NotNull
-		@Valid
-		@OneToMany
-		protected Tool tool;
+		@ManyToOne(optional=false)
+		protected Inventor inventor;
 		
 		
 }
