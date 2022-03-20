@@ -30,7 +30,7 @@ public class Patron extends UserRole{
 	protected String			statement;
 	
 	@URL
-	protected String			link;
+	protected String			furtherInfo;
 
 	// Derived attributes -----------------------------------------------------
 
