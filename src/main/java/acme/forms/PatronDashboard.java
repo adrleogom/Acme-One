@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.data.util.Pair;
 
 import acme.entities.patronage.Status;
+import acme.entities.stat.Stat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +19,7 @@ public class PatronDashboard implements Serializable {
 
 	protected static final long					serialVersionUID	= 1L;
 
-	protected Map<Status, Stat>					totalNumberOfPatronages;
+	protected Map<Status, Integer>					totalNumberOfPatronages;
 
 	protected Map<Pair<Status, String>, Stat>	budgetOfPatronages;
 }

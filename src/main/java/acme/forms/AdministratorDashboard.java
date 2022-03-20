@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.data.util.Pair;
 
+import acme.entities.patronage.Status;
 import acme.entities.stat.Stat;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,15 +22,17 @@ public class AdministratorDashboard implements Serializable{
 
 	// Attributes -------------------------------------------------------------
 
-	int totalNumberComponents;
-	Map<Pair<String,String>,Stat>retailPriceOfComponents;
+	int totalNumberOfComponents;
 	
-	int totalNumberTools;
-	Map<Pair<String,String>,Stat>retailPriceOfTools;
-
+	int totalNumberOfTools;
 	
-	int totalNumberOfPatronages;
-	Map<Pair<String,String>,Stat>budgetOfPatronages;
+	Map<Status,Integer> totalNumberOfPatronages;
+	
+	Map<Pair<String,String>,Stat> retailPriceOfComponents;
+	
+	Map<String,Stat> retailPriceOfTools;
+	
+	Map<Status,Stat> budgetOfPatronages;
 	
 	
 
