@@ -1,2 +1,6 @@
-key,moment,title,body,flag,further-info
-announcement-01,2020/08/21 00:00,Anuncio 1,Anuncio numero 1,true,http://www.example.com
+key,moment,title,body,flag,further-info,key:administrator
+announcement-01,2020/08/21 00:00,"Anuncio con 100 caracteres Anuncio con 100 caracteres Anuncio con 100 caracteres Anuncio con 100 Anu","Anuncio numero 1 con 255 caracteres Anuncio numero 1 con 255 caracteres Anuncio numero 1 con 255 caracteres Anuncio numero 1 con 255 caracteres Anuncio numero 1 con 255 caracteres Anuncio numero 1 con 255 caracteres Anuncio numero 1 con 255 caracteres Anu",true,http://www.example.com,administrator-01
+announcement-02,2020/05/21 00:20,"2","2",false,http://www.example.com,administrator-01
+announcement-03,2018/03/17 00:20,"Anuncio 3","Anuncio numero 3",false,http://www.example.com,administrator-01
+announcement-04,2011/01/11 00:20,"Anuncio 4","Anuncio numero 4",true,http://www.example.com,administrator-01
+announcement-05,2018/11/29 00:20,"Anuncio 5","Anuncio numero 5",true,http://www.example.com,administrator-01
