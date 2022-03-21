@@ -1,1 +1,6 @@
-
+key,status,code,legal-stuff,budget,initial-date,final-date,further-info,key:patron,key:inventor
+patronage-01,PROPOSED,BCA-361-Z,Legal Stuff 1 con 255 caracteres Legal Stuff 1 con 255 caracteres Legal Stuff 1 con 255 caracteres Legal Stuff 1 con 255 caracteres Legal Stuff 1 con 255 caracteres Legal Stuff 1 con 255 caracteres Legal Stuff 1 con 255 caracteres Legal Stuff 1 con 255 ca,EUR 20.50,2019/06/29 11:32,2019/06/30 11:32,http://www.example.com,patron-01,inventor-01
+patronage-02,ACCEPTED,AZF-361-H,2,USD 500.00,2020/08/10 10:32,2020/08/11 10:32,http://www.example.com,patron-02,inventor-02
+patronage-03,DENIED,HJK-361-A,Legal Stuff 3,EUR 4000.00,2019/12/06 18:32,2018/12/07 18:32,http://www.example.com,patron-03,inventor-03
+patronage-04,PROPOSED,TXQ-361-M,Legal Stuff 4,EUR 0.10,2017/11/08 15:32,2017/11/09 15:32,http://www.example.com,patron-04,inventor-04
+patronage-05,ACCEPTED,MIP-361-W,Legal Stuff 5,USD 170.50,2018/10/27 20:32,2016/10/28 20:32,http://www.example.com,patron-05,inventor-05

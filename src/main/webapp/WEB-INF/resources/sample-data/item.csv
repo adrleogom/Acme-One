@@ -1,2 +1,6 @@
-key,item-type,name,code,technology,description,retail-price,link
-item-01,COMPONENT,"Item 1",null,"Tech 1","Component with Tech 1",22.6,http://www.example.com
+key,item-type,name,code,technology,description,retail-price,further-info
+item-01,COMPONENT,"Item 1 con 100 caracteres Item 1 con 100 caracteres Item 1 con 100 caracteres Item 1 con 100 caracte",ABE-187-Z,"Tech 1 con 100 caracteres Tech 1 con 100 caracteres Tech 1 con 100 caracteres Tech 1 con 100 caracte","Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component",EUR 22.6,http://www.example.com
+item-02,TOOL,"2",POL-257-H,"2","2",USD 18.5,http://www.example.com
+item-03,TOOL,"Item 3",VRE-901-A,"Tech 3","Tool with Tech 3",GBP 09.6,http://www.example.com
+item-04,COMPONENT,"Item 4",YYE-140-C,"Tech 4","Component with Tech 4",EUR 19.0,http://www.example.com
+item-05,COMPONENT,"Item 5",TZA-209-B,"Tech 5","Component with Tech 5",GBP 27.9,http://www.example.com
