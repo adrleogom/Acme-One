@@ -2,9 +2,9 @@ package acme.entities.item;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -24,7 +24,7 @@ public class Item extends AbstractEntity{
 	
 		// Attributes -------------------------------------------------------------
 
-		@NotBlank
+		@Valid
 		protected ItemType			itemType;
 		
 		@NotBlank
@@ -43,7 +43,7 @@ public class Item extends AbstractEntity{
 		@Length(min=1,max=255)
 		protected String			description;
 		
-		@Positive
+		@Valid
 		protected Money			retailPrice;
 		
 		@URL

@@ -45,10 +45,10 @@ public class PatronageReport extends AbstractEntity {
 	protected String 			memorandum;
 	
 	@URL
-	protected String			link;
+	protected String			furtherInfo;
 	
 	// Derived attributes -----------------------------------------------------
-	public String sequeceNumber() {
+	public String sequenceNumber() {
 		return this.patronage.getCode() + ":" + this.sNumber;
 	}
 	
