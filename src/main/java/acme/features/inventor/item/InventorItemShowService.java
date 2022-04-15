@@ -35,7 +35,7 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		int id;
 		
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneComponentById(id);
+		result = this.repository.findOneItemById(id);
 		
 		return result;
 	}

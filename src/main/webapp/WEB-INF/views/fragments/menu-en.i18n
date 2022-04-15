@@ -47,7 +47,7 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.inventor ##########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.item = List all components and tools
+master.menu.inventor.item = List all my components and tools
 
 # master.menu.user-account ####################################################
 

@@ -18,7 +18,7 @@
 
 
 <acme:list>
+	<acme:list-column code = "inventor.item.list.label.itemType" path ="itemType" />
 	<acme:list-column code = "inventor.item.list.label.name" path ="name" />
 	<acme:list-column code = "inventor.item.list.label.code" path ="code" />
-	<acme:list-column code = "inventor.item.list.label.itemType" path ="itemType" />
 </acme:list>
