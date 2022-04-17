@@ -1,3 +1,4 @@
+package acme.features.inventor.patronage;
 ///*
 // * AuthenticatedAnnouncementListAllService.java
 // *

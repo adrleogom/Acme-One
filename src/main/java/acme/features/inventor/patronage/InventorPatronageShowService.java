@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.framework.features.inventor.patronage;
+package acme.features.inventor.patronage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

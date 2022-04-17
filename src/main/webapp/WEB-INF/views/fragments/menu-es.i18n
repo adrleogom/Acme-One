@@ -37,7 +37,7 @@ master.menu.administrator.shut-down = Parar el sistema
 # master.menu.inventor ########################################################
 
 master.menu.inventor = Inventor
-master.menu.inventor.patronages = Listar patronages
+master.menu.inventor.patronages = Listar mis patronages
 
 # master.menu.provider ########################################################
 
