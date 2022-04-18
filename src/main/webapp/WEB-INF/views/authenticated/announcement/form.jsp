@@ -20,4 +20,6 @@
 	<acme:input-textbox code="authenticated.announcement.form.label.flag" path="flag"/>
 	<acme:input-textarea code="authenticated.announcement.form.label.body" path="body"/>
 	<acme:input-url code="authenticated.announcement.form.label.furtherInfo" path="furtherInfo"/>
+	<acme:input-moment code="authenticated.announcement.form.label.moment" path="moment"/>
+	
 </acme:form>

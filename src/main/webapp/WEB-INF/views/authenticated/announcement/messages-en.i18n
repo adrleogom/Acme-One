@@ -12,6 +12,7 @@ authenticated.announcement.form.label.title = Title:
 authenticated.announcement.form.label.flag = Status:
 authenticated.announcement.form.label.body = Text:
 authenticated.announcement.form.label.furtherInfo = Info:
+authenticated.announcement.form.label.moment = Moment:
 
 authenticated.announcement.list.label.moment = Moment
 authenticated.announcement.list.label.flag = Status

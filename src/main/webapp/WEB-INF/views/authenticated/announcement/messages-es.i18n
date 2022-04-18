@@ -12,6 +12,8 @@ authenticated.announcement.form.label.title = Título:
 authenticated.announcement.form.label.flag = Estado:
 authenticated.announcement.form.label.body = Texto:
 authenticated.announcement.form.label.furtherInfo = Información:
+authenticated.announcement.form.label.moment = Momento:
+
 
 authenticated.announcement.list.label.moment = Momento
 authenticated.announcement.list.label.flag = Estado
