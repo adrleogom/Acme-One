@@ -12,7 +12,6 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -32,7 +31,6 @@ public class PatronageReport extends AbstractEntity {
 	
 	// Attributes -------------------------------------------------------------
 
-	@Pattern(regexp = "^<[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4,6}>$")
 	@Digits(integer=4, fraction=0)
 	@Column(unique = true)
 	protected Integer			sNumber;
