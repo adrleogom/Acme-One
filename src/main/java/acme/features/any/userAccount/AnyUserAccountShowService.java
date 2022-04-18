@@ -1,7 +1,5 @@
 package acme.features.any.userAccount;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +7,11 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.entities.UserAccount;
 import acme.framework.roles.Any;
-import acme.framework.services.AbstractListService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnyUserAccountListService implements AbstractListService<Any, UserAccount>{
-	
+public class AnyUserAccountShowService implements AbstractShowService<Any, UserAccount>{
+
 	@Autowired 
 	protected AnyUserAccountRepository repository; 
 		
@@ -23,18 +21,20 @@ public class AnyUserAccountListService implements AbstractListService<Any, UserA
 		return true;
 	}
 
-
 	@Override
-	public Collection<UserAccount> findMany(final Request<UserAccount> request) {
+	public UserAccount findOne(final Request<UserAccount> request) {
 		assert request != null;
-		final Collection<UserAccount> result;
-		result = this.repository.findRequestedUserAccounts();
-        for (final UserAccount userAccount : result) {
-            userAccount.getRoles().forEach(r -> { ; });
-        }
+
+		UserAccount result;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		result = this.repository.findUserAccountById(id);
+		result.getRoles().forEach(r -> {
+		});
+
 		return result;
 	}
-
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
@@ -44,6 +44,6 @@ public class AnyUserAccountListService implements AbstractListService<Any, UserA
 		
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
-		
 	}
+
 }
