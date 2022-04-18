@@ -25,6 +25,10 @@ master.menu.anonymous.beatriz = 54183337Y: Llamas Sainz-Pardo, Beatriz
 master.menu.anonymous.paula= 77940094V: Ferreira Jiménez, Paula
 master.menu.anonymous.adriana = 79158986R: León Gómez, Adriana
 
+# master.menu.any #######################################################
+master.menu.any = Cualquier usuario
+master.menu.any.items = Lista de items publicados
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
