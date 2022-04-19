@@ -19,6 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.carmen" action="https://github.com/carmengl00"/>
 			<acme:menu-suboption code="master.menu.anonymous.alvaro" action="https://twitter.com/makeamate_es"/>
 			<acme:menu-suboption code="master.menu.anonymous.abraham" action="https://www.wuolah.com/"/>
@@ -28,6 +29,7 @@
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
@@ -37,10 +39,12 @@
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 	</acme:menu-left>
