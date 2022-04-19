@@ -19,7 +19,7 @@ public class PatronDashboard implements Serializable {
 
 	protected static final long					serialVersionUID	= 1L;
 
-	protected Map<Status, Integer>					totalNumberOfPatronages;
+	protected Map<Status, Integer>				totalNumberOfPatronages;
 
 	protected Map<Pair<Status, String>, Stat>	budgetOfPatronages;
 }
