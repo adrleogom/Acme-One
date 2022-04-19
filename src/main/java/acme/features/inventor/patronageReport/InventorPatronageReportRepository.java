@@ -30,7 +30,22 @@ public interface InventorPatronageReportRepository extends AbstractRepository {
 //	@Query("select a from Announcement a where a.moment > :deadline")
 //	Collection<Announcement> findRecentAnnouncements(Date deadline);
 	
-	@Query("select a from PatronageReport a where a.id = :id")
-	PatronageReport findOnePatronageReportById(int id);
+	@Query("select a from PatronageReport a where a.id = :masterId")
+	PatronageReport findOnePatronageReportById (int masterId);
+	
+	@Query("select a from PatronageReport a where a.patronage.id = :masterId")
+	Collection<PatronageReport> findManyPatronageReportsByMasterId(int masterId);
+	
+//	@Query("select p from Patronage p where p.id = :masterId")
+//	Patronage findOnePatronageById(int masterId);
+//
+//	@Query("select d.job from Duty d where d.id = :masterId")
+//	Job findOneJobByDutyId(int masterId);
+//
+//	@Query("select d from Duty d where d.id = :id")
+//	Duty findOneDutyById(int id);
+//
+//	@Query("select d from Duty d where d.job.id = :masterId")
+//	Collection<Duty> findManyDutiesByMasterId(int masterId);
 
 }
