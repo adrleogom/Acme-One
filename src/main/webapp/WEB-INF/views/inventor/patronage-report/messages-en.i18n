@@ -10,7 +10,6 @@
 
 inventor.patronage-report.list.label.sNumber = Number
 inventor.patronage-report.list.label.creationMoment = Creation moment
-inventor.patronage-report.list.label.patronage.code	= Patronage's code
 
 inventor.patronage-report.form.label.creationMoment = Creation moment
 inventor.patronage-report.form.label.memorandum = Memorandum

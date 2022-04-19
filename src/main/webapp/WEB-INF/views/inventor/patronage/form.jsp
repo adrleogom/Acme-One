@@ -26,4 +26,4 @@
 	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo"/>		
 </acme:form>
 
-<%-- <acme:button code="inventor.patronage.form.button.patron" action="/inventor/patronage/patron"/> --%>
+<acme:button code="inventor.patronage.form.button.patronage-report" action="/inventor/patronage-report/list"/>
