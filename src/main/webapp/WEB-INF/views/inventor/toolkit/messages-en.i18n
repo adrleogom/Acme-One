@@ -18,5 +18,6 @@ inventor.toolkit.form.label.description=Description
 inventor.toolkit.form.label.assemblyNotes=Assemby Notes
 inventor.toolkit.form.label.furtherInfo=Further Info
 inventor.toolkit.form.label.retailPrice= Retail Price
+inventor.toolkit.form.label.currency=Currency
 
 inventor.toolkit.form.button.items=Components and Tools

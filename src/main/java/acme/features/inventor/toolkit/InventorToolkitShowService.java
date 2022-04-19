@@ -9,7 +9,6 @@ import acme.entities.item.Item;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -37,9 +36,11 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneToolkitById(id);
 		
+		
 		return result;
 	}
 
+	
 	
 	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
@@ -49,24 +50,27 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		
 		Collection<Item> items;
 		int id;
-		double amount = 0;
+		final double amount = 0;
 		String currency = "";
 		
 		id = request.getModel().getInteger("id");
 		items = this.repository.findManyItemsByToolkitId(id);
 	
 		
-		final Money retailPrice;
 		for(final Item i : items) {
 		
-			amount= amount + i.getRetailPrice().getAmount();
+
 			
-			currency = i.getRetailPrice().getCurrency();
+			currency=i.getRetailPrice().getCurrency();
+			
+			
 			
 		}
+		final Double retailPrice = amount;
 		
-		
-		request.unbind(entity, model, "code", "title", "descripction", "assemblyNotes", "furtherInfo");
+		model.setAttribute("retailPrice", retailPrice);
+		model.setAttribute("currency", currency);
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
 		
 	}
 	
