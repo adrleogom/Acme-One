@@ -18,6 +18,11 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+	
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.carmen" action="https://github.com/carmengl00"/>
 			<acme:menu-suboption code="master.menu.anonymous.alvaro" action="https://twitter.com/makeamate_es"/>

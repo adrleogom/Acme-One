@@ -13,7 +13,7 @@ import acme.framework.repositories.AbstractRepository;
 public interface AnyChirpRepository extends AbstractRepository{
 
 
-	@Query("select c from Chirp c where c.moment >= ?1")
+	@Query("select c from Chirp c where c.moment > :limitDate")
 	Collection<Chirp> findRecentChirps(Date limitDate);
 	
 	
