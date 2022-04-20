@@ -47,9 +47,9 @@ public class Item extends AbstractEntity{
 		protected String			description;
 		
 		@Valid
-		protected Money			retailPrice;
+		protected Money				retailPrice;
 		
-		protected boolean		published;
+		protected boolean			published;
 		
 		@URL
 		protected String			furtherInfo;
@@ -61,6 +61,6 @@ public class Item extends AbstractEntity{
 		@NotNull
 		@Valid
 		@ManyToOne(optional=false)
-		protected Inventor inventor;
+		protected Inventor 			inventor;
 		
 }
