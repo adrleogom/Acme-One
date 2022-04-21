@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>832</x>
-      <y>616</y>
+      <y>688</y>
       <w>248</w>
       <h>80</h>
     </coordinates>
@@ -22,7 +22,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1168</x>
-      <y>0</y>
+      <y>72</y>
       <w>224</w>
       <h>104</h>
     </coordinates>
@@ -41,7 +41,7 @@ bg=yellow
     <id>UMLClass</id>
     <coordinates>
       <x>656</x>
-      <y>168</y>
+      <y>240</y>
       <w>248</w>
       <h>120</h>
     </coordinates>
@@ -61,7 +61,7 @@ Announcement
     <id>UMLClass</id>
     <coordinates>
       <x>1360</x>
-      <y>352</y>
+      <y>424</y>
       <w>312</w>
       <h>112</h>
     </coordinates>
@@ -81,7 +81,7 @@ bg=red
     <id>Relation</id>
     <coordinates>
       <x>1504</x>
-      <y>456</y>
+      <y>528</y>
       <w>56</w>
       <h>112</h>
     </coordinates>
@@ -96,7 +96,7 @@ has ^
     <id>UMLClass</id>
     <coordinates>
       <x>832</x>
-      <y>360</y>
+      <y>432</y>
       <w>248</w>
       <h>80</h>
     </coordinates>
@@ -113,7 +113,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>488</x>
-      <y>480</y>
+      <y>552</y>
       <w>304</w>
       <h>144</h>
     </coordinates>
@@ -135,7 +135,7 @@ patronage
     <id>UMLClass</id>
     <coordinates>
       <x>1416</x>
-      <y>0</y>
+      <y>72</y>
       <w>104</w>
       <h>80</h>
     </coordinates>
@@ -152,7 +152,7 @@ Status
     <id>Relation</id>
     <coordinates>
       <x>624</x>
-      <y>616</y>
+      <y>688</y>
       <w>224</w>
       <h>64</h>
     </coordinates>
@@ -166,7 +166,7 @@ recievesBy &gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>496</y>
+      <y>568</y>
       <w>352</w>
       <h>112</h>
     </coordinates>
@@ -186,7 +186,7 @@ Digits(integer = 4, fraction = 0)}
     <id>UMLClass</id>
     <coordinates>
       <x>768</x>
-      <y>0</y>
+      <y>72</y>
       <w>376</w>
       <h>72</h>
     </coordinates>
@@ -202,7 +202,7 @@ PatronDashboard
     <id>UMLClass</id>
     <coordinates>
       <x>320</x>
-      <y>0</y>
+      <y>72</y>
       <w>416</w>
       <h>120</h>
     </coordinates>
@@ -223,7 +223,7 @@ AdministratorDashboard
     <id>UMLClass</id>
     <coordinates>
       <x>1344</x>
-      <y>704</y>
+      <y>776</y>
       <w>336</w>
       <h>144</h>
     </coordinates>
@@ -245,7 +245,7 @@ bg=red
     <id>UMLClass</id>
     <coordinates>
       <x>1720</x>
-      <y>704</y>
+      <y>776</y>
       <w>104</w>
       <h>80</h>
     </coordinates>
@@ -261,7 +261,7 @@ TOOL</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1448</x>
-      <y>552</y>
+      <y>624</y>
       <w>120</w>
       <h>48</h>
     </coordinates>
@@ -275,7 +275,7 @@ bg=red
     <id>UMLNote</id>
     <coordinates>
       <x>1752</x>
-      <y>512</y>
+      <y>584</y>
       <w>168</w>
       <h>56</h>
     </coordinates>
@@ -289,7 +289,7 @@ bg=red
     <id>Relation</id>
     <coordinates>
       <x>1504</x>
-      <y>592</y>
+      <y>664</y>
       <w>56</w>
       <h>128</h>
     </coordinates>
@@ -303,7 +303,7 @@ has v</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1560</x>
-      <y>552</y>
+      <y>624</y>
       <w>208</w>
       <h>24</h>
     </coordinates>
@@ -314,7 +314,7 @@ has v</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1168</x>
-      <y>480</y>
+      <y>552</y>
       <w>96</w>
       <h>40</h>
     </coordinates>
@@ -327,7 +327,7 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1072</x>
-      <y>400</y>
+      <y>472</y>
       <w>112</w>
       <h>120</h>
     </coordinates>
@@ -338,7 +338,7 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1072</x>
-      <y>496</y>
+      <y>568</y>
       <w>112</w>
       <h>176</h>
     </coordinates>
@@ -349,7 +349,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>320</x>
-      <y>136</y>
+      <y>208</y>
       <w>112</w>
       <h>96</h>
     </coordinates>
@@ -367,7 +367,7 @@ Stat
     <id>UMLClass</id>
     <coordinates>
       <x>1352</x>
-      <y>184</y>
+      <y>256</y>
       <w>368</w>
       <h>144</h>
     </coordinates>
@@ -389,7 +389,7 @@ Digits(integer = 3, fraction = 2)} </panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>624</x>
-      <y>392</y>
+      <y>464</y>
       <w>224</w>
       <h>104</h>
     </coordinates>
@@ -403,7 +403,7 @@ providesBy &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>344</x>
-      <y>536</y>
+      <y>608</y>
       <w>160</w>
       <h>40</h>
     </coordinates>
@@ -417,7 +417,7 @@ about &gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>944</x>
-      <y>688</y>
+      <y>760</y>
       <w>416</w>
       <h>112</h>
     </coordinates>
@@ -431,7 +431,7 @@ createdBy</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1168</x>
-      <y>216</y>
+      <y>288</y>
       <w>88</w>
       <h>40</h>
     </coordinates>
@@ -444,7 +444,7 @@ bg=gray</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>896</x>
-      <y>216</y>
+      <y>288</y>
       <w>288</w>
       <h>40</h>
     </coordinates>
@@ -458,7 +458,7 @@ createdBy &gt;</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>1792</x>
-      <y>184</y>
+      <y>256</y>
       <w>304</w>
       <h>120</h>
     </coordinates>
@@ -477,7 +477,7 @@ weakSpamThreshold = 25.00
     <id>Relation</id>
     <coordinates>
       <x>1712</x>
-      <y>248</y>
+      <y>320</y>
       <w>96</w>
       <h>24</h>
     </coordinates>
@@ -488,7 +488,7 @@ weakSpamThreshold = 25.00
     <id>UMLNote</id>
     <coordinates>
       <x>1560</x>
-      <y>32</y>
+      <y>104</y>
       <w>128</w>
       <h>88</h>
     </coordinates>
@@ -502,7 +502,7 @@ of accepted currencies.
     <id>Relation</id>
     <coordinates>
       <x>1616</x>
-      <y>112</y>
+      <y>184</y>
       <w>24</w>
       <h>88</h>
     </coordinates>
@@ -513,7 +513,7 @@ of accepted currencies.
     <id>UMLNote</id>
     <coordinates>
       <x>1752</x>
-      <y>384</y>
+      <y>456</y>
       <w>192</w>
       <h>72</h>
     </coordinates>
@@ -527,7 +527,7 @@ tool.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1664</x>
-      <y>384</y>
+      <y>456</y>
       <w>104</w>
       <h>24</h>
     </coordinates>
@@ -538,7 +538,7 @@ tool.</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>456</x>
-      <y>688</y>
+      <y>760</y>
       <w>136</w>
       <h>80</h>
     </coordinates>
@@ -553,7 +553,7 @@ is created.
     <id>Relation</id>
     <coordinates>
       <x>512</x>
-      <y>616</y>
+      <y>688</y>
       <w>24</w>
       <h>88</h>
     </coordinates>
@@ -564,7 +564,7 @@ is created.
     <id>Relation</id>
     <coordinates>
       <x>1208</x>
-      <y>248</y>
+      <y>320</y>
       <w>24</w>
       <h>248</h>
     </coordinates>
