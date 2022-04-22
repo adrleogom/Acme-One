@@ -31,17 +31,18 @@ public class PatronageReport extends AbstractEntity {
 	
 	// Attributes -------------------------------------------------------------
 
-
 	@Digits(integer=4, fraction=0)
 	@Column(unique = true)
 	protected Integer			sNumber;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
+	@NotNull
 	protected Date				creationMoment;
 	
 	@NotBlank
 	@Length(min = 0, max = 255)
+	@NotNull
 	protected String 			memorandum;
 	
 	@URL
