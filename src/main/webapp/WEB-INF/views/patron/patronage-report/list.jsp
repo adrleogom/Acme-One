@@ -7,8 +7,6 @@
 	<acme:list-column code="patron.patronage-report.list.label.sNumber"
 		path="sNumber" />
 	<acme:list-column
-		code="patron.patronage-report.list.label.creationMoment"
-		path="creationMoment" />
-	<acme:list-column code="patron.patronage-report.list.label.furtherInfo"
-		path="furtherInfo" />
+		code="patron.patronage-report.list.label.creationMoment" path="creationMoment" />
+	<acme:list-column code="patron.patronage-report.list.label.furtherInfo" path="furtherInfo" />
 </acme:list>

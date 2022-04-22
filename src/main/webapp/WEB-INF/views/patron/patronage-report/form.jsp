@@ -5,13 +5,10 @@
 
 <acme:form readonly="${readonly}">
 	<acme:input-textbox
-		code="patron.patronage-report.form.label.sNumber"
-		path="sNumber" />
+		code="patron.patronage-report.form.label.sNumber" path="sNumber" />
 	<acme:input-moment
-		code="patron.patronage-report.form.label.creationMoment"
-		path="creationMoment" />
+		code="patron.patronage-report.form.label.creationMoment" path="creationMoment" />
 	<acme:input-textbox
 		code="patron.patronage-report.form.label.memorandum" path="memorandum" />
-	<acme:input-textbox code="patron.patronage-report.form.label.furtherInfo"
-		path="furtherInfo" />
+	<acme:input-textbox code="patron.patronage-report.form.label.furtherInfo" path="furtherInfo" />
 </acme:form>

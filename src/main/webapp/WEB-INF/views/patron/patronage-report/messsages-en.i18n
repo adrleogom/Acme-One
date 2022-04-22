@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 patron.patronage-report.form.label.sNumber = Sequence number
-patron.patronag-report.form.label.creationMoment = Creation moment
+patron.patronage-report.form.label.creationMoment = Creation moment
 patron.patronage-report.form.label.memorandum = Memorandum
 patron.patronage-report.form.label.furtherInfo = Further Information
 
