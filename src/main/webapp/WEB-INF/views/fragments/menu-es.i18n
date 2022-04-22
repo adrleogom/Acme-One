@@ -21,11 +21,11 @@ master.menu.any = Cualquier usuario
 master.menu.any.recent-chirps = Listar chirridos recientes
 master.menu.any.toolkits = Lista de toolkits publicados
 master.menu.any.items = Lista de items publicados
+master.menu.any.all-users = Lista de usuarios
 
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.all-users = Lista de usuarios
 master.menu.anonymous.carmen = 77844030R: Galván López, Carmen
 master.menu.anonymous.alvaro = 29509546V: Escalante Castro, Álvaro
 master.menu.anonymous.abraham = 49304181R: Cobelo Galindo, Abraham

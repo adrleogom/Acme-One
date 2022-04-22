@@ -22,11 +22,11 @@ master.menu.any = Any
 master.menu.any.recent-chirps = List recent chirps
 master.menu.any.toolkits = List published toolkits
 master.menu.any.items = List published items
+master.menu.any.all-users = Users list
 
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.all-users = Users list
 master.menu.anonymous.carmen = 77844030R: Galvan Lopez, Carmen
 master.menu.anonymous.alvaro = 29509546V: Escalante Castro, Alvaro
 master.menu.anonymous.abraham = 49304181R: Cobelo Galindo, Abraham

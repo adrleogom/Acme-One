@@ -24,8 +24,8 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>	
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
-      <acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
-			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
+      		<acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
+			<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.carmen" action="https://github.com/carmengl00"/>
 			<acme:menu-suboption code="master.menu.anonymous.alvaro" action="https://twitter.com/makeamate_es"/>
 			<acme:menu-suboption code="master.menu.anonymous.abraham" action="https://www.wuolah.com/"/>
@@ -65,7 +65,7 @@
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
-			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
+			<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
@@ -74,13 +74,16 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
-			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
+			<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
     
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>	
+			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
+      		<acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.systemConfiguration" action="/authenticated/system-configuration/show"/>
-      <acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
+     	 	<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-announcement" action="/authenticated/announcement/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
