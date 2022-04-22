@@ -24,7 +24,7 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>	
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
-      <acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
+      		<acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.carmen" action="https://github.com/carmengl00"/>
 			<acme:menu-suboption code="master.menu.anonymous.alvaro" action="https://twitter.com/makeamate_es"/>
@@ -52,9 +52,9 @@
 
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.patronages" action="/inventor/patronage/list"/>
-     	<acme:menu-suboption code = "master.menu.inventor.item" action = "/inventor/item/list"/>
-      <acme:menu-suboption code = "master.menu.inventor.toolkit" action = "/inventor/toolkit/list"/>
-    </acme:menu-option>
+<%--      		<acme:menu-suboption code = "master.menu.inventor.item" action = "/inventor/item/list"/> --%>
+     	 	<acme:menu-suboption code = "master.menu.inventor.toolkit" action = "/inventor/toolkit/list"/>
+    	</acme:menu-option>
       	
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.patronage" action="/patron/patronage/list"/>
@@ -82,9 +82,9 @@
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>	
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
-      <acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
+      		<acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.systemConfiguration" action="/authenticated/system-configuration/show"/>
-     	<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
+     		<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-announcement" action="/authenticated/announcement/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
