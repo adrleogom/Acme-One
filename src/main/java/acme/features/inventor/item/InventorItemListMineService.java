@@ -15,30 +15,8 @@ import acme.roles.Inventor;
 @Service
 public class InventorItemListMineService implements AbstractListService<Inventor, Item>{
 
-	//Internal State ---------------------------------------------------------------------------
-	
 	@Autowired
 	protected InventorItemRepository repository;
-	
-	@Override
-	public boolean authorise(final Request<Item> request) {
-		assert request != null;
-		
-		return true;
-	}
-	
-	@Override
-	public Collection<Item> findMany(final Request<Item> request){
-		assert request != null;
-		
-		Collection<Item> result;
-		Principal principal;
-		
-		principal =request.getPrincipal();
-		result = this.repository.findItemsByInventorId(principal.getAccountId());
-		
-		return result;
-	}
 	
 	@Override
 	public void unbind (final Request<Item> request, final Item entity, final Model model) {
@@ -48,6 +26,26 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 		
 		request.unbind(entity, model, "name", "code", "itemType");
 	}
-	
+
+	@Override
+	public boolean authorise(final Request<Item> request) {
+		assert request !=null; 
+		return true;
+	}
+
+	@Override
+	public Collection<Item> findMany(final Request<Item> request) {
+		assert request !=null;
+		
+		final Collection<Item> result;
+		Principal principal;
+		
+		principal = request.getPrincipal();
+		
+		result = this.repository.findItemsByInventorId(principal.getAccountId());
+		
+		return result;
+		
+	}
 	
 }
