@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
@@ -48,10 +47,6 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		final Money retailPrice = this.repository.findRetailPrice(entity.getId());
-		model.setAttribute("retailPrice", retailPrice);
-		System.out.println("RETAIL PRICE:     " + retailPrice);
 
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
 	}
