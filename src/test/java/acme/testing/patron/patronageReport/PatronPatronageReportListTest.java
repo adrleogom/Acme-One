@@ -14,7 +14,7 @@ public class PatronPatronageReportListTest extends TestHarness {
 	public void positiveTestAuthenticated(final int recordIndex, final String sNumber, final String creationMoment, final String memorandum, final String furtherInfo) {
 		super.signIn("patron1", "patron1");
 
-		super.clickOnMenu("Patronage reports", "Reports");
+		super.clickOnMenu("Patron", "Reports");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
