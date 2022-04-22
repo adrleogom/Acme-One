@@ -22,6 +22,7 @@
 	
 		<%--ANONIMO--%>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>	
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
       <acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
@@ -36,6 +37,7 @@
 		
 		<%--ADMINISTRADOR--%>
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
@@ -61,6 +63,7 @@
 
 		<%--PROVEEDOR--%>
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
@@ -69,6 +72,7 @@
 
 		<%--CONSUMIDOR--%>
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
+			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
