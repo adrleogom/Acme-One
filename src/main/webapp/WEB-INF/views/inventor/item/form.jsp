@@ -19,7 +19,7 @@
 	<acme:input-textbox code="inventor.item.form.label.itemType" path="itemType"/>
 	<acme:input-textbox code="inventor.item.form.label.name" path="name"/>
 	<acme:input-textbox code="inventor.item.form.label.code" path ="code"/>
-	<acme:input-textbox code="inventor.item.form.label.tecnology" path ="technology"/>
+	<acme:input-textbox code="inventor.item.form.label.technology" path ="technology"/>
 	<acme:input-textarea code="inventor.item.form.label.description" path ="description"/>
 	<acme:input-money code="inventor.item.form.label.retailPrice" path ="retailPrice"/>
 	<acme:input-url code="inventor.item.form.label.furtherInfo" path ="furtherInfo"/>
