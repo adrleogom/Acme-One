@@ -48,7 +48,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
+      <acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-announcement" action="/authenticated/announcement/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
