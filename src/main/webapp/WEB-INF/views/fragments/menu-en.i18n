@@ -24,12 +24,17 @@ master.menu.any.recent-chirps = List recent chirps
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
+master.menu.anonymous.all-users = Users list
 master.menu.anonymous.carmen = 77844030R: Galvan Lopez, Carmen
 master.menu.anonymous.alvaro = 29509546V: Escalante Castro, Alvaro
 master.menu.anonymous.abraham = 49304181R: Cobelo Galindo, Abraham
 master.menu.anonymous.beatriz = 54183337Y: Llamas Sainz-Pardo, Beatriz
 master.menu.anonymous.paula= 77940094V: Ferreira Jimenez, Paula
 master.menu.anonymous.adriana = 79158986R: Leon Gomez, Adriana
+
+# master.menu.any #######################################################
+master.menu.any = Any
+master.menu.any.items = List published items
 
 # master.menu.administrator ###################################################
 
@@ -40,6 +45,18 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
+# master.menu.inventor ########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.patronages = List my patronages
+master.menu.inventor.patronage-report = List patronage reports
+master.menu.inventor.item = List all my components and tools
+# master.menu.patron ########################################################
+
+master.menu.patron = Patron
+master.menu.patron.patronage = List my patronages
+master.menu.patron.reports = Reports
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -49,6 +66,13 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+
+# master.menu.authenticated ##########################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.systemConfiguration = System currencies
+master.menu.authenticated.list-announcement = Announcements
 
 # master.menu.user-account ####################################################
 master.menu.user-account.recent-chirps = List recent chirps
