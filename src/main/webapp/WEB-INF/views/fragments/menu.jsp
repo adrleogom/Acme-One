@@ -22,6 +22,7 @@
 	
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
+      <acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.carmen" action="https://github.com/carmengl00"/>
 			<acme:menu-suboption code="master.menu.anonymous.alvaro" action="https://twitter.com/makeamate_es"/>
