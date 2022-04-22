@@ -49,6 +49,12 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+
+# master.menu.inventor ##########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.item = List all my components and tools
+
 # master.menu.authenticated ##########################################################
 
 master.menu.authenticated = Authenticated

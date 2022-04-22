@@ -63,4 +63,8 @@ public class Item extends AbstractEntity{
 		@ManyToOne(optional=false)
 		protected Inventor 			inventor;
 		
+		@NotNull
+		@Valid
+		@ManyToOne(optional=false)
+		protected Inventor inventor;
 }

@@ -35,6 +35,4 @@ public class Inventor extends UserRole{
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	
 }
