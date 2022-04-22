@@ -18,12 +18,17 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.all-users = Lista de usuarios
 master.menu.anonymous.carmen = 77844030R: Galván López, Carmen
 master.menu.anonymous.alvaro = 29509546V: Escalante Castro, Álvaro
 master.menu.anonymous.abraham = 49304181R: Cobelo Galindo, Abraham
 master.menu.anonymous.beatriz = 54183337Y: Llamas Sainz-Pardo, Beatriz
 master.menu.anonymous.paula= 77940094V: Ferreira Jiménez, Paula
 master.menu.anonymous.adriana = 79158986R: León Gómez, Adriana
+
+# master.menu.any #######################################################
+master.menu.any = Cualquier usuario
+master.menu.any.items = Lista de items publicados
 
 # master.menu.administrator ###################################################
 
@@ -44,10 +49,17 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
 # master.menu.inventor ##########################################################
 
 master.menu.inventor = Inventor
 master.menu.inventor.item = Ver todos mis componentes y herramientas
+
+# master.menu.authenticated ##########################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.list-announcement = Anuncios
+
 
 # master.menu.user-account ####################################################
 
