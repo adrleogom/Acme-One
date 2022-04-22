@@ -20,6 +20,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 	
+		<%--ANONIMO--%>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
       <acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
@@ -32,7 +33,11 @@
 			<acme:menu-suboption code="master.menu.anonymous.adriana" action="https://makeamatelpmaster.gatsbyjs.io"/>
 		</acme:menu-option>
 
+		
+		<%--ADMINISTRADOR--%>
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
+			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -53,12 +58,16 @@
 			<acme:menu-suboption code="master.menu.patron.reports" action="/patron/patronage-report/list" />
 		</acme:menu-option>
 
+
+		<%--PROVEEDOR--%>
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
+
+		<%--CONSUMIDOR--%>
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.anonymous.all-users" action="/any/user-account/list"/>
@@ -71,6 +80,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.list-announcement" action="/authenticated/announcement/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
+	
+	
 
 	<acme:menu-right>
 		<acme:menu-option code="master.menu.sign-up"
