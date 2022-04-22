@@ -18,6 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.all-users = Lista de usuarios
 master.menu.anonymous.carmen = 77844030R: Galván López, Carmen
 master.menu.anonymous.alvaro = 29509546V: Escalante Castro, Álvaro
 master.menu.anonymous.abraham = 49304181R: Cobelo Galindo, Abraham
@@ -43,6 +44,10 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.authenticated ##########################################################
+
+master.menu.authenticated = Autenticado
 
 # master.menu.user-account ####################################################
 
