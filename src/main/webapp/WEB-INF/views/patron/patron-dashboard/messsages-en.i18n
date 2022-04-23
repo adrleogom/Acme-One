@@ -10,3 +10,11 @@
 
 patron.patron-dashboard.form.label.totalNumberOfPatronages = Total number of patronages by status
 patron.patron-dashboard.form.label.budgetOfPatronages = Budget of patronages by status and stat
+patron.patron-dashboard.form.label.noPatronages = There are no patronages
+patron.patron-dashboard.form.label.status = Status of patronage
+patron.patron-dashboard.form.label.number = Number of patronages
+patron.patron-dashboard.form.label.average = Average
+patron.patron-dashboard.form.label.currency = Currency
+patron.patron-dashboard.form.label.deviation = Deviation
+patron.patron-dashboard.form.label.minimum = Minimum
+patron.patron-dashboard.form.label.maximum = Maximum

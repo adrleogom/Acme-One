@@ -22,8 +22,8 @@
 	<description>This is a Hello-World project for the students of Design &amp; Testing.</description>
 
 	<groupId>Acme</groupId>	
-	<artifactId>Hello-World-22.1</artifactId>
-	<version>22.1</version>
+	<artifactId>Acme-Toolkits-22.3</artifactId>
+	<version>22.3</version>
 	<packaging>war</packaging>
 
 	<parent>

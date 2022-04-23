@@ -4,30 +4,57 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<acme:message code="patron.patron-dashboard.form.label.avg-title" />
+<h2> <acme:message code="patron.patron-dashboard.form.label.totalNumberOfPatronages" /> </h2>
+
 <table class="table table-sm">
-	<jstl:forEach items="${totalNumberOfPatronages}" var="entry">
+	<jstl:if test="${empty totalNumberOfPatronages}">
+		<acme:message code="patron.patron-dashboard.form.label.noPatronages" />
+		<br>
+		<br>
+	</jstl:if>
+	<tr> 
+		<th><acme:message code="patron.patron-dashboard.form.label.status" /> </th>
+		<th><acme:message code="patron.patron-dashboard.form.label.number" /> </th>
+	</tr>
+	<jstl:forEach items="${totalNumberOfPatronages}"
+		var="totalNumberOfPatronages">
 		<tr>
-			<th><acme:print value="${entry.value}" /></th>
-			<td><acme:print value="${entry.value}" /></td>
+			<td> <acme:print value="${totalNumberOfPatronages.key}" /></td>
+			<td> <acme:print value="${totalNumberOfPatronages.value}" /></td>
 		</tr>
 	</jstl:forEach>
 </table>
 
-<acme:message
-	code="patron.patron-dashboard.form.label.budgetOfPatronages" />
+<h2> <acme:message code="patron.patron-dashboard.form.label.budgetOfPatronages" /> </h2>
+
 <table class="table table-sm">
-	<jstl:forEach items="${budgetOfPatronages}" var="entry">
+
+
+	<jstl:if test="${empty budgetOfPatronages}">
+		<acme:message code="patron.patron-dashboard.form.label.nohayPatrocinios" />
+		<br>
+		<br>
+	</jstl:if>
+	<tr>
+		<th><acme:message code="patron.patron-dashboard.form.label.status" /></th>
+		<th><acme:message code="patron.patron-dashboard.form.label.currency" /></th>
+		<th><acme:message code="patron.patron-dashboard.form.label.average" /></th>
+		<th><acme:message code="patron.patron-dashboard.form.label.deviation" /></th>
+		<th><acme:message code="patron.patron-dashboard.form.label.minimum" /></th>
+		<th><acme:message code="patron.patron-dashboard.form.label.maximum" /></th>
+	</tr>
+	<jstl:forEach items="${budgetOfPatronages}" var="budgetOfPatronages">
 		<tr>
-			<th><acme:message
-					code="patron.patron-dashboard.form.label.deviation-sentence" /> <jstl:set
-					var="string1" value="${entry.key}" /> <jstl:set var="string2"
-					value="${fn:split(string1, '->')}" /> <acme:print
-					value="${string2[0]}" /> <acme:message
-					code="patron.patron-dashboard.form.label.status" /> <acme:print
-					value="${string2[1]}" /> <acme:message
-					code="patron.patron-dashboard.form.label.budget" /></th>
-			<td><acme:print value="${entry.value}" /></td>
+			<td><jstl:set var="par" value="${budgetOfPatronages.key}" /> <jstl:set
+					var="split" value="${fn:split(par, '->')}" /> <acme:print
+					value="${split[0]}" /></td>
+			<td> <acme:print value="${split[1]}"/> </td>
+			<td> <acme:print value="${budgetOfPatronages.value.getAverage()}" /></td>
+			<td> <acme:print value="${budgetOfPatronages.value.getDeviation()}" /></td>
+			<td> <acme:print value="${budgetOfPatronages.value.getMinimum()}" /></td>
+			<td> <acme:print value="${budgetOfPatronages.value.getMaximum()}" /></td>
 		</tr>
 	</jstl:forEach>
 </table>
+
+

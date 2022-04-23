@@ -13,10 +13,10 @@ import acme.roles.Patron;
 public class PatronDashboardController extends AbstractController<Patron, PatronDashboard>  {
 
 	@Autowired
-	protected PatronDashboardShowService pdShowService;
+	protected PatronDashboardShowService patronDashboardShowService;
 	
 	@PostConstruct
 	protected void initialise() {
-		super.addCommand("show", this.pdShowService);
+		super.addCommand("show", this.patronDashboardShowService);
 	}
 }

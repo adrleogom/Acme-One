@@ -9,4 +9,12 @@
 # they accept any liabilities with respect to them.
 
 patron.patron-dashboard.form.label.totalNumberOfPatronages = Número total de patrocinios en función del status
-patron.patron-dashboard.form.label.budgetOfPatronages = Presupuesto de los patrocinios en función del status y estadística
+patron.patron-dashboard.form.label.budgetOfPatronages = Presupuesto de los patrocinios en función del status y divisa
+patron.patron-dashboard.form.label.noPatronages = No hay patrocinios
+patron.patron-dashboard.form.label.status = Estado del patrocinio 
+patron.patron-dashboard.form.label.number = Número de patrocinios
+patron.patron-dashboard.form.label.average = Media 
+patron.patron-dashboard.form.label.currency = Divisa 
+patron.patron-dashboard.form.label.deviation = Desviación
+patron.patron-dashboard.form.label.minimum = Mínimo
+patron.patron-dashboard.form.label.maximum = Máximo

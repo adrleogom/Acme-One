@@ -15,7 +15,7 @@ public interface PatronDashboardRepository extends AbstractRepository {
 	int totalNumberOfAcceptedPatronages();
 	@Query("select count(p) from Patronage p where p.status = acme.entities.patronage.Status.DENIED")
 	int totalNumberOfDeniedPatronages();
-	@Query("select p.budget.currency, avg(p), p.status from Patronage p group by p.budget.currency, p.status")
+	@Query("select p.budget.currency, avg(p.budget.amount), p.status from Patronage p group by p.budget.currency, p.status")
 	List<String> averageBudgetByCurrency();
 	@Query("select p.budget.currency, stddev(p), p.status from Patronage p group by p.budget.currency, p.status")
 	List<String> deviationBudgetByCurrency();
