@@ -48,8 +48,6 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 		principal = request.getPrincipal();
 		
 		result = this.repository.findAllPatronagesOfPatron(principal.getAccountId());
-		
-	//	result = this.repository.findAllPatronages();
 
 		return result;
 	}
@@ -64,35 +62,5 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 		
 	}
 
-	
-	// AbstractListService<Administrator, Announcement> interface --------------
-
-
-//	@Override
-//	public boolean authorise(final Request<Announcement> request) {
-//		assert request != null;
-//
-//		return true;
-//	}
-//
-//	@Override
-//	public Collection<Announcement> findMany(final Request<Announcement> request) {
-//		assert request != null;
-//
-//		Collection<Announcement> result;
-//
-//		result = this.repository.findAllAnnouncements();
-//
-//		return result;
-//	}
-//	
-//	@Override
-//	public void unbind(final Request<Announcement> request, final Announcement entity, final Model model) {
-//		assert request != null;
-//		assert entity != null;
-//		assert model != null;
-//
-//		request.unbind(entity, model, "title", "moment", "status");
-//	}
 
 }

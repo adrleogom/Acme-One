@@ -17,9 +17,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.patronage.Patronage;
 import acme.entities.patronage.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.helpers.CollectionHelper;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
@@ -34,87 +36,55 @@ public class InventorPatronageReportListService implements AbstractListService<I
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
-
-		return true;
+		
+		boolean result;
+		int masterId;
+		Patronage patronage;
+		
+		masterId = request.getModel().getInteger("masterId");
+		patronage =this.repository.findOnePatronageById(masterId);
+		result = patronage != null && request.isPrincipal(patronage.getInventor());
+		return result;
 	}
+
 
 	@Override
 	public Collection<PatronageReport> findMany(final Request<PatronageReport> request) {
 		assert request != null;
 
-		Collection<PatronageReport> result;
+		final Collection<PatronageReport> result;
 
-		result = this.repository.findAllPatronageReports();
+		result = this.repository.findAllPatronageReportsByPatronageMasterId(request.getModel().getInteger("masterId"));
 
 		return result;
 	}
+	
+	@Override
+	public void unbind (final Request<PatronageReport> request, final Collection<PatronageReport> entities, final Model model) {
+		assert request != null;
+		assert !CollectionHelper.someNull(entities);
+		assert model != null;
+		
+		int masterId;
+		
+		
+		masterId = request.getModel().getInteger("masterId");
+		
+		
+		model.setAttribute("masterId", masterId);
+		
+		
+	}
 
+	
 	@Override
 	public void unbind(final Request<PatronageReport> request, final PatronageReport entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "sNumber", "creationMoment", "patronage.code");
+		request.unbind(entity, model, "sNumber", "creationMoment");
 	}
-//
-//	@Autowired
-//	protected InventorPatronageReportRepository repository;
-//
-//	@Override
-//	public boolean authorise(final Request<PatronageReport> request) {
-//		assert request != null;
-//		
-//		boolean result;
-//		int masterId;
-//		PatronageReport patronageReport;
-//		
-//		masterId = request.getModel().getInteger("masterId");
-//		patronageReport =this.repository.findOnePatronageReportById(masterId);
-//		result = patronageReport != null && request.isPrincipal(patronageReport.getPatronage().getInventor());
-//		return result;
-//	}
-//
-//	@Override
-//	public Collection<PatronageReport> findMany(final Request<PatronageReport> request) {
-//		assert request != null;
-//
-//		Collection<PatronageReport> result;
-//		
-//		int masterId;
-//
-//		masterId= request.getModel().getInteger("masterId");
-//		result = this.repository.findManyPatronageReportsByMasterId(masterId);
-//
-//		return result;
-//		
-//		
-//	}
-//	
-//	@Override
-//	public void unbind (final Request<PatronageReport> request, final Collection<PatronageReport> entities, final Model model) {
-//		assert request != null;
-//		assert !CollectionHelper.someNull(entities);
-//		assert model != null;
-//
-//		int masterId;
-//
-//
-//		masterId = request.getModel().getInteger("masterId");
-//
-//
-//		model.setAttribute("masterId", masterId);
-//
-//
-//	}
-//
-//	@Override
-//	public void unbind(final Request<PatronageReport> request, final PatronageReport entity, final Model model) {
-//		assert request != null;
-//		assert entity != null;
-//		assert model != null;
-//
-//		request.unbind(entity, model, "sNumber", "creationMoment");
-//	}
+
 
 }

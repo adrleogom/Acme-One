@@ -19,6 +19,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.patronage.Patronage;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 
 @Repository
 public interface InventorPatronageRepository extends AbstractRepository {
@@ -26,14 +27,10 @@ public interface InventorPatronageRepository extends AbstractRepository {
 	@Query("select a from Patronage a where a.id = :id")
 	Patronage findOnePatronageById(int id);
 
-	@Query("select a from Patronage a where a.inventor.userAccount.id = :id")
-	Collection<Patronage> findAllPatronagesOfInventor(int id);
-	
-	@Query("select a from Patronage a")
-	Collection<Patronage> findAllPatronages();
+	@Query("select a from Inventor a where a.userAccount.id = :id")
+	Inventor findInventorByUserId(int id);
 
-//
-//	@Query("select a from Patronage a where a.moment > :deadline")
-//	Collection<Announcement> findRecentAnnouncements(Date deadline);
+	@Query("select a from Patronage a where a.inventor.userAccount.id = :id and a.published=true")
+	Collection<Patronage> findAllPatronagesPublishedOfInventor(int id);
 
 }
