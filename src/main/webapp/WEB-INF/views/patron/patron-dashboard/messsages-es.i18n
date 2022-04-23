@@ -1,0 +1,20 @@
+# i18n-es.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+patron.patron-dashboard.form.label.totalNumberOfPatronages = Número total de patrocinios en función del status
+patron.patron-dashboard.form.label.budgetOfPatronages = Presupuesto de los patrocinios en función del status y divisa
+patron.patron-dashboard.form.label.noPatronages = No hay patrocinios
+patron.patron-dashboard.form.label.status = Estado del patrocinio 
+patron.patron-dashboard.form.label.number = Número de patrocinios
+patron.patron-dashboard.form.label.average = Media 
+patron.patron-dashboard.form.label.currency = Divisa 
+patron.patron-dashboard.form.label.deviation = Desviación
+patron.patron-dashboard.form.label.minimum = Mínimo
+patron.patron-dashboard.form.label.maximum = Máximo
