@@ -4,3 +4,4 @@ announcement-02,2022/04/16 00:00,2,2,false,http://www.example.com,administrator-
 announcement-03,2018/03/17 00:20,Anuncio 3,Anuncio numero 3,false,http://www.example.com,administrator-01
 announcement-04,2011/01/11 00:20,Anuncio 4,Anuncio numero 4,true,http://www.example.com,administrator-01
 announcement-05,2018/11/29 00:20,Anuncio 5,Anuncio numero 5,true,http://www.example.com,administrator-01
+announcement-06,2018/11/29 00:20,Anuncio 6,Anuncio numero 6,true,null,administrator-01
