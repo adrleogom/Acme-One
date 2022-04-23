@@ -47,7 +47,7 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 		Principal principal;
 		principal = request.getPrincipal();
 		
-		result = this.repository.findAllPatronagesOfPatron(principal.getAccountId());
+		result = this.repository.findAllPatronagesPublishedOfPatron(principal.getAccountId());
 
 		return result;
 	}

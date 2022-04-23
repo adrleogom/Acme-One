@@ -25,7 +25,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorPatronageListAllService implements AbstractListService<Inventor, Patronage> {
+public class InventorPatronageListService implements AbstractListService<Inventor, Patronage> {
 
 	// Internal state ---------------------------------------------------------
 

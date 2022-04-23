@@ -23,3 +23,7 @@ patron.patronage.form.label.furtherInfo = Mas informacion
 patron.patronage.form.label.inventor.company = Compañia del inventor
 patron.patronage.form.label.inventor.statement = Declaracion del inventor
 patron.patronage.form.label.inventor.furtherInfo = Mas informacion del inventor
+patron.patronage.form.label.inventor.name = Nombre del inventor
+patron.patronage.form.label.inventor.surname = Apellidos del inventor
+
+patron.patronage.form.button.patronage-report = Informes de patrocinio

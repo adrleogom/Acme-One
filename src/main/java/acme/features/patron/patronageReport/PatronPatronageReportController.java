@@ -1,5 +1,5 @@
 
-package acme.framework.features.patron.patronageReport;
+package acme.features.patron.patronageReport;
 
 import javax.annotation.PostConstruct;
 
@@ -11,14 +11,14 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Patron;
 
 @Controller
-public class PatronageReportController extends AbstractController<Patron, PatronageReport> {
+public class PatronPatronageReportController extends AbstractController<Patron, PatronageReport> {
 
 	//Internal State 
 
 	@Autowired
-	protected PatronageReportListService	listRecentService;
+	protected PatronPatronageReportListService	listRecentService;
 	@Autowired
-	protected PatronageReportShowService	showService;
+	protected PatronPatronageReportShowService	showService;
 
 
 	//Constructors 
