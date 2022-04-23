@@ -49,16 +49,16 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-
+		<%--INVENTOR--%>
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
 			<acme:menu-suboption code="master.menu.inventor.patronages" action="/inventor/patronage/list"/>
 <%--      		<acme:menu-suboption code = "master.menu.inventor.item" action = "/inventor/item/list"/> --%>
      	 	<acme:menu-suboption code = "master.menu.inventor.toolkit" action = "/inventor/toolkit/list"/>
     	</acme:menu-option>
-      	
+    	
+      	<%--PATRON--%>
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.patronage" action="/patron/patronage/list"/>
-			<acme:menu-suboption code="master.menu.patron.reports" action="/patron/patronage-report/list" />
 		</acme:menu-option>
 
 
@@ -78,7 +78,8 @@
 			<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
-    
+    	
+    	<%--AUTENTICADOS--%>
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>	
 			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	

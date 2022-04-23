@@ -25,7 +25,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorPatronageListAllService implements AbstractListService<Inventor, Patronage> {
+public class InventorPatronageListService implements AbstractListService<Inventor, Patronage> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -47,9 +47,7 @@ public class InventorPatronageListAllService implements AbstractListService<Inve
 		Principal principal;
 		principal = request.getPrincipal();
 		
-		result = this.repository.findAllPatronagesOfInventor(principal.getAccountId());
-		
-	//	result = this.repository.findAllPatronages();
+		result = this.repository.findAllPatronagesPublishedOfInventor(principal.getAccountId());
 
 		return result;
 	}
@@ -63,36 +61,5 @@ public class InventorPatronageListAllService implements AbstractListService<Inve
 		request.unbind(entity, model, "status", "code", "initialDate", "finalDate");
 		
 	}
-
-	
-	// AbstractListService<Administrator, Announcement> interface --------------
-
-
-//	@Override
-//	public boolean authorise(final Request<Announcement> request) {
-//		assert request != null;
-//
-//		return true;
-//	}
-//
-//	@Override
-//	public Collection<Announcement> findMany(final Request<Announcement> request) {
-//		assert request != null;
-//
-//		Collection<Announcement> result;
-//
-//		result = this.repository.findAllAnnouncements();
-//
-//		return result;
-//	}
-//	
-//	@Override
-//	public void unbind(final Request<Announcement> request, final Announcement entity, final Model model) {
-//		assert request != null;
-//		assert entity != null;
-//		assert model != null;
-//
-//		request.unbind(entity, model, "title", "moment", "status");
-//	}
 
 }
