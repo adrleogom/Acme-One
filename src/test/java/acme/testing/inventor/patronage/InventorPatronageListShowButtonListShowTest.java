@@ -42,10 +42,10 @@ public class InventorPatronageListShowButtonListShowTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, sNumber);
-		super.checkColumnHasValue(recordIndex, 1, creationMoment);
+		super.checkColumnHasValue(2, 0, sNumber);
+		super.checkColumnHasValue(2, 1, creationMoment);
 
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(2);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("creationMoment", creationMoment);
 		super.checkInputBoxHasValue("memorandum", memorandum);

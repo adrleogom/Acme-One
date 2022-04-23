@@ -1,5 +1,7 @@
 package acme.features.administrator.systemConfiguration;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +30,15 @@ public class AdministratorSystemConfigurationShowService implements AbstractShow
 		@Override
 		public SystemConfiguration findOne(final Request<SystemConfiguration> request) {
 			assert request != null;
-
-			SystemConfiguration result;
-			result = this.repository.systemConfiguration().stream().findFirst().get();
+			SystemConfiguration result = null;
+			
+			final Optional<SystemConfiguration> value = this.repository.systemConfiguration().stream().findFirst();
+			 
+			if(value.isPresent()) {
+				result = value.get();
+			}else {
+				result = null;
+			}
 			return result;
 		}
 
