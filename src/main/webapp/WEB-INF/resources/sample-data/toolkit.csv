@@ -1,7 +1,7 @@
-key,code,title,description,assembly-notes,further-info,key:inventor
-toolkit-01,OPZ-190-A,Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con,Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Too,Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Ass,http://www.example.com,inventor-01
-toolkit-02,UJZ-176-B,Toolkit 2,Toolkit number 2,Assembly notes 2,http://www.example.com,inventor-02
-toolkit-03,MIO-114-C,Toolkit 3,Toolkit number 3,Assembly notes 1,http://www.example.com,inventor-03
-toolkit-04,LEP-289-D,Toolkit 4,Toolkit number 4,Assembly notes 1,http://www.example.com,inventor-04
-toolkit-05,ZJA-776-E,Toolkit 5,Toolkit number 5,Assembly notes 1,http://www.example.com,inventor-01
-toolkit-06,ZJA-776-F,Toolkit 6,Toolkit number 6,Assembly notes 1,null,inventor-01
+key,code,title,description,assemblyNotes,furtherInfo,published,key:inventor
+toolkit-01,OPZ-190-A,Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con,Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Too,Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Ass,http://www.example.com,true,inventor-01
+toolkit-02,UJZ-176-B,Toolkit 2,Toolkit number 2,Assembly notes 2,http://www.example.com,true,inventor-02
+toolkit-03,MIO-114-C,Toolkit 3,Toolkit number 3,Assembly notes 1,http://www.example.com,true,inventor-03
+toolkit-04,LEP-289-D,Toolkit 4,Toolkit number 4,Assembly notes 1,http://www.example.com,true,inventor-04
+toolkit-05,ZJA-776-E,Toolkit 5,Toolkit number 5,Assembly notes 1,http://www.example.com,true,inventor-01
+toolkit-06,ZJA-776-F,Toolkit 6,Toolkit number 6,Assembly notes 1,null,false,inventor-01

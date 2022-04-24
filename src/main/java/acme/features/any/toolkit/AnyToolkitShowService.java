@@ -1,12 +1,17 @@
 
 package acme.features.any.toolkit;
 
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
@@ -23,9 +28,15 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
-		assert request != null;
+		boolean result;
+		int id;
+		final Toolkit toolkit;
 
-		return true;
+		id = request.getModel().getInteger("id");
+		toolkit = this.repository.findOneToolkitById(id);
+		result = toolkit.isPublished();
+
+		return result;
 	}
 
 	@Override
@@ -48,6 +59,27 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		assert entity != null;
 		assert model != null;
 
+		int id;
+		id = request.getModel().getInteger("id");
+		Collection<String> currencies;
+		final Money retailPrice= new Money();
+		
+		currencies=this.repository.findCurenciesOfAToolkit(id);
+		final Set<String> currency = currencies.stream().collect(Collectors.toSet());
+		
+		if(currency.size()==1) {
+		
+			final Double amount = this.repository.findToolkitRetailPrice(id);
+			final String moneda = currency.stream().findFirst().get();
+			
+			retailPrice.setAmount(amount);
+			retailPrice.setCurrency(moneda);
+			model.setAttribute("retailPrice", retailPrice);
+		}else {
+			model.setAttribute("retailPrice", "");
+		}
+		
+		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
 	}
 
