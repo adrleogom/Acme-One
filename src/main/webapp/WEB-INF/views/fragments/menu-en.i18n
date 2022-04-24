@@ -22,7 +22,7 @@ master.menu.any = Any
 master.menu.any.recent-chirps = List recent chirps
 master.menu.any.toolkits = List published toolkits
 master.menu.any.items = List published items
-master.menu.any.all-users = Users list
+master.menu.any.all-users = User accounts
 
 # master.menu.anonymous #######################################################
 
