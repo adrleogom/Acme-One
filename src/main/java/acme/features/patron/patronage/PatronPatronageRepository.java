@@ -19,6 +19,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.patronage.Patronage;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Patron;
 
 @Repository
 public interface PatronPatronageRepository extends AbstractRepository {
@@ -26,14 +27,10 @@ public interface PatronPatronageRepository extends AbstractRepository {
 	@Query("select a from Patronage a where a.id = :id")
 	Patronage findOnePatronageById(int id);
 
-	@Query("select a from Patronage a where a.patron.userAccount.id = :id")
-	Collection<Patronage> findAllPatronagesOfPatron(int id);
+	@Query("select a from Patron a where a.userAccount.id = :id")
+	Patron findPatronByUserId(int id);
 	
-	@Query("select a from Patronage a")
-	Collection<Patronage> findAllPatronages();
-
-//
-//	@Query("select a from Patronage a where a.moment > :deadline")
-//	Collection<Announcement> findRecentAnnouncements(Date deadline);
+	@Query("select a from Patronage a where a.patron.userAccount.id = :id and a.published=true")
+	Collection<Patronage> findAllPatronagesPublishedOfPatron(int id);
 
 }

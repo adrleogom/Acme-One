@@ -23,7 +23,10 @@
 	<acme:input-url code="inventor.patronage.form.label.furtherInfo" path="furtherInfo"/>
 	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>	
 	<acme:input-textarea code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
-	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo"/>		
+	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo"/>	
+ 	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name"/>	
+	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname"/>	 
 </acme:form>
 
-<acme:button code="inventor.patronage.form.button.patronage-report" action="/inventor/patronage-report/list"/>
+<acme:button code="inventor.patronage.form.button.patronage-report" action="/inventor/patronage-report/list?masterId=${id}"/>
+

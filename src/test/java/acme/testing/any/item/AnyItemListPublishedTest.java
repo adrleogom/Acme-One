@@ -13,7 +13,7 @@ public class AnyItemListPublishedTest extends TestHarness{
 	@Order(10)
 	public void positive(final int recordIndex, final String itemType, final String name,
 		final String code, final String technology, final String description, 
-		final String retailPrice, final String furtherInfo) {
+		final String retailPrice, final String furtherInfo, final String inventor) {
 		
 
 		super.clickOnMenu("Anonymous", "List published items");
@@ -34,6 +34,7 @@ public class AnyItemListPublishedTest extends TestHarness{
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("furtherInfo", furtherInfo);
+		super.checkInputBoxHasValue("inventor", inventor);
 
 	}
 	

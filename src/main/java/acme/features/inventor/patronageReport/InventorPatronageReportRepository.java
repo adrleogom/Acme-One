@@ -17,35 +17,25 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.patronage.Patronage;
 import acme.entities.patronage.PatronageReport;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 
 @Repository
 public interface InventorPatronageReportRepository extends AbstractRepository {
 
 
-	@Query("select a from PatronageReport a")
-	Collection<PatronageReport> findAllPatronageReports();
+	@Query("select a from PatronageReport a where a.id =:idPatronageReport")
+	PatronageReport findOnePatronageReportById(int idPatronageReport);
 
-//	@Query("select a from Announcement a where a.moment > :deadline")
-//	Collection<Announcement> findRecentAnnouncements(Date deadline);
-	
-	@Query("select a from PatronageReport a where a.id = :masterId")
-	PatronageReport findOnePatronageReportById (int masterId);
+	@Query("select a from Inventor a where a.userAccount.id = :id")
+	Inventor findInventorByUserId(int id);
 	
 	@Query("select a from PatronageReport a where a.patronage.id = :masterId")
-	Collection<PatronageReport> findManyPatronageReportsByMasterId(int masterId);
-	
-//	@Query("select p from Patronage p where p.id = :masterId")
-//	Patronage findOnePatronageById(int masterId);
-//
-//	@Query("select d.job from Duty d where d.id = :masterId")
-//	Job findOneJobByDutyId(int masterId);
-//
-//	@Query("select d from Duty d where d.id = :id")
-//	Duty findOneDutyById(int id);
-//
-//	@Query("select d from Duty d where d.job.id = :masterId")
-//	Collection<Duty> findManyDutiesByMasterId(int masterId);
+	Collection<PatronageReport> findAllPatronageReportsByPatronageMasterId(int masterId);
+
+	@Query("select a from Patronage a where a.id = :masterId")
+	Patronage findOnePatronageById(int masterId);
 
 }
