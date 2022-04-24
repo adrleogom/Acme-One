@@ -60,7 +60,7 @@ master.menu.inventor.toolkit = Ver todos mis juegos de herramientas
 master.menu.patron = Patron
 master.menu.patron.patronage = Listar mis patronages
 master.menu.patron.reports = Informes
-
+master.menu.patron.patron-dashboard = Panel de patrocinios
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
