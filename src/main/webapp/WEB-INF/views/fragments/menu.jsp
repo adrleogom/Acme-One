@@ -40,7 +40,6 @@
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
@@ -65,7 +64,6 @@
 		<%--PROVEEDOR--%>
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
-			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
@@ -73,7 +71,6 @@
 		<%--CONSUMIDOR--%>
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
-			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
     	
