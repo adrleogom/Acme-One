@@ -1,0 +1,24 @@
+# i18n-en.i18n
+#
+# Copyright (C) 2012-2022 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.administrator-dashboard.form.label.totalNumberOfComponents = Número total de componentes
+administrator.administrator-dashboard.form.label.totalNumberOfTools = Número total de herramientas
+administrator.administrator-dashboard.form.label.totalNumberOfPatronages = Número total de patrocinios en función del status
+administrator.administrator-dashboard.form.label.budgetOfPatronages = Presupuesto de los patrocinios en función del status y divisa
+administrator.administrator-dashboard.form.label.noComponents = No hay componentes
+administrator.administrator-dashboard.form.label.noTools = No hay herramientas
+administrator.administrator-dashboard.form.label.noPatronages = No hay patrocinios
+administrator.administrator-dashboard.form.label.status = Estado del patrocinio 
+administrator.administrator-dashboard.form.label.number = Número de patrocinios
+administrator.administrator-dashboard.form.label.average = Media
+administrator.administrator-dashboard.form.label.currency = Divisa
+administrator.administrator-dashboard.form.label.deviation = Desviación
+administrator.administrator-dashboard.form.label.minimum = Mínimo
+administrator.administrator-dashboard.form.label.maximum = Máximo

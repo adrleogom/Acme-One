@@ -8,6 +8,7 @@ import org.springframework.data.util.Pair;
 
 import acme.entities.patronage.Status;
 import acme.entities.stat.Stat;
+import acme.framework.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,13 +27,13 @@ public class AdministratorDashboard implements Serializable{
 	
 	int totalNumberOfTools;
 	
-	Map<Status,Integer> totalNumberOfPatronages;
+	protected Map<Status, Integer>					totalNumberOfPatronages;
 	
-	Map<Pair<String,String>,Stat> retailPriceOfComponents;
+	protected Map<Pair<String,String>,Stat> retailPriceOfComponents;
 	
-	Map<String,Stat> retailPriceOfTools;
+	protected Map<Money,Stat> retailPriceOfTools;
 	
-	Map<Status,Stat> budgetOfPatronages;
+	protected Map<Pair<Status, String>, Stat>	budgetOfPatronages;
 	
 	
 
