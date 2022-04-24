@@ -43,7 +43,7 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 		int masterId;
 		
 		masterId= request.getModel().getInteger("masterId");
-		result = this.repository.findManyItemsByMasterId(masterId);
+		result = this.repository.findManyPublishedItemsByMasterId(masterId);
 		
 		return result;
 	}
@@ -71,7 +71,7 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 		assert model != null;
 		
 		
-		request.unbind(entity, model, "name", "code", "itemType");
+		request.unbind(entity, model, "name", "code", "itemType", "published");
 	}
 	
 	

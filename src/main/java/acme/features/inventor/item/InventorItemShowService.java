@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.item.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -21,9 +22,25 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 	
 	@Override
 	public boolean authorise (final Request<Item> request) {
-		assert request != null;
 		
-		return true;
+		assert request != null;
+	
+		 boolean result;
+		 int masterId;
+		 Item item;
+		 Inventor inventor;
+		 Principal principal;
+		 
+		 masterId = request.getModel().getInteger("id");
+		 item = this.repository.findOneItemById(masterId);
+		 inventor= item.getInventor();
+		 principal = request.getPrincipal();
+		 
+		 result= (item.isPublished() || inventor.getUserAccount().getId() == principal.getAccountId());
+		 
+		
+
+		return result;
 		
 	}
 	
@@ -46,7 +63,7 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "itemType", "name", "code", "technology", "description", "retailPrice", "furtherInfo");
+		request.unbind(entity, model, "itemType", "name", "code", "technology", "published","description", "retailPrice", "furtherInfo");
 		model.setAttribute("readonly", true);
 	}
 }
