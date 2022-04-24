@@ -1,4 +1,4 @@
-key,code,title,description,assembly-notes,further-info,published,key:inventor
+key,code,title,description,assemblyNotes,furtherInfo,published,key:inventor
 toolkit-01,OPZ-190-A,Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con,Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Too,Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Ass,http://www.example.com,true,inventor-01
 toolkit-02,UJZ-176-B,Toolkit 2,Toolkit number 2,Assembly notes 2,http://www.example.com,true,inventor-02
 toolkit-03,MIO-114-C,Toolkit 3,Toolkit number 3,Assembly notes 1,http://www.example.com,true,inventor-03

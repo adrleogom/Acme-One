@@ -37,10 +37,8 @@
 		
 		<%--ADMINISTRADOR--%>
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
-			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
@@ -51,29 +49,27 @@
 		
 		<%--INVENTOR--%>
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
-			<acme:menu-suboption code="master.menu.inventor.patronages" action="/inventor/patronage/list"/>
-      		<acme:menu-suboption code = "master.menu.inventor.item" action = "/inventor/item/list-mine"/>
+			  <acme:menu-suboption code="master.menu.inventor.patronages" action="/inventor/patronage/list"/>
+      	<acme:menu-suboption code = "master.menu.inventor.item" action = "/inventor/item/list-mine"/>
      	 	<acme:menu-suboption code = "master.menu.inventor.toolkit" action = "/inventor/toolkit/list"/>
     	</acme:menu-option>
     	
       	<%--PATRON--%>
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.patronage" action="/patron/patronage/list"/>
+			<acme:menu-suboption code="master.menu.patron.reports" action="/patron/patronage-report/list" />
+			<acme:menu-suboption code="master.menu.patron.patron-dashboard" action="/patron/patron-dashboard/show"/>
 		</acme:menu-option>
 
 
 		<%--PROVEEDOR--%>
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
-			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
-			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
 
 		<%--CONSUMIDOR--%>
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
-			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
-			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
     	
