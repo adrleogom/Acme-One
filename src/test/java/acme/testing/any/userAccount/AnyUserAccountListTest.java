@@ -12,16 +12,15 @@ public class AnyUserAccountListTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/user-account/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTestAnonymous(final int recordIndex, final String name, final String surname, final String email, final String username) {
+	public void positiveTestAnonymous(final int recordIndex, final String name, final String surname, final String email, final String username, final String roleList) {
 
-		super.clickOnMenu("Anonymous", "Users list");
+		super.clickOnMenu("Anonymous", "User accounts");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 0, username);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, surname);
-		super.checkColumnHasValue(recordIndex, 3, email);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -29,23 +28,24 @@ public class AnyUserAccountListTest extends TestHarness{
 		super.checkInputBoxHasValue("identity.name", name);
 		super.checkInputBoxHasValue("identity.surname", surname);
 		super.checkInputBoxHasValue("identity.email", email);
+		super.checkInputBoxHasValue("roleList", roleList);
+
 
 	}
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/user-account/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTestAuthenticated(final int recordIndex, final String name, final String surname, final String email, final String username) {
+	public void positiveTestAuthenticated(final int recordIndex, final String name, final String surname, final String email, final String username, final String roleList) {
 		super.signIn("patron1", "patron1");
 		
-		super.clickOnMenu("Authenticated", "Users list");
+		super.clickOnMenu("Authenticated", "User accounts");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 0, username);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, surname);
-		super.checkColumnHasValue(recordIndex, 3, email);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -53,6 +53,7 @@ public class AnyUserAccountListTest extends TestHarness{
 		super.checkInputBoxHasValue("identity.name", name);
 		super.checkInputBoxHasValue("identity.surname", surname);
 		super.checkInputBoxHasValue("identity.email", email);
+		super.checkInputBoxHasValue("roleList", roleList);
 
 		super.signOut();
 	}

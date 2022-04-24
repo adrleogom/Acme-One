@@ -1,5 +1,5 @@
 
-package acme.framework.features.patron.patronageReport;
+package acme.features.patron.patronageReport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,16 +11,23 @@ import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
 
 @Service
-public class PatronageReportShowService implements AbstractShowService<Patron, PatronageReport> {
+public class PatronPatronageReportShowService implements AbstractShowService<Patron, PatronageReport> {
 
 	@Autowired
-	protected PatronageReportRepository repository;
+	protected PatronPatronageReportRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
-		return true;
+		final boolean res;
+		Patron patron;
+		int idPatronageReport;
+		idPatronageReport = request.getModel().getInteger("id");
+		final PatronageReport patronageReport = this.repository.findOnePatronageReportById(idPatronageReport);
+		patron = this.repository.findPatronByUserId(request.getPrincipal().getAccountId());
+		res = patronageReport.getPatronage().getPatron().equals(patron);
+		return res;
 	}
 
 	@Override
@@ -31,7 +38,8 @@ public class PatronageReportShowService implements AbstractShowService<Patron, P
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findPatronageReportById(id);
+		result = this.repository.findOnePatronageReportById(id);
+
 		return result;
 	}
 
@@ -41,8 +49,7 @@ public class PatronageReportShowService implements AbstractShowService<Patron, P
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "creationMoment", "sNumber", "memorandum", "furtherInfo");
-		model.setAttribute("confirmation", false);
+		request.unbind(entity, model, "creationMoment", "memorandum", "furtherInfo");
 		model.setAttribute("readonly", true);
 	}
 }
