@@ -45,7 +45,9 @@ public class Toolkit extends AbstractEntity{
 		@URL
 		protected String			furtherInfo;
 		
-		protected boolean 			published;
+
+		@NotNull
+		protected boolean			published;
 
 
 		// Derived attributes -----------------------------------------------------

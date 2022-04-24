@@ -12,8 +12,9 @@ public class InventorItemListMineTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/item/list-mine.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String itemType, final String name, final String code, final String technology, final String description, final String retailPrice, final String furtherInfo) {
-		super.signIn("inventor2", "inventor2");
+	public void positiveTest(final int recordIndex, final String itemType, final String name, final String code, final String technology, 
+		final String description, final String retailPrice,final String published, final String furtherInfo) {
+		super.signIn("inventor3", "inventor3");
 
 		super.clickOnMenu("Inventor", "List all my components and tools");
 		super.checkListingExists();
@@ -22,6 +23,7 @@ public class InventorItemListMineTest extends TestHarness{
 		super.checkColumnHasValue(recordIndex, 0, itemType);
 		super.checkColumnHasValue(recordIndex, 1, name);
 		super.checkColumnHasValue(recordIndex, 2, code);
+		super.checkColumnHasValue(recordIndex, 3, published);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -29,9 +31,11 @@ public class InventorItemListMineTest extends TestHarness{
 		super.checkInputBoxHasValue("name", name);
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("technology", technology);
+		super.checkInputBoxHasValue("published", published);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("furtherInfo", furtherInfo);
+		
 		
 
 		super.signOut();
