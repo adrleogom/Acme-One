@@ -88,3 +88,60 @@
 		</tr>
 	</jstl:forEach>
 </table>
+
+<h2> <acme:message code="administrator.administrator-dashboard.form.label.retailPriceOfTools" /> </h2>
+<table class="table table-sm">
+
+
+	<jstl:if test="${empty retailPriceOfTools}">
+		<acme:message code="administrator.administrator-dashboard.form.label.noTools" />
+		<br>
+		<br>
+	</jstl:if>
+	<tr>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
+	</tr>
+	<jstl:forEach items="${retailPriceOfTools}" var="retailPriceOfTools">
+		<tr>
+			<td> <acme:print value="${retailPriceOfTools.key.getCurrency()}" /></td>
+			<td> <acme:print value="${retailPriceOfTools.value.getAverage()}" /></td>
+			<td> <acme:print value="${retailPriceOfTools.value.getDeviation()}" /></td>
+			<td> <acme:print value="${retailPriceOfTools.value.getMinimum()}" /></td>
+			<td> <acme:print value="${retailPriceOfTools.value.getMaximum()}" /></td>
+		</tr>
+	</jstl:forEach>
+</table>
+
+
+<h2> <acme:message code="administrator.administrator-dashboard.form.label.retailPriceOfComponents" /> </h2>
+<table class="table table-sm">
+
+
+	<jstl:if test="${empty retailPriceOfComponents}">
+		<acme:message code="administrator.administrator-dashboard.form.label.noComponents" />
+		<br>
+		<br>
+	</jstl:if>
+	<tr>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.technology" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
+		<th><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
+	</tr>
+	<jstl:forEach items="${retailPriceOfComponents}" var="retailPriceOfComponents">
+		<tr>
+			<td> <acme:print value="${retailPriceOfComponents.key.getFirst()}" /></td>
+			<td> <acme:print value="${retailPriceOfComponents.key.getSecond()}" /></td>
+			<td> <acme:print value="${retailPriceOfComponents.value.getAverage()}" /></td>
+			<td> <acme:print value="${retailPriceOfComponents.value.getDeviation()}" /></td>
+			<td> <acme:print value="${retailPriceOfComponents.value.getMinimum()}" /></td>
+			<td> <acme:print value="${retailPriceOfComponents.value.getMaximum()}" /></td>
+		</tr>
+	</jstl:forEach>
+</table>

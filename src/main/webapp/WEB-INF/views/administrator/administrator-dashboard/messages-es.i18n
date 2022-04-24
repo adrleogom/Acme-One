@@ -22,3 +22,6 @@ administrator.administrator-dashboard.form.label.currency = Divisa
 administrator.administrator-dashboard.form.label.deviation = Desviación
 administrator.administrator-dashboard.form.label.minimum = Mínimo
 administrator.administrator-dashboard.form.label.maximum = Máximo
+administrator.administrator-dashboard.form.label.retailPriceOfTools = Estadísticas de los precios de las herramientas
+administrator.administrator-dashboard.form.label.technology = Tecnología
+administrator.administrator-dashboard.form.label.retailPriceOfComponents = Estadísticas de los precios de los componentes

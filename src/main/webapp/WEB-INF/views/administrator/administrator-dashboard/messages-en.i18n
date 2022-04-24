@@ -22,3 +22,6 @@ administrator.administrator-dashboard.form.label.currency = Currency
 administrator.administrator-dashboard.form.label.deviation = Deviation
 administrator.administrator-dashboard.form.label.minimum = Minimum
 administrator.administrator-dashboard.form.label.maximum = Maximum
+administrator.administrator-dashboard.form.label.retailPriceOfTools = Stats of tools' prices
+administrator.administrator-dashboard.form.label.technology = Technology
+administrator.administrator-dashboard.form.label.retailPriceOfComponents = Stats of components' prices
