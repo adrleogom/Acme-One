@@ -36,13 +36,9 @@ master.menu.anonymous.adriana = 79158986R: León Gómez, Adriana
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
-
-master.menu.administrator.dashboard = Panel de indicadores
-master.menu.administrator.system-configuration = Configuración del sistema
-
 master.menu.administrator.administrator-dashboard = Panel de indicadores
-
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.system-configuration = Configuración del sistema
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
