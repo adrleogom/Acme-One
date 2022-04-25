@@ -5,3 +5,7 @@ toolkit-03,MIO-114-C,Toolkit 3,Toolkit number 3,Assembly notes 1,http://www.exam
 toolkit-04,LEP-289-D,Toolkit 4,Toolkit number 4,Assembly notes 1,http://www.example.com,true,inventor-04
 toolkit-05,ZJA-776-E,Toolkit 5,Toolkit number 5,Assembly notes 1,http://www.example.com,true,inventor-01
 toolkit-06,ZJA-776-F,Toolkit 6,Toolkit number 6,Assembly notes 1,null,false,inventor-01
+toolkit-07,CGT-583-G,Toolkit 7,Toolkit number 7,Assembly notes 7,http://www.example.com,false,inventor-04
+toolkit-08,BRX-197-H,Toolkit 8,Toolkit number 8,Assembly notes 8,http://www.example.com,false,inventor-04
+toolkit-09,ZPO-372-I,Toolkit 9,Toolkit number 9,Assembly notes 9,http://www.example.com,false,inventor-04
+toolkit-10,RDR-241-J,Toolkit 10,Toolkit number 10,Assembly notes 10,http://www.example.com,false,inventor-04
