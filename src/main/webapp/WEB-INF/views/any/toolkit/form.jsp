@@ -22,4 +22,6 @@
 	<acme:input-textbox code="any.toolkit.form.label.furtherInfo" path="furtherInfo"/>
 	<acme:input-money code="inventor.toolkit.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-textbox code="any.toolkit.form.label.inventor" path="inventor"/>
+	
+	<acme:button code="any.toolkit.form.button.items" action="/any/item/list?masterId=${id}"/>	
 </acme:form> 

@@ -1,3 +1,4 @@
+
 package acme.features.any.item;
 
 import java.util.Collection;
@@ -12,14 +13,14 @@ import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnyItemListService implements AbstractListService<Any, Item>{
+public class AnyItemListService implements AbstractListService<Any, Item> {
 
 	// Internal state ---------------------------------------------------------
-	
+
 	@Autowired
 	protected AnyItemRepository anyItemRepository;
-	
-	
+
+
 	// AbstractListService<Any, Item> interface --------------
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -33,8 +34,10 @@ public class AnyItemListService implements AbstractListService<Any, Item>{
 		assert request != null;
 
 		Collection<Item> result;
+		int masterId;
 
-		result = this.anyItemRepository.findPublishedItems(true);
+		masterId = request.getModel().getInteger("masterId");
+		result = this.anyItemRepository.findManyPublishedItemsByMasterId(masterId);
 
 		return result;
 	}
@@ -46,7 +49,7 @@ public class AnyItemListService implements AbstractListService<Any, Item>{
 		assert model != null;
 
 		request.unbind(entity, model, "itemType", "name", "code");
-		
+
 	}
-	
+
 }
