@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorItemListMineTest extends TestHarness{
+public class InventorItemListMineShowTest extends TestHarness{
 
 	// Test cases -------------------------------------------------------------
 	@ParameterizedTest
@@ -16,7 +16,7 @@ public class InventorItemListMineTest extends TestHarness{
 		final String description, final String retailPrice,final String published, final String furtherInfo) {
 		super.signIn("inventor3", "inventor3");
 
-		super.clickOnMenu("Inventor", "List all my components and tools");
+		super.clickOnMenu("Inventor", "List my components and tools");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
