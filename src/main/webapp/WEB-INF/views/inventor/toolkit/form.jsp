@@ -21,6 +21,7 @@
 	<acme:input-textarea code="inventor.toolkit.form.label.description" path="description"/>
 	<acme:input-textarea code="inventor.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-url code="inventor.toolkit.form.label.furtherInfo" path="furtherInfo"/>
+	<acme:input-money code="inventor.toolkit.form.label.retailPrice" path="retailPrice"/>
 
 
 

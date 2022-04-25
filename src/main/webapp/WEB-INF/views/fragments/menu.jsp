@@ -52,8 +52,8 @@
 		
 		<%--INVENTOR--%>
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
-			<acme:menu-suboption code="master.menu.inventor.patronages" action="/inventor/patronage/list"/>
-<%--      		<acme:menu-suboption code = "master.menu.inventor.item" action = "/inventor/item/list"/> --%>
+			  <acme:menu-suboption code="master.menu.inventor.patronages" action="/inventor/patronage/list"/>
+      	<acme:menu-suboption code = "master.menu.inventor.item" action = "/inventor/item/list-mine"/>
      	 	<acme:menu-suboption code = "master.menu.inventor.toolkit" action = "/inventor/toolkit/list"/>
     	</acme:menu-option>
     	
@@ -67,14 +67,12 @@
 
 		<%--PROVEEDOR--%>
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
-			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 
 
 		<%--CONSUMIDOR--%>
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
-			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
     	
