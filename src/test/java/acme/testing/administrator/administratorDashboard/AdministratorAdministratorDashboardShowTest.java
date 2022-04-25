@@ -20,7 +20,11 @@ public class AdministratorAdministratorDashboardShowTest extends TestHarness {
 		final String averageBYUSDACCEPTEDCSV, final String deviationBYUSDACCEPTEDCSV, final String minBYUSDACCEPTEDCSV, final String maxBYUSDACCEPTEDCSV, final String averageBYEURDENIEDCSV, final String deviationBYEURDENIEDCSV,
 		final String minBYEURDENIEDCSV, final String maxBYEURDENIEDCSV, final String averageBYEURPROPOSEDCSV, final String deviationBYEURPROPOSEDCSV, final String minBYEURPROPOSEDCSV, final String maxBYEURPROPOSEDCSV, final String toolsEURaverageCSV,
 		final String toolsEURdeviationCSV, final String toolsEURminCSV, final String toolsEURmaxCSV, final String toolsGBPaverageCSV, final String toolsGBPdeviationCSV, final String toolsGBPminCSV, final String toolsGBPmaxCSV,
-		final String toolsUSDaverageCSV, final String toolsUSDdeviationCSV, final String toolsUSDminCSV, final String toolsUSDmaxCSV) {
+		final String toolsUSDaverageCSV, final String toolsUSDdeviationCSV, final String toolsUSDminCSV, final String toolsUSDmaxCSV, final String componentsEURTECH1averageCSV, final String componentsEURTECH1deviationCSV,
+		final String componentsEURTECH1minCSV, final String componentsEURTECH1maxCSV, final String componentsGBPTECH5averageCSV, final String componentsGBPTECH5deviationCSV, final String componentsGBPTECH5minCSV, final String componentsGBPTECH5maxCSV,
+		final String componentsGBPTECH6averageCSV, final String componentsGBPTECH6deviationCSV, final String componentsGBPTECH6minCSV, final String componentsGBPTECH6maxCSV, final String componentsUSDTECH7averageCSV,
+		final String componentsUSDTECH7deviationCSV, final String componentsUSDTECH7minCSV, final String componentsUSDTECH7maxCSV, final String componentsGBPTECH9averageCSV, final String componentsGBPTECH9deviationCSV,
+		final String componentsGBPTECH9minCSV, final String componentsGBPTECH9maxCSV, final String componentsEURTECH4averageCSV, final String componentsEURTECH4deviationCSV, final String componentsEURTECH4minCSV, final String componentsEURTECH4maxCSV) {
 		super.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Dashboard");
 
@@ -55,6 +59,30 @@ public class AdministratorAdministratorDashboardShowTest extends TestHarness {
 		WebElement toolsEURdeviation;
 		WebElement toolsEURmin;
 		WebElement toolsEURmax;
+		final WebElement componentsEURTECH1average;
+		final WebElement componentsEURTECH1deviation;
+		final WebElement componentsEURTECH1min;
+		final WebElement componentsEURTECH1max;
+		final WebElement componentsGBPTECH5average;
+		final WebElement componentsGBPTECH5deviation;
+		final WebElement componentsGBPTECH5min;
+		final WebElement componentsGBPTECH5max;
+		final WebElement componentsGBPTECH6average;
+		final WebElement componentsGBPTECH6deviation;
+		final WebElement componentsGBPTECH6min;
+		final WebElement componentsGBPTECH6max;
+		final WebElement componentsUSDTECH7average;
+		final WebElement componentsUSDTECH7deviation;
+		final WebElement componentsUSDTECH7min;
+		final WebElement componentsUSDTECH7max;
+		final WebElement componentsGBPTECH9average;
+		final WebElement componentsGBPTECH9deviation;
+		final WebElement componentsGBPTECH9min;
+		final WebElement componentsGBPTECH9max;
+		final WebElement componentsEURTECH4average;
+		final WebElement componentsEURTECH4deviation;
+		final WebElement componentsEURTECH4min;
+		final WebElement componentsEURTECH4max;
 
 		//FILA UNO ACCEPTED
 		if (driver.locateOne(By.xpath("/html/body/div[2]/div/table[3]/tbody/tr[2]/td[1]")).getText().equals("ACCEPTED")) {
@@ -235,7 +263,7 @@ public class AdministratorAdministratorDashboardShowTest extends TestHarness {
 			toolsEURmin = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[2]/td[4]"));
 			toolsEURmax = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[2]/td[5]"));
 			//SEGUNDA FILA GBP
-			if (driver.locateOne(By.xpath("/html/body/div[2]/div/table[4]/tbody/tr[3]/td[1]")).getText().equals("GBP")) {
+			if (driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[1]")).getText().equals("GBP")) {
 				toolsGBPaverage = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[2]"));
 				toolsGBPdeviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[3]"));
 				toolsGBPmin = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[4]"));
@@ -266,7 +294,7 @@ public class AdministratorAdministratorDashboardShowTest extends TestHarness {
 			toolsUSDmin = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[2]/td[4]"));
 			toolsUSDmax = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[2]/td[5]"));
 			//SEGUNDA FILA GBP
-			if (driver.locateOne(By.xpath("/html/body/div[2]/div/table[4]/tbody/tr[3]/td[1]")).getText().equals("GBP")) {
+			if (driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[1]")).getText().equals("GBP")) {
 				toolsGBPaverage = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[2]"));
 				toolsGBPdeviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[3]"));
 				toolsGBPmin = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[4]"));
@@ -290,6 +318,38 @@ public class AdministratorAdministratorDashboardShowTest extends TestHarness {
 				toolsEURmax = driver.locateOne(By.xpath("/html/body/div[2]/div/table[5]/tbody/tr[3]/td[5]"));
 			}
 		}
+
+		//NEW TABLE
+
+		componentsEURTECH1average = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[2]/td[3]"));
+		componentsEURTECH1deviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[2]/td[4]"));
+		componentsEURTECH1min = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[2]/td[5]"));
+		componentsEURTECH1max = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[2]/td[6]"));
+
+		componentsGBPTECH5average = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[3]/td[3]"));
+		componentsGBPTECH5deviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[3]/td[4]"));
+		componentsGBPTECH5min = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[3]/td[5]"));
+		componentsGBPTECH5max = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[3]/td[6]"));
+
+		componentsGBPTECH6average = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[4]/td[3]"));
+		componentsGBPTECH6deviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[4]/td[4]"));
+		componentsGBPTECH6min = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[4]/td[5]"));
+		componentsGBPTECH6max = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[4]/td[6]"));
+
+		componentsUSDTECH7average = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[5]/td[3]"));
+		componentsUSDTECH7deviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[5]/td[4]"));
+		componentsUSDTECH7min = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[5]/td[5]"));
+		componentsUSDTECH7max = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[5]/td[6]"));
+
+		componentsGBPTECH9average = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[6]/td[3]"));
+		componentsGBPTECH9deviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[6]/td[4]"));
+		componentsGBPTECH9min = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[6]/td[5]"));
+		componentsGBPTECH9max = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[6]/td[6]"));
+
+		componentsEURTECH4average = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[7]/td[3]"));
+		componentsEURTECH4deviation = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[7]/td[4]"));
+		componentsEURTECH4min = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[7]/td[5]"));
+		componentsEURTECH4max = driver.locateOne(By.xpath("/html/body/div[2]/div/table[6]/tbody/tr[7]/td[6]"));
 
 		assert totalNumberOfComponents.getText().equals(totalNumberOfComponentsByCurrency);
 		assert totalNumberOfTools.getText().equals(totalNumberOfToolsByCurrency);
@@ -328,5 +388,34 @@ public class AdministratorAdministratorDashboardShowTest extends TestHarness {
 		assert toolsUSDmin.getText().equals(toolsUSDminCSV);
 		assert toolsUSDmax.getText().equals(toolsUSDmaxCSV);
 
+		assert componentsEURTECH1average.getText().equals(componentsEURTECH1averageCSV);
+		assert componentsEURTECH1deviation.getText().equals(componentsEURTECH1deviationCSV);
+		assert componentsEURTECH1min.getText().equals(componentsEURTECH1minCSV);
+		assert componentsEURTECH1max.getText().equals(componentsEURTECH1maxCSV);
+
+		assert componentsGBPTECH5average.getText().equals(componentsGBPTECH5averageCSV);
+		assert componentsGBPTECH5deviation.getText().equals(componentsGBPTECH5deviationCSV);
+		assert componentsGBPTECH5min.getText().equals(componentsGBPTECH5minCSV);
+		assert componentsGBPTECH5max.getText().equals(componentsGBPTECH5maxCSV);
+
+		assert componentsGBPTECH6average.getText().equals(componentsGBPTECH6averageCSV);
+		assert componentsGBPTECH6deviation.getText().equals(componentsGBPTECH6deviationCSV);
+		assert componentsGBPTECH6min.getText().equals(componentsGBPTECH6minCSV);
+		assert componentsGBPTECH6max.getText().equals(componentsGBPTECH6maxCSV);
+
+		assert componentsUSDTECH7average.getText().equals(componentsUSDTECH7averageCSV);
+		assert componentsUSDTECH7deviation.getText().equals(componentsUSDTECH7deviationCSV);
+		assert componentsUSDTECH7min.getText().equals(componentsUSDTECH7minCSV);
+		assert componentsUSDTECH7max.getText().equals(componentsUSDTECH7maxCSV);
+
+		assert componentsGBPTECH9average.getText().equals(componentsGBPTECH9averageCSV);
+		assert componentsGBPTECH9deviation.getText().equals(componentsGBPTECH9deviationCSV);
+		assert componentsGBPTECH9min.getText().equals(componentsGBPTECH9minCSV);
+		assert componentsGBPTECH9max.getText().equals(componentsGBPTECH9maxCSV);
+
+		assert componentsEURTECH4average.getText().equals(componentsEURTECH4averageCSV);
+		assert componentsEURTECH4deviation.getText().equals(componentsEURTECH4deviationCSV);
+		assert componentsEURTECH4min.getText().equals(componentsEURTECH4minCSV);
+		assert componentsEURTECH4max.getText().equals(componentsEURTECH4maxCSV);
 	}
 }
