@@ -1,2 +1,2 @@
 recordIndex,item-type,name,code,technology,description,retail-price,further-info,key:inventor
-0,COMPONENT,"Item 1 con 100 caracteres Item 1 con 100 caracteres Item 1 con 100 caracteres Item 1 con 100 caracte",ABE-187-Z,"Tech 1 con 100 caracteres Tech 1 con 100 caracteres Tech 1 con 100 caracteres Tech 1 con 100 caracte","Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component with Tech 1 con 255 caracteres Component",EUR 22.60,http://www.example.com,inventor1
+0,COMPONENT,Item 7,HGS-489-C,Tech 7,Component with Tech 7,USD 30.00,,inventor3

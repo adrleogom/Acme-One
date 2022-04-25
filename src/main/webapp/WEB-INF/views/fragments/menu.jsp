@@ -78,7 +78,7 @@
     	<%--AUTENTICADOS--%>
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.any.toolkits" action="/any/toolkit/list"/>	
-			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>	
+			<acme:menu-suboption code="master.menu.any.items" action="/any/item/list"/>
       		<acme:menu-suboption code="master.menu.any.recent-chirps" action="/any/chirp/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.systemConfiguration" action="/authenticated/system-configuration/show"/>
      		<acme:menu-suboption code="master.menu.any.all-users" action="/any/user-account/list"/>
