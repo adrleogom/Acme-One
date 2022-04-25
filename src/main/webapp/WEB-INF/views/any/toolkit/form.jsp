@@ -17,8 +17,8 @@
 <acme:form readonly="${readonly}">
 	<acme:input-textbox code="any.toolkit.form.label.code" path="code"/>
 	<acme:input-textbox code="any.toolkit.form.label.title" path="title"/>
-	<acme:input-textbox code="any.toolkit.form.label.description" path="description"/>
-	<acme:input-textbox code="any.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
+	<acme:input-textarea code="any.toolkit.form.label.description" path="description"/>
+	<acme:input-textarea code="any.toolkit.form.label.assemblyNotes" path="assemblyNotes"/>
 	<acme:input-textbox code="any.toolkit.form.label.furtherInfo" path="furtherInfo"/>
 	<acme:input-money code="inventor.toolkit.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-textbox code="any.toolkit.form.label.inventor" path="inventor"/>
