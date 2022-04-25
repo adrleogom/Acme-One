@@ -9,11 +9,11 @@ import acme.testing.TestHarness;
 public class InventorToolkitListMineShowTest extends TestHarness{
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/any/item/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/toolkit/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positive(final int recordIndex, final String name,
-		final String code, final String technology, final String description, 
-		final String retailPrice, final String furtherInfo, final String inventor) {
+	public void positive(final int recordIndex,final String code, final String title,
+		  final String description,final String assemblyNotes,final String published, 
+		final String retailPrice, final String furtherInfo) {
 		
 		super.signIn("inventor4", "inventor4");
 
@@ -23,20 +23,21 @@ public class InventorToolkitListMineShowTest extends TestHarness{
 		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, code);
-		super.checkColumnHasValue(recordIndex, 1, name);
+		super.checkColumnHasValue(recordIndex, 1, title);
 		
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 	
-		super.checkInputBoxHasValue("name", name);
 		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("technology", technology);
+		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("description", description);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
+		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
+		super.checkInputBoxHasValue("published", published);
 		super.checkInputBoxHasValue("furtherInfo", furtherInfo);
-		super.checkInputBoxHasValue("inventor", inventor);
+		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		
+
 		super.checkButtonExists("Components and Tools");
 		super.clickOnButton("Components and Tools");
 		
