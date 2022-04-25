@@ -2,6 +2,7 @@
 package acme.features.any.toolkit;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -68,9 +69,15 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		final Set<String> currency = currencies.stream().collect(Collectors.toSet());
 		
 		if(currency.size()==1) {
-		
+			
+			final Optional<String> value = currency.stream().findFirst();
 			final Double amount = this.repository.findToolkitRetailPrice(id);
-			final String moneda = currency.stream().findFirst().get();
+			String moneda = null;
+			if(value.isPresent()) {
+				moneda = value.get();
+			}else {
+				moneda = null;
+			}
 			
 			retailPrice.setAmount(amount);
 			retailPrice.setCurrency(moneda);

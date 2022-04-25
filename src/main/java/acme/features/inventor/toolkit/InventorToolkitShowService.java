@@ -1,6 +1,7 @@
 package acme.features.inventor.toolkit;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -78,9 +79,14 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		
 		
 		if(currency.size()==1) {
-		
+			final Optional<String> value = currency.stream().findFirst();
 			final Double amount = this.helperRepository.amountOfToolkitRetailPrice(id);
-			final String moneda = currency.stream().findFirst().get();
+			String moneda = null;
+			if(value.isPresent()) {
+				moneda = value.get();
+			}else {
+				moneda = null;
+			}
 			
 			retailPrice.setAmount(amount);
 			retailPrice.setCurrency(moneda);

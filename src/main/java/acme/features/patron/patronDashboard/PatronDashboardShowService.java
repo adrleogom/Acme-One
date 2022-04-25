@@ -1,5 +1,6 @@
 package acme.features.patron.patronDashboard;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, P
 	@Override
 	public PatronDashboard findOne(final Request<PatronDashboard> request) {
 		assert request != null;
-		final Map<Status, Integer> totalNumberOfPatronages = new HashMap<Status, Integer>();
+		final EnumMap<Status, Integer> totalNumberOfPatronages = new EnumMap<>(Status.class);
 		final Map<Pair<Status, String>, Stat> budgetOfPatronages = new HashMap<Pair<Status, String>, Stat>();
 		final PatronDashboard result = new PatronDashboard();
 

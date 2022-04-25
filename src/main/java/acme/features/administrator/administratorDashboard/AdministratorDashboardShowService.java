@@ -1,6 +1,7 @@
 
 package acme.features.administrator.administratorDashboard;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +40,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		int totalNumberOfComponents;
 		int totalNumberOfTools;
-		final Map<Status, Integer> totalNumberOfPatronages = new HashMap<Status, Integer>();
+		final EnumMap<Status, Integer> totalNumberOfPatronages = new EnumMap<>(Status.class);
 		final Map<Pair<String, String>, Stat> retailPriceOfComponents = new HashMap<Pair<String, String>, Stat>();
 		final Map<Money, Stat> retailPriceOfTools = new HashMap<Money, Stat>();
 		final Map<Pair<Status, String>, Stat> budgetOfPatronages = new HashMap<Pair<Status, String>, Stat>();
