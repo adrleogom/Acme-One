@@ -1,0 +1,7 @@
+recordIndex,title,author,body,email,confirmation
+0,create chirp 0,,chirp sin autor,chirp@gmail.com,true
+1,,autor c1,chirp sin titulo,chirp@gmail.com,false
+2,chirp sin body,autor c2,,chirp@gmail.com,true
+3,chirpchirp,autor c3,chirp sin correo,,false
+4,,,,,true
+5,,,chirp sin titulo ni autor,,false
