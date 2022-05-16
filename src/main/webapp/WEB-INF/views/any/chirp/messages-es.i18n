@@ -20,4 +20,6 @@ any.chirp.form.label.title = Título
 any.chirp.form.label.author = Autor
 any.chirp.form.label.body = Cuerpo
 any.chirp.form.label.email = Correo electrónico
+
+any.chirp.form.label.confirmation= Confirma la creación
 any.chirp.form.button.create = Crear Chirrido
