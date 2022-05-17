@@ -32,6 +32,9 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 	@Autowired
 	protected InventorPatronageShowService			showService;
 
+	@Autowired 
+	protected InventorPatronageUpdateService updateService; 
+	
 	// Constructors -----------------------------------------------------------
 
 
@@ -39,6 +42,7 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list", this.listAllService);
+		super.addCommand("update", this.updateService);
 	}
 
 }
