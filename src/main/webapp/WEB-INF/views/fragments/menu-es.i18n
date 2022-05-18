@@ -18,7 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.any #################################################################
 
 master.menu.any = Cualquier usuario
-master.menu.any.recent-chirps = Listar chirridos recientes
+master.menu.any.recent-chirps = Lista de chirridos recientes
 master.menu.any.toolkits = Lista de toolkits publicados
 master.menu.any.items = Lista de items publicados
 master.menu.any.all-users = Cuentas de usuario
