@@ -74,6 +74,7 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.authenticated = Authenticated
 master.menu.authenticated.systemConfiguration = System currencies
 master.menu.authenticated.list-announcement = Announcements
+master.menu.authenticated.money-exchage = Money exchange
 
 # master.menu.user-account ####################################################
 
