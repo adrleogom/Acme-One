@@ -42,7 +42,6 @@ public class PatronageReport extends AbstractEntity {
 	
 	@NotBlank
 	@Length(min = 0, max = 255)
-	@NotNull
 	protected String 			memorandum;
 	
 	@URL
@@ -56,8 +55,8 @@ public class PatronageReport extends AbstractEntity {
 	
 	// Relationships ----------------------------------------------------------
 	@NotNull
+	@Valid  
 	@ManyToOne(optional=false)
-	@Valid
 	protected Patronage			patronage;
 	
 }

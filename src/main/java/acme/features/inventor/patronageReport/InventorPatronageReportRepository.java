@@ -13,6 +13,7 @@
 package acme.features.inventor.patronageReport;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -37,5 +38,8 @@ public interface InventorPatronageReportRepository extends AbstractRepository {
 
 	@Query("select a from Patronage a where a.id = :masterId")
 	Patronage findOnePatronageById(int masterId);
+	
+	@Query("select a from PatronageReport a")
+	List<PatronageReport> findAllPatronageReports();
 
 }

@@ -14,3 +14,6 @@ inventor.patronage-report.list.label.creationMoment = Momento de creación
 inventor.patronage-report.form.label.creationMoment = Momento de creación
 inventor.patronage-report.form.label.memorandum = Memorándum
 inventor.patronage-report.form.label.furtherInfo = Más información
+
+inventor.patronage-report.form.label.confirmation = Confirmar
+inventor.patronage-report.form.button.create = Crear
