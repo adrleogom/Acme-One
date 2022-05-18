@@ -16,12 +16,15 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:hidden-data path="creationMoment"/>	
-	<acme:input-textarea code="inventor.patronage-report.form.label.memorandum" path="memorandum"/>
-	<acme:input-url code="inventor.patronage-report.form.label.furtherInfo" path="furtherInfo"/>
+	<acme:input-textarea code="administrator.announcement.form.label.title" path="title"/>
+	<acme:input-textarea code="administrator.announcement.form.label.body" path="body"/>
+	<acme:hidden-data path="moment"/>
+	<acme:input-url code="administrator.announcement.form.label.furtherInfo" path="furtherInfo"/>
+	<acme:input-textarea code="administrator.announcement.form.label.flag" path="flag"/>	
+	
 	<jstl:if test="${command == 'create'}">
-		<acme:input-checkbox code="inventor.patronage-report.form.label.confirmation" path="confirmation"/>
+		<acme:input-checkbox code="administrator.announcement.form.label.confirmation" path="confirmation"/>
 	</jstl:if>
-	<acme:submit test="${command == 'create'}" code="inventor.patronage-report.form.button.create" action="/inventor/patronage-report/create?masterId=${masterId}"/>
+	<acme:submit test="${command == 'create'}" code="administrator.announcement.form.button.create" action="/administrator/announcement/create"/>
 	
 </acme:form>

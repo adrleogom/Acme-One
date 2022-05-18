@@ -1,5 +1,5 @@
 <%--
-- form.jsp
+- list.jsp
 -
 - Copyright (C) 2012-2022 Rafael Corchuelo.
 -
@@ -15,13 +15,9 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form>
-	<acme:hidden-data path="creationMoment"/>	
-	<acme:input-textarea code="inventor.patronage-report.form.label.memorandum" path="memorandum"/>
-	<acme:input-url code="inventor.patronage-report.form.label.furtherInfo" path="furtherInfo"/>
-	<jstl:if test="${command == 'create'}">
-		<acme:input-checkbox code="inventor.patronage-report.form.label.confirmation" path="confirmation"/>
-	</jstl:if>
-	<acme:submit test="${command == 'create'}" code="inventor.patronage-report.form.button.create" action="/inventor/patronage-report/create?masterId=${masterId}"/>
-	
-</acme:form>
+<acme:list>
+	<acme:list-column code="administrator.announcement.list.label.title" path="title" width="40%"/>
+	<acme:list-column code="administrator.announcement.list.label.moment" path="moment" width="60%"/>	
+</acme:list>
+
+<acme:button code="administrator.announcement.button.create.announcement" action="/administrator/announcement/create"/>
