@@ -37,7 +37,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "published","furtherInfo");
+		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "furtherInfo");
 		
 	}
 
@@ -47,7 +47,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "published","furtherInfo");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
 		
 	}
 
@@ -66,6 +66,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		
 		result = new Toolkit();
 		result.setInventor(inventor);
+		result.setPublished(false);
 		return result;
 	}
 

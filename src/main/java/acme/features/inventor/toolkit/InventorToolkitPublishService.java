@@ -1,8 +1,11 @@
 package acme.features.inventor.toolkit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.item.Item;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -15,7 +18,7 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorToolkitUpdateService implements AbstractUpdateService<Inventor, Toolkit> {
+public class InventorToolkitPublishService implements AbstractUpdateService<Inventor, Toolkit> {
 
 	
 	// Internal state ---------------------------------------------------------
@@ -78,7 +81,6 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 
 		masterId = request.getModel().getInteger("id");
 		result = this.repository.findOneToolkitById(masterId);
-		
 		return result;
 	}
 
@@ -88,13 +90,32 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert errors != null;
 		
+		Collection<Item> items;
+		
+		items = this.repository.findManyItemsByToolkitId(entity.getId());
+		Boolean published = true;
+		
+		if (!errors.hasErrors("emptyItems")) {
+			errors.state(request, items!=null && !items.isEmpty() , "emptyItems", "inventor.toolkit.form.error.emptyItems");
+		}
+		
+		for (final Item item : items) {
+			published = published && item.isPublished();
+		}
+		
+		if (!errors.hasErrors("itemNoPublished")) {
+			errors.state(request, published , "itemNoPublished", "inventor.toolkit.form.error.itemNoPublished");
+		}
+		
+		
 	}
 
 	@Override
 	public void update(final Request<Toolkit> request, final Toolkit entity) {
 		assert request != null;
 		assert entity != null;
-
+		
+		entity.setPublished(true);
 		this.repository.save(entity);
 		
 	}
@@ -108,5 +129,4 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 			PrincipalHelper.handleUpdate();
 		}
 	}
-
 }
