@@ -14,3 +14,6 @@ inventor.patronage-report.list.label.creationMoment = Creation moment
 inventor.patronage-report.form.label.creationMoment = Creation moment
 inventor.patronage-report.form.label.memorandum = Memorandum
 inventor.patronage-report.form.label.furtherInfo = Further information
+
+inventor.patronage-report.form.label.confirmation = Confirm
+inventor.patronage-report.form.button.create = Create
