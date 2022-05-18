@@ -15,15 +15,29 @@
 
 <%@ page language="java"%>
 
-<acme:form readonly="${readonly}">
-	<acme:input-textbox code="inventor.item.form.label.itemType" path="itemType"/>
+<acme:form>
+	<acme:input-select code="inventor.item.form.label.itemType" path="itemType">
+		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${itemType == 'COMPONENT'}" />
+		<acme:input-option code="TOOL" value="TOOL" selected="${itemType == 'TOOL'}"/>
+	</acme:input-select>
 	<acme:input-textbox code="inventor.item.form.label.name" path="name"/>
-	<acme:input-textbox code="inventor.item.form.label.code" path ="code"/>
 	<acme:input-textbox code="inventor.item.form.label.technology" path ="technology"/>
-	<acme:input-textbox code="inventor.item.form.label.published" path ="published"/>
 	<acme:input-textarea code="inventor.item.form.label.description" path ="description"/>
 	<acme:input-money code="inventor.item.form.label.retailPrice" path ="retailPrice"/>
 	<acme:input-url code="inventor.item.form.label.furtherInfo" path ="furtherInfo"/>
+	
+	<jstl:if test="${command == 'create'}">
+		<acme:submit code="inventor.item.form.button.create" action="/inventor/item/create"/>
+	</jstl:if>
+	
+	<jstl:if test="${acme:anyOf(command, 'show,delete') && published == false }">
+		<acme:input-textbox code="inventor.item.form.label.code" path ="code"/>
+		<acme:input-textbox code="inventor.item.form.label.published" path ="published"/>
+		<acme:submit code="inventor.item.form.button.delete" action="/inventor/item/delete"/>
+		<acme:submit code="inventor.item.form.button.publish" action="/inventor/item/publish"/>
+		<acme:submit code="inventor.item.form.button.update" action="/inventor/item/update"/>	
+	</jstl:if>
+
 		
 </acme:form>
 
