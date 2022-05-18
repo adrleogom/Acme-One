@@ -23,7 +23,7 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 	@Autowired
 	protected InventorToolkitRepository repository;
 	
-	// AbstractUpdateService<Authenticated, Toolkit> interface ---------------
+	// AbstractUpdateService<Inventor, Toolkit> interface ---------------
 	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -55,7 +55,7 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "furtherInfo");
+		request.bind(entity, errors, "title", "description", "assemblyNotes", "furtherInfo");
 		
 	}
 
@@ -65,7 +65,7 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
+		request.unbind(entity, model, "title", "description", "assemblyNotes", "furtherInfo");
 		
 	}
 

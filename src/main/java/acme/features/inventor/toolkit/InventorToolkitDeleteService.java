@@ -3,6 +3,7 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -52,7 +53,7 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "published","furtherInfo");
+		request.bind(entity, errors, "title", "description", "assemblyNotes", "published","furtherInfo");
 		
 	}
 
@@ -62,7 +63,7 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "published","furtherInfo");
+		request.unbind(entity, model, "title", "description", "assemblyNotes", "published","furtherInfo");
 		
 	}
 
@@ -91,7 +92,11 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 	public void delete(final Request<Toolkit> request, final Toolkit entity) {
 		assert request != null;
 		assert entity != null;
-
+		
+		for (final Quantity q:this.repository.findManyQuantitiesByToolkitId(entity.getId())) {
+			this.repository.delete(q);
+		}
+		
 		this.repository.delete(entity);
 		
 	}

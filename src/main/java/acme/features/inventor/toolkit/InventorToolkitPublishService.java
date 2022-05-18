@@ -58,7 +58,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "furtherInfo");
+		request.bind(entity, errors, "title", "description", "assemblyNotes", "furtherInfo");
 		
 	}
 
@@ -68,7 +68,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
+		request.unbind(entity, model, "title", "description", "assemblyNotes", "furtherInfo");
 		
 	}
 

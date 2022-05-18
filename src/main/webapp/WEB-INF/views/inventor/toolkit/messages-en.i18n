@@ -21,10 +21,11 @@ inventor.toolkit.form.label.retailPrice= Retail Price
 inventor.toolkit.form.label.published=Published
 
 inventor.toolkit.form.button.items=Components and Tools
-inventor.toolkit.form.buttton.create = Create toolkit
-inventor.toolkit.form.buttton.update = Update toolkit
-inventor.toolkit.form.buttton.delete = Delete toolkit
-inventor.toolkit.form.buttton.publish = Publish toolkit
+inventor.toolkit.form.button.create = Create toolkit
+inventor.toolkit.form.button.update = Update toolkit
+inventor.toolkit.form.button.delete = Delete toolkit
+inventor.toolkit.form.button.publish = Publish toolkit
+inventor.toolkit.form.button.quantity = Add component or tool
 
 inventor.toolkit.form.error.itemNoPublished = Items associated to this toolkit have not been published
 inventor.toolkit.form.error.emptyItems = There is no item associated to this toolkit

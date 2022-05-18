@@ -21,10 +21,11 @@ inventor.toolkit.form.label.retailPrice=Precio al por menor
 inventor.toolkit.form.label.published=Publicado
 
 inventor.toolkit.form.button.items=Componentes y Herramientas
-inventor.toolkit.form.buttton.create = Crear juego de herramientas
-inventor.toolkit.form.buttton.update = Actualizar juego de herramientas
-inventor.toolkit.form.buttton.delete = Borrar juego de herramientas
-inventor.toolkit.form.buttton.publish = Publicar juego de herramientas
+inventor.toolkit.form.button.create = Crear juego de herramientas
+inventor.toolkit.form.button.update = Actualizar juego de herramientas
+inventor.toolkit.form.button.delete = Borrar juego de herramientas
+inventor.toolkit.form.button.publish = Publicar juego de herramientas
+inventor.toolkit.form.button.quantity = Añadir componente o herramienta
 
 inventor.toolkit.form.error.itemNoPublished = Los componentes y/o herramientas asociados a este juego de herramientas no han sido publicados
 inventor.toolkit.form.error.emptyItems = No hay componentes ni herramientas asociados a este juego de herramientas
