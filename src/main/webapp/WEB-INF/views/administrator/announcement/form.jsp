@@ -19,7 +19,7 @@
 	<acme:input-textarea code="administrator.announcement.form.label.title" path="title"/>
 	<acme:input-textarea code="administrator.announcement.form.label.body" path="body"/>
 	<acme:hidden-data path="moment"/>
-	<acme:input-url code="administrator.announcement.form.label.furtherInfo" path="furtherInfo"/>
+	<acme:input-textarea code="administrator.announcement.form.label.furtherInfo" path="furtherInfo"/>
 	<acme:input-textarea code="administrator.announcement.form.label.flag" path="flag"/>	
 	
 	<jstl:if test="${command == 'create'}">

@@ -1,5 +1,5 @@
-recordIndex,title,body,furtherInfo
-7,title,body,http://www.google.com
+recordIndex,title,body,furtherInfo,confirmation,flag
+6,Title,Body,http://www.google.com,true,false
 
 
 
