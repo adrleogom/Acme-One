@@ -24,6 +24,6 @@
 	<acme:list-column code = "inventor.item.list.label.published" path ="published" />
 </acme:list>
 
-<jstl:if test="${command == 'list-mine'}">
+ <jstl:if test="${command == 'list-mine'}">
 	<acme:button code="inventor.item.list.button.create" action="/inventor/item/create"/>
-</jstl:if>	
+</jstl:if>	 

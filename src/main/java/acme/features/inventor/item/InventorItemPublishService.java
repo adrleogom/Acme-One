@@ -15,7 +15,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 
 	@Autowired
 	protected InventorItemRepository repository;
-	
+
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
@@ -39,7 +39,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors,"itemType","name",  "technology", "description", "retailPrice", "furtherInfo","code");
+		request.bind(entity, errors, "itemType", "technology", "description", "retailPrice", "furtherInfo");
 		
 	}
 
@@ -48,7 +48,8 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model,"itemType","name", "technology", "description", "retailPrice", "furtherInfo", "code", "published");
+		request.unbind(entity, model, "itemType", "technology", "description", "retailPrice", "furtherInfo");
+		
 	}
 
 	@Override
@@ -60,8 +61,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneItemById(id);
-		
-		return result;
+		return result;	
 	}
 
 	@Override
@@ -70,14 +70,8 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert entity != null;
 		assert errors != null;
 		
-		if(errors.hasErrors("code")) {
-			
-			Item existing;
-			
-			existing= this.repository.findItemByCode(entity.getCode());
-			errors.state(request, existing==null, "code", "inventor.item.form.error.duplicated");
-		}
-		 if(errors.hasErrors("retailPrice")) {
+		
+		 if(!errors.hasErrors("retailPrice")) {
 			 errors.state(request, entity.getRetailPrice().getAmount()>0, "retailPrice", "inventor.item.form.error.negative-retailPrice");
 			 
 		 }
@@ -86,12 +80,17 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 
 	@Override
 	public void update(final Request<Item> request, final Item entity) {
+		
 		assert request != null;
 		assert entity != null;
-		
+
 		entity.setPublished(true);
 		this.repository.save(entity);
 		
 	}
+	
+
+	
+	
 
 }

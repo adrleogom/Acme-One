@@ -62,7 +62,8 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneItemById(id);
 		
-		return result;	}
+		return result;	
+		}
 
 	@Override
 	public void validate(final Request<Item> request, final Item entity, final Errors errors) {

@@ -10,6 +10,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
+import acme.helper.toolkit.ItemAndToolkitCodeGenerator;
 import acme.roles.Inventor;
 
 @Service
@@ -17,6 +18,9 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected ItemAndToolkitCodeGenerator codeGenerator;
 	
 	final Random random = new Random();
 	
@@ -54,9 +58,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
         
         code = string1 + "-" + int1 + "-" + char2;
         
+
 	
-		
-		
         result.setCode(code);
         result.setPublished(false);
 		result.setInventor(inventor);
@@ -81,15 +84,9 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 		
-		if(errors.hasErrors("code")) {
-			
-			Item existing;
-			
-			existing= this.repository.findItemByCode(entity.getCode());
-			errors.state(request, existing==null, "code", "inventor.item.form.error.duplicated");
-		}
 		
-		 if(errors.hasErrors("retailPrice")) {
+		
+		 if(!errors.hasErrors("retailPrice")) {
 			 errors.state(request, entity.getRetailPrice().getAmount()>0, "retailPrice", "inventor.item.form.error.negative-retailPrice");
 			 
 		 }
