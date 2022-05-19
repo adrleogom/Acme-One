@@ -1,5 +1,8 @@
 package acme.features.patron.patronage;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +57,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "inventorId");
+		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo");
 		
 	}
 
@@ -63,7 +66,9 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		
+		model.setAttribute("inventors", this.repository.findAllInventors());
+		model.setAttribute("inventorId", entity.getInventor().getId());
 		request.unbind(entity, model, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "published");
 		
 	}
@@ -87,6 +92,15 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
+		if(!errors.hasErrors("initialDate")) {
+			final Date minInitialDate= DateUtils.addMonths( new Date(System.currentTimeMillis() - 1),1);
+			errors.state(request,entity.getInitialDate().after(minInitialDate), "initialDate", "patron.patronage.form.error.distance.current.initial");
+		}
+		
+		if(!errors.hasErrors("finalDate")) {
+			final Date minFinalDate=DateUtils.addMonths(entity.getInitialDate(), 1);
+			errors.state(request,entity.getFinalDate().after(minFinalDate), "finalDate", "patron.patronage.form.error.distance.initial.final");
+		}
 	}
 
 	@Override

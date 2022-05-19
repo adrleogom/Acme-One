@@ -61,10 +61,12 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		request.unbind(entity, model, "status", "code", "legalStuff",
-			"budget", "initialDate","finalDate","furtherInfo","inventor.company","inventor.statement","inventor.furtherInfo","inventor.identity.name","inventor.identity.surname");
-		model.setAttribute("readonly", true);
+		
+		model.setAttribute("inventors", this.repository.findAllInventors());
+		model.setAttribute("inventorId", entity.getInventor().getId());
+		request.unbind(entity, model, "status", "code", "legalStuff", "published",
+			"budget", "initialDate","finalDate", "furtherInfo","inventor.company","inventor.statement","inventor.furtherInfo","inventor.identity.name","inventor.identity.surname");
+		
 		
 	}
 
