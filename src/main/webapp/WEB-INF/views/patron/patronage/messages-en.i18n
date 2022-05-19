@@ -12,12 +12,16 @@ patron.patronage.list.label.code = Code
 patron.patronage.list.label.status = Status
 patron.patronage.list.label.initialDate = Initial Date
 patron.patronage.list.label.finalDate = Final Date
+patron.patronage.list.label.published = Published
 
 patron.patronage.form.label.code = Code
 patron.patronage.form.label.status = Status
 patron.patronage.form.label.legalStuff = Legal Stuff
 patron.patronage.form.label.budget = Budget
 patron.patronage.form.label.furtherInfo = Further Information
+patron.patronage.form.label.initialDate = Initial date
+patron.patronage.form.label.finalDate = Final date
+patron.patronage.form.label.inventor = Inventor
 
 
 patron.patronage.form.label.inventor.company = Inventor's company
@@ -27,3 +31,5 @@ patron.patronage.form.label.inventor.name = Inventor's name
 patron.patronage.form.label.inventor.surname = Inventor's surname
 
 patron.patronage.form.button.patronage-report = Patronage reports
+patron.patronage.list.button.create = Create patronage
+patron.patronage.form.button.create = Create

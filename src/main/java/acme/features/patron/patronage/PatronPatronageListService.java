@@ -47,7 +47,7 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 		Principal principal;
 		principal = request.getPrincipal();
 		
-		result = this.repository.findAllPatronagesPublishedOfPatron(principal.getAccountId());
+		result = this.repository.findAllPatronagesOfPatron(principal.getAccountId());
 
 		return result;
 	}
@@ -58,7 +58,7 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "status", "code", "initialDate", "finalDate");
+		request.unbind(entity, model, "status", "code", "initialDate", "finalDate", "published");
 		
 	}
 

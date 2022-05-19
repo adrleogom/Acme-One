@@ -12,7 +12,6 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -51,13 +50,11 @@ public class Patronage extends AbstractEntity {
 	@Valid
 	protected Money budget;
 	
-	@Temporal(TemporalType.DATE)
-	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				initialDate;
 
-	@Temporal(TemporalType.DATE)
-	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				finalDate;
 	
