@@ -33,3 +33,6 @@ patron.patronage.form.label.inventor.surname = Apellidos del inventor
 patron.patronage.form.button.patronage-report = Informes de patrocinio
 patron.patronage.list.button.create = Crear patrocinio
 patron.patronage.form.button.create = Crear
+patron.patronage.form.button.update = Actualizar
+patron.patronage.form.button.delete = Borrar
+patron.patronage.form.button.publish = Publicar

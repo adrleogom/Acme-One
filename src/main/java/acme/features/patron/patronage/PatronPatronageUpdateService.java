@@ -25,7 +25,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 	@Autowired
 	protected PatronPatronageRepository repository;
 	
-	// AbstractUpdateService<Inventor, Toolkit> interface ---------------
+	// AbstractUpdateService<Patron, Patronage> interface ---------------
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
