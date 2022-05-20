@@ -29,4 +29,5 @@ inventor.patronage.form.label.patron.surname = Patron's surname
 
 inventor.patronage.form.button.update = Update status
 
+inventor.patronage.form.button.create.patronage-report = Create patronage report
 inventor.patronage.form.button.patronage-report = Patronage reports

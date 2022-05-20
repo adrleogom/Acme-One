@@ -1,7 +1,7 @@
 package acme.features.inventor.patronageReport;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +27,16 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
-
-		return true;
+		
+		final boolean res;
+		Inventor inventor;
+		int idPatronage;
+		idPatronage = request.getModel().getInteger("masterId");
+		final Patronage patronage = this.repository.findOnePatronageById(idPatronage);
+		inventor = this.repository.findInventorByUserId(request.getPrincipal().getAccountId());
+		res = patronage != null && patronage.getInventor().equals(inventor)
+			&& patronage.isPublished();
+		return res;
 	}
 
 	@Override
@@ -68,23 +76,10 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		patronage =this.repository.findOnePatronageById(masterId);
 
 		creationMoment = new Date(System.currentTimeMillis() - 1);
-		
-		Integer sum = 1;
 
-		final List<PatronageReport> patronages = this.repository.findAllPatronageReports();
-		
-		Integer i = 0;
-		
-		while(i<patronages.size()) {
-			
-			if(patronages.get(i).getSNumber() - (patronages.size()+sum) == 0) {
-				sum +=1;
-				i = 0;
-			}
-			i++;
-		}
+		final Collection<PatronageReport> patronages = this.repository.findAllPatronageReportsByPatronageMasterId(masterId);
 
-		final Integer sNumber = patronages.size() + sum;
+		final Integer sNumber = patronages.size() + 1;
 		
 		result = new PatronageReport();
 		result.setCreationMoment(creationMoment);
@@ -114,10 +109,6 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		assert request != null;
 		assert entity != null;
 
-//		Date moment;
-//
-//		moment = new Date(System.currentTimeMillis() - 1);
-//		entity.setCreationMoment(moment);
 		this.repository.save(entity);
 		
 	}
