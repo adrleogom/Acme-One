@@ -8,24 +8,26 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-inventor.toolkit.list.label.code=Código
-inventor.toolkit.list.label.title=Título
-inventor.toolkit.list.label.=Publicado
+inventor.toolkit.list.label.code = Código
+inventor.toolkit.list.label.title = Título
+inventor.toolkit.list.label.published = Publicado
+inventor.toolkit.list.button.create = Nuevo juego de herramientas
 
-inventor.toolkit.form.label.code= Código
-inventor.toolkit.form.label.title=Título
-inventor.toolkit.form.label.description=Descripción
-inventor.toolkit.form.label.assemblyNotes=Notas de Ensamblaje
-inventor.toolkit.form.label.furtherInfo=Más Info
-inventor.toolkit.form.label.retailPrice=Precio al por menor
-inventor.toolkit.form.label.published=Publicado
+inventor.toolkit.form.label.code = Código
+inventor.toolkit.form.label.title = Título
+inventor.toolkit.form.label.description = Descripción
+inventor.toolkit.form.label.assemblyNotes = Notas de Ensamblaje
+inventor.toolkit.form.label.furtherInfo = Más Info
+inventor.toolkit.form.label.retailPrice = Precio al por menor
+inventor.toolkit.form.label.published = Publicado
 
-inventor.toolkit.form.button.items=Componentes y Herramientas
+inventor.toolkit.form.button.items = Componentes y Herramientas
 inventor.toolkit.form.button.create = Crear juego de herramientas
 inventor.toolkit.form.button.update = Actualizar juego de herramientas
 inventor.toolkit.form.button.delete = Borrar juego de herramientas
 inventor.toolkit.form.button.publish = Publicar juego de herramientas
-inventor.toolkit.form.button.quantity = Añadir componente o herramienta
+inventor.toolkit.form.button.quantity = Lista de cantidades
 
-inventor.toolkit.form.error.itemNoPublished = Los componentes y/o herramientas asociados a este juego de herramientas no han sido publicados
-inventor.toolkit.form.error.emptyItems = No hay componentes ni herramientas asociados a este juego de herramientas
+
+inventor.toolkit.form.error.item-no-published = Los componentes y/o herramientas asociados a este juego de herramientas no han sido publicados
+inventor.toolkit.form.error.empty-items = No hay componentes ni herramientas asociados a este juego de herramientas

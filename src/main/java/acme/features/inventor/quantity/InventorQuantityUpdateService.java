@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.item.Item;
 import acme.entities.quantity.Quantity;
-import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.HttpMethod;
@@ -15,19 +14,14 @@ import acme.framework.controllers.Request;
 import acme.framework.controllers.Response;
 import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorQuantityCreateService implements AbstractCreateService<Inventor, Quantity> {
-
-	// Internal state ---------------------------------------------------------
-
-	@Autowired
-	protected InventorQuantityRepository repository;
+public class InventorQuantityUpdateService implements AbstractUpdateService<Inventor, Quantity>  {
 	
-	// AbstractUpdateService<Inventor, Quantity> interface ---------------
-
+	@Autowired
+	InventorQuantityRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
@@ -35,25 +29,21 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		
 		final boolean result;
 		int masterId;
-		Toolkit toolkit;
 		int userAccountId;
 		Principal principal;
 		Inventor inventor;
-		Collection<Item> items;
+		final Quantity quantity;
 
 		
-		masterId = request.getModel().getInteger("masterId");
-		toolkit = this.repository.findOneToolkitById(masterId);
+		masterId = request.getModel().getInteger("id");
+		quantity = this.repository.findOneQuantityById(masterId);
 		
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
-		
 		inventor = this.repository.findOneInventorByUserAccountId(userAccountId);
-		items = this.repository.findManyPublishedItemsByAccountId(userAccountId);
-
-		items.removeAll(this.repository.findManyItemsByToolkitId(masterId));
-		result = toolkit.getInventor().getId() == inventor.getId() && !items.isEmpty() && !toolkit.isPublished();
-			
+		
+		result = quantity.getToolkit().getInventor().getId() == inventor.getId() && !quantity.getToolkit().isPublished();
+		
 		return result;
 	}
 
@@ -75,14 +65,14 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert model != null;
 		
 		Principal principal;
-		int masterId;
 		Collection<Item> items;
-		
-		masterId = request.getModel().getInteger("masterId");
-		model.setAttribute("masterId", masterId);
+		Collection<Item> items2;
+
 		principal = request.getPrincipal();
 		items = this.repository.findManyPublishedItemsByAccountId(principal.getAccountId());
-		items.removeAll(this.repository.findManyItemsByToolkitId(masterId));
+		items2 = this.repository.findManyItemsByToolkitId(entity.getToolkit().getId());
+		items2.remove(this.repository.findOneQuantityById(entity.getId()).getItem());
+		items.removeAll(items2);
 		model.setAttribute("items", items);
 		
 		request.unbind(entity, model, "number");
@@ -90,18 +80,16 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	}
 
 	@Override
-	public Quantity instantiate(final Request<Quantity> request) {
+	public Quantity findOne(final Request<Quantity> request) {
 		assert request !=null;
 		
-		final Quantity result;
-		int masterId;
-		Toolkit toolkit;
+		Quantity result;
+		int id;
 		
-		masterId = request.getModel().getInteger("masterId");
-		toolkit = this.repository.findOneToolkitById(masterId);		
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneQuantityById(id);
 		
-		result = new Quantity();
-		result.setToolkit(toolkit);
+		
 		return result;
 	}
 
@@ -110,7 +98,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
 		final Integer itemId = Integer.valueOf(request.getModel().getAttribute("item").toString()) ;
 		if (this.repository.findOneItemById(itemId).getItemType().toString().equals("TOOL") && !errors.hasErrors("number")) {
 			errors.state(request, entity.getNumber()==1 , "number", "inventor.quantity.form.error.more-than-one");
@@ -118,12 +106,11 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	}
 
 	@Override
-	public void create(final Request<Quantity> request, final Quantity entity) {
+	public void update(final Request<Quantity> request, final Quantity entity) {
 		assert request != null;
 		assert entity != null;
-		
+
 		this.repository.save(entity);
-		
 	}
 	
 	@Override
@@ -135,6 +122,5 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 			PrincipalHelper.handleUpdate();
 		}
 	}
-
 
 }

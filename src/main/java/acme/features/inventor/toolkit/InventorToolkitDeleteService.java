@@ -53,7 +53,7 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "title", "description", "assemblyNotes", "published","furtherInfo");
+		request.bind(entity, errors, "title", "description", "assemblyNotes", "published","furtherInfo", "code");
 		
 	}
 
@@ -63,7 +63,7 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "assemblyNotes", "published","furtherInfo");
+		request.unbind(entity, model, "title", "description", "assemblyNotes", "published","furtherInfo", "code");
 		
 	}
 

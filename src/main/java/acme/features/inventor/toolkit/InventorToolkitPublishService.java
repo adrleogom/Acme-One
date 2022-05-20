@@ -58,7 +58,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "title", "description", "assemblyNotes", "furtherInfo");
+		request.bind(entity, errors, "title", "description", "assemblyNotes", "furtherInfo", "code");
 		
 	}
 
@@ -68,7 +68,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "assemblyNotes", "furtherInfo");
+		request.unbind(entity, model, "title", "description", "assemblyNotes", "furtherInfo", "code");
 		
 	}
 
@@ -96,7 +96,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		Boolean published = true;
 		
 		if (!errors.hasErrors("emptyItems")) {
-			errors.state(request, items!=null && !items.isEmpty() , "emptyItems", "inventor.toolkit.form.error.emptyItems");
+			errors.state(request, items!=null && !items.isEmpty() , "*", "inventor.toolkit.form.error.empty-items");
 		}
 		
 		for (final Item item : items) {
@@ -104,7 +104,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		}
 		
 		if (!errors.hasErrors("itemNoPublished")) {
-			errors.state(request, published , "itemNoPublished", "inventor.toolkit.form.error.itemNoPublished");
+			errors.state(request, published , "*", "inventor.toolkit.form.error.item-no-published");
 		}
 		
 		
