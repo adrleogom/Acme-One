@@ -17,15 +17,6 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 
 	@Autowired
 	protected InventorItemRepository repository;
-	
-	@Override
-	public void unbind (final Request<Item> request, final Item entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-		
-		request.unbind(entity, model, "name", "code", "itemType", "published");
-	}
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -46,6 +37,15 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 		
 		return result;
 		
+	}
+	
+	@Override
+	public void unbind (final Request<Item> request, final Item entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+		
+		request.unbind(entity, model, "name", "code", "itemType", "published");
 	}
 	
 }
