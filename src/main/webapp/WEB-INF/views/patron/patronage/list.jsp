@@ -17,7 +17,9 @@
 
 <acme:list>
 	<acme:list-column code="patron.patronage.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="patron.patronage.list.label.status" path="status" width="30%"/>
+	<acme:list-column code="patron.patronage.list.label.status" path="status" width="15%"/>
 	<acme:list-column code="patron.patronage.list.label.initialDate" path="initialDate" width="30%"/>
-	<acme:list-column code="patron.patronage.list.label.finalDate" path="finalDate" width="30%"/>	
+	<acme:list-column code="patron.patronage.list.label.finalDate" path="finalDate" width="30%"/>
+	<acme:list-column code="patron.patronage.list.label.published" path="published" width="15%"/>	
 </acme:list>
+<acme:button code="patron.patronage.list.button.create" action="/patron/patronage/create"/>   
