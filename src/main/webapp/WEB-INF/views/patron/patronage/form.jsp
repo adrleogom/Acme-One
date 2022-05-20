@@ -16,6 +16,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
+	<acme:input-textbox code="patron.patronage.form.label.code" path="code"/>	
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget" readonly="false"/>	
 	<acme:input-moment code="patron.patronage.form.label.initialDate" path="initialDate" readonly="false"/>
 	<acme:input-moment code="patron.patronage.form.label.finalDate" path="finalDate" readonly="false"/>
@@ -35,7 +36,6 @@
 			<acme:submit code="patron.patronage.form.button.publish" action="/patron/patronage/publish"/>
 		</jstl:when>
 		<jstl:when test="${command == 'show'}">
-			<acme:input-textbox code="patron.patronage.form.label.code" path="code"/>	
 			<acme:input-textbox code="patron.patronage.form.label.status" path="status"/>	
 			<acme:input-textbox code="patron.patronage.form.label.inventor.company" path="inventor.company"/>	
 			<acme:input-textarea code="patron.patronage.form.label.inventor.statement" path="inventor.statement"/>

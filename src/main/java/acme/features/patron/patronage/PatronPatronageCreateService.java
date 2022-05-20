@@ -1,7 +1,6 @@
 package acme.features.patron.patronage;
 
 import java.util.Date;
-import java.util.Random;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,6 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 
 	@Autowired
 	protected PatronPatronageRepository repository;
-	
-	private final Random random = new Random();
 
 	// AbstractCreateService<Inventor, PatronageReport> interface --------------
 	
@@ -42,7 +39,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		
 		entity.setInventor(this.repository.findOneInventorById(Integer.valueOf(request.getModel().getAttribute("inventorId").toString())));
 		entity.setPublished(false);
-		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "inventorId");
+		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "inventorId", "code");
 		
 	}
 
@@ -52,7 +49,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "published");
+		request.unbind(entity, model, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "published", "code");
 		model.setAttribute("inventors", this.repository.findAllInventors());
 		model.setAttribute("readonly", false);
 		
@@ -63,38 +60,9 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert request != null;
 
 		final Patronage result;
-		String code;
-		
-		final String setOfChars = "ABCDEFGHIJLMNOPQRSTUVWXYZ";
-		final StringBuilder  string1 = new StringBuilder();;
-		char char2;
-		int int1;
-		for(int i=0 ; i<=2; i++) {
-			final int randomInt = this.random.nextInt(setOfChars.length());
-		    string1.append(setOfChars.charAt(randomInt));
-		  }
-		char2 = setOfChars.charAt(this.random.nextInt(setOfChars.length()));
-
-		int1 = this.random.nextInt(899)    + 100;
-
-		code = string1 + "-" + int1 + "-" + char2;
-		
-		while(this.repository.findOnePatronageByCode(code)!=null) {
-			for(int i=0 ; i<=2; i++) {
-				final int randomInt = this.random.nextInt(setOfChars.length());
-				string1.append(setOfChars.charAt(randomInt));
-			}
-			char2 = setOfChars.charAt(this.random.nextInt(setOfChars.length()));
-
-			int1 = this.random.nextInt(899)	+ 100;
-
-			code = string1 + "-" + int1 + "-" + char2;
-		}
-		
 		result = new Patronage();
 		result.setInitialDate(DateUtils.addMonths( new Date(System.currentTimeMillis() - 1),2));
 		result.setFinalDate(DateUtils.addMonths( new Date(System.currentTimeMillis() - 1),4));
-		result.setCode(code);
 		result.setStatus(Status.PROPOSED);
 		result.setPatron(this.repository.findPatronByUserId(request.getPrincipal().getAccountId()));
 		
@@ -107,6 +75,14 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
+		if (!errors.hasErrors("code")) {
+			Patronage patronage;
+			
+			patronage = this.repository.findOnePatronageByCode(entity.getCode());
+			
+			errors.state(request, patronage == null, "code", "patron.patronage.form.error.existent");
+		}
+		
 		if(!errors.hasErrors("initialDate")) {
 			final Date minInitialDate= DateUtils.addMonths( new Date(System.currentTimeMillis() - 1),1);
 			errors.state(request,entity.getInitialDate().after(minInitialDate), "initialDate", "patron.patronage.form.error.distance.current.initial");
@@ -117,8 +93,21 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 			errors.state(request,entity.getFinalDate().after(minFinalDate), "finalDate", "patron.patronage.form.error.distance.initial.final");
 		}
 		
-		
-	}
+		if (entity.getBudget()!=null && !errors.hasErrors("budget")) {
+				final String[] currencies=this.repository.getSystemConfiguration().getAcceptedCurrencies().split(",");
+	
+	            Boolean acceptedCurrency=false;
+	            for(int i=0;i<currencies.length;i++) {
+		                if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
+	                    acceptedCurrency=true;
+	                }
+	            }
+				
+				errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
+				errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.non-accepted-currency");
+			}
+		}
+	
 
 	@Override
 	public void create(final Request<Patronage> request, final Patronage entity) {
