@@ -18,6 +18,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.patronage.Patronage;
+import acme.entities.patronage.PatronageReport;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
 import acme.roles.Patron;
@@ -45,5 +47,11 @@ public interface PatronPatronageRepository extends AbstractRepository {
 
 	@Query("select a from Patron a where a.userAccount.id = :id")
 	Patron findOnePatronByUserAccountId(int id);
+
+	@Query("select a from SystemConfiguration a")
+	SystemConfiguration getSystemConfiguration();
+	
+	@Query("select a from PatronageReport a where a.patronage.id = :id")
+	Collection<PatronageReport> findAllPatronageReportsByPatronageId(int id);
 
 }
