@@ -26,4 +26,7 @@ inventor.patronage.form.label.patron.furtherInfo = Patron's further information
 inventor.patronage.form.label.patron.name = Patron's name
 inventor.patronage.form.label.patron.surname = Patron's surname
 
+
+inventor.patronage.form.button.update = Update status
+
 inventor.patronage.form.button.patronage-report = Patronage reports

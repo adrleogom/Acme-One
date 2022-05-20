@@ -74,6 +74,7 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.authenticated = Authenticated
 master.menu.authenticated.systemConfiguration = System currencies
 master.menu.authenticated.list-announcement = Announcements
+master.menu.authenticated.money-exchage = Money exchange
 
 # master.menu.user-account ####################################################
 
@@ -84,3 +85,7 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.inventor = Inventor data
+master.menu.user-account.become-inventor = Become an inventor
+master.menu.user-account.patron = Patron data
+master.menu.user-account.become-patron = Become a patron

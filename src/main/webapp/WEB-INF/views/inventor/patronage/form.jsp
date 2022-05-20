@@ -16,6 +16,19 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form readonly="${readonly}">
+
+	<jstl:if test="${status!='PROPOSED'}">
+		<acme:input-textbox code="inventor.patronage.form.label.status" path="status" readonly="true"/>
+	</jstl:if>
+	
+	<jstl:if test="${status='PROPOSED'}">
+		<acme:input-select path="status" code="inventor.patronage.form.label.status">
+			<acme:input-option code="PROPOSED" value="PROPOSED" selected="true"/>
+			<acme:input-option code="ACCEPTED" value="ACCEPTED"/>
+			<acme:input-option code="DENIED" value="DENIED"/>
+		</acme:input-select>
+	</jstl:if>
+
 	<acme:input-textbox code="inventor.patronage.form.label.code" path="code"/>	
 	<acme:input-textbox code="inventor.patronage.form.label.status" path="status"/>	
 	<acme:input-textarea code="inventor.patronage.form.label.legalStuff" path="legalStuff"/>	
@@ -24,9 +37,15 @@
 	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>	
 	<acme:input-textarea code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
 	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo"/>	
- 	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name"/>	
-	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname"/>	 
+ 	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname"/>
+	
+	<acme:submit test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
+	<br></br>
+
 </acme:form>
+
+<acme:button code="inventor.patronage.form.button.create.patronage-report" action="/inventor/patronage-report/create?masterId=${id}"/>	
 
 <acme:button code="inventor.patronage.form.button.patronage-report" action="/inventor/patronage-report/list?masterId=${id}"/>
 
