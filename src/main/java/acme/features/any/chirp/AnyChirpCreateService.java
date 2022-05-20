@@ -68,6 +68,7 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 		assert model != null;
 
 		request.unbind(entity, model, "title", "body", "author", "email");
+		model.setAttribute("readonly", false);
 		model.setAttribute("confirmation", false);
 		
 	}
@@ -76,6 +77,10 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 	public void create(final Request<Chirp> request, final Chirp entity) {
 		assert request != null;
 		assert entity != null;
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		entity.setMoment(moment);
 		
 		this.repository.save(entity);
 	}

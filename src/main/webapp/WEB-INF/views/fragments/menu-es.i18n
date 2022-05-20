@@ -18,7 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.any #################################################################
 
 master.menu.any = Cualquier usuario
-master.menu.any.recent-chirps = Lista de chirridos recientes
+master.menu.any.recent-chirps = Lista de chirps recientes
 master.menu.any.toolkits = Lista de toolkits publicados
 master.menu.any.items = Lista de items publicados
 master.menu.any.all-users = Cuentas de usuario
@@ -77,7 +77,7 @@ master.menu.authenticated.money-exchage = Cambio de dinero
 
 # master.menu.user-account ####################################################
 
-master.menu.user-account.recent-chirps = Listar chirridos recientes
+master.menu.user-account.recent-chirps = Lista de chirps recientes
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.provider = Datos de proveedor
