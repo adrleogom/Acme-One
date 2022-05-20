@@ -60,7 +60,7 @@ public class InventorPatronageReportListService implements AbstractListService<I
 	}
 	
 	@Override
-	public void unbind (final Request<PatronageReport> request, final Collection<PatronageReport> entities, final Model model) {
+	public void unbind(final Request<PatronageReport> request, final Collection<PatronageReport> entities, final Model model) {
 		assert request != null;
 		assert !CollectionHelper.someNull(entities);
 		assert model != null;

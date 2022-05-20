@@ -91,7 +91,6 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		result.setSNumber(sNumber);
 		result.setPatronage(patronage);
 		
-		System.out.println(result.getSNumber() + " xdxdxd");
 
 		return result;
 	}

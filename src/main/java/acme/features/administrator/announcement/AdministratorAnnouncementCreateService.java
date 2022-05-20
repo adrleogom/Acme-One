@@ -35,7 +35,8 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors, "title", "flag", "body", "furtherInfo", "moment");
+
+		request.bind(entity, errors, "title", "body", "furtherInfo", "flag");
 	}
 
 	@Override
@@ -43,7 +44,8 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "title", "flag", "body", "furtherInfo", "moment");
+
+		request.unbind(entity, model, "title", "body", "furtherInfo", "flag");
 		model.setAttribute("confirmation", false);
 		model.setAttribute("readonly", false);
 	}
@@ -51,11 +53,20 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 	@Override
 	public Announcement instantiate(final Request<Announcement> request) {
 		assert request != null;
+
 		final Announcement result;
 		Date moment;
+		Administrator admin;
+		final int masterId;
+		
+		masterId = request.getPrincipal().getAccountId();
+		
+		admin = this.repository.findOneAdministratorById(masterId);
+		
 		result = new Announcement();
 		moment = new Date(System.currentTimeMillis() - 1);
 		result.setMoment(moment);
+		result.setAdministrator(admin);
 		return result;
 	}
 
@@ -65,18 +76,19 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert errors != null;
 		boolean confirmation;
+
 		confirmation = request.getModel().getBoolean("confirmation");
-		errors.state(request, confirmation, "confirmation", "administrator.announcement.confirmation.error");
+		errors.state(request, confirmation, "confirmation", "administrator.announcement.form.label.confirmation");
+		System.out.println(entity.getAdministrator());
 	}
 
 	@Override
 	public void create(final Request<Announcement> request, final Announcement entity) {
 		assert request != null;
 		assert entity != null;
-		Date moment;
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
-		this.repository.save(entity);
-	}
 
+
+		this.repository.save(entity);
+
+	}
 }

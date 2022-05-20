@@ -84,6 +84,7 @@ public class AdministratorAdministratorDashboardShowTest extends TestHarness {
 		final WebElement componentsEURTECH4min;
 		final WebElement componentsEURTECH4max;
 
+		
 		//FILA UNO ACCEPTED
 		if (driver.locateOne(By.xpath("/html/body/div[2]/div/table[3]/tbody/tr[2]/td[1]")).getText().equals("ACCEPTED")) {
 			totalBYACCEPTED = driver.locateOne(By.xpath("/html/body/div[2]/div/table[3]/tbody/tr[2]/td[2]"));
