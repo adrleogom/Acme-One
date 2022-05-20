@@ -29,3 +29,7 @@ inventor.item.list.button.create=Crear
 inventor.item.form.button.publish=Publicar
 inventor.item.form.button.delete=Eliminar
 inventor.item.form.button.update=Actualizar
+
+inventor.item.form.error.duplicated= Este código ya existe
+inventor.item.form.error.negative-retailPrice= El precio debe ser positivo
+inventor.item.form.error.invalid-currency= La moneda debe estar registrada en el sistema
