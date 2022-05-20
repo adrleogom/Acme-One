@@ -60,7 +60,6 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert errors != null;
 
 		entity.setItem(this.repository.findOneItemById(Integer.valueOf(request.getModel().getAttribute("item").toString())));
-		System.out.println(entity);
 		request.bind(entity, errors, "number");
 		
 	}
@@ -106,10 +105,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		System.out.println(errors);
-		System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 
-		System.out.println(entity.getItem());
 //		final Integer itemId = Integer.valueOf(request.getModel().getAttribute("item").toString()) ;
 //		if (this.repository.findOneItemById(itemId).getItemType().toString().equals("TOOL") && !errors.hasErrors("highNumber")) {
 //			errors.state(request, entity.getNumber()>1 , "highNumber", "inventor.quantity.form.error.highNumber");
@@ -121,9 +117,6 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 	public void create(final Request<Quantity> request, final Quantity entity) {
 		assert request != null;
 		assert entity != null;
-		System.out.println("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-
-		System.out.println(entity.getItem().getId());
 		
 		this.repository.save(entity);
 		

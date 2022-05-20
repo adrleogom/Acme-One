@@ -52,8 +52,6 @@ public class AnyToolkitPublishedListService implements AbstractListService<Any, 
 		request.unbind(entity, model, "code", "title");
 		final Collection<Item> items = this.repository.findManyItemsByToolkitId(entity.getId());
 		
-		System.out.println(this.repository.findManyItemsByToolkitId(22));
-		
 		payload = String.format("%s", items);
 		model.setAttribute("payload", payload);
 	}

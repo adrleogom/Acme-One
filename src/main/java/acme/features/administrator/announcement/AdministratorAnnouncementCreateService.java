@@ -79,7 +79,6 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "administrator.announcement.form.label.confirmation");
-		System.out.println(entity.getAdministrator());
 	}
 
 	@Override

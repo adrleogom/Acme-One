@@ -102,7 +102,6 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		result = new Toolkit();
 		result.setInventor(inventor);
 		result.setPublished(false);
-		System.out.println(code);
 		result.setCode(code);
 		return result;
 	}

@@ -10,7 +10,7 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
-import acme.helper.toolkit.ItemAndToolkitCodeGenerator;
+//import acme.helper.toolkit.ItemAndToolkitCodeGenerator;
 import acme.roles.Inventor;
 
 @Service
@@ -19,8 +19,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 	@Autowired
 	protected InventorItemRepository repository;
 	
-	@Autowired
-	protected ItemAndToolkitCodeGenerator codeGenerator;
+//	@Autowired
+//	protected ItemAndToolkitCodeGenerator codeGenerator;
 	
 	final Random random = new Random();
 	
