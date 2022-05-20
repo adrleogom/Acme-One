@@ -15,7 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form readonly="${readonly}">
+<acme:form>
 
 	<jstl:if test="${status!='PROPOSED'}">
 		<acme:input-textbox code="inventor.patronage.form.label.status" path="status" readonly="true"/>
@@ -29,16 +29,16 @@
 		</acme:input-select>
 	</jstl:if>
 
-	<acme:input-textbox code="inventor.patronage.form.label.code" path="code"/>	
+	<acme:input-textbox code="inventor.patronage.form.label.code" path="code" readonly="true"/>	
 	<acme:input-textbox code="inventor.patronage.form.label.status" path="status"/>	
-	<acme:input-textarea code="inventor.patronage.form.label.legalStuff" path="legalStuff"/>	
-	<acme:input-textbox code="inventor.patronage.form.label.budget" path="budget"/>	
-	<acme:input-url code="inventor.patronage.form.label.furtherInfo" path="furtherInfo"/>
-	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>	
-	<acme:input-textarea code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
-	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo"/>	
- 	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name"/>
-	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname"/>
+	<acme:input-textarea code="inventor.patronage.form.label.legalStuff" path="legalStuff" readonly="true"/>	
+	<acme:input-textbox code="inventor.patronage.form.label.budget" path="budget" readonly="true"/>	
+	<acme:input-url code="inventor.patronage.form.label.furtherInfo" path="furtherInfo" readonly="true"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company" readonly="true"/>	
+	<acme:input-textarea code="inventor.patronage.form.label.patron.statement" path="patron.statement" readonly="true"/>
+	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo" readonly="true"/>	
+ 	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name" readonly="true"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname" readonly="true"/>
 	
 	<acme:submit test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
 	<br></br>
