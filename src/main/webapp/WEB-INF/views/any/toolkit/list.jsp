@@ -5,4 +5,5 @@
 <acme:list>
 	<acme:list-column code="any.toolkit.form.label.code" path="code" width="30%"/>	
 	<acme:list-column code="any.toolkit.list.label.title" path="title" width="70%"/>
+	<acme:list-payload path="payload"/>
 </acme:list>  

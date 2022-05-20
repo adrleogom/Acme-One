@@ -18,7 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.any #################################################################
 
 master.menu.any = Cualquier usuario
-master.menu.any.recent-chirps = Listar chirridos recientes
+master.menu.any.recent-chirps = Lista de chirridos recientes
 master.menu.any.toolkits = Lista de toolkits publicados
 master.menu.any.items = Lista de items publicados
 master.menu.any.all-users = Cuentas de usuario
@@ -51,6 +51,7 @@ master.menu.inventor.patronages = Listar mis patronages
 master.menu.inventor.patronage-report = Listar patronage reports
 master.menu.inventor.item = Ver mis componentes y herramientas
 master.menu.inventor.toolkit = Ver mis juegos de herramientas
+master.menu.inventor.toolkit.create = Crear un nuevo juego de herramientas
 
 # master.menu.patron ########################################################
 
@@ -72,6 +73,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.authenticated = Autenticado
 master.menu.authenticated.systemConfiguration = Monedas del sistema
 master.menu.authenticated.list-announcement = Anuncios
+master.menu.authenticated.money-exchage = Cambio de dinero
 
 # master.menu.user-account ####################################################
 
@@ -82,3 +84,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+master.menu.user-account.inventor = Datos de inventor
+master.menu.user-account.become-inventor = Hazte inventor
+master.menu.user-account.patron = Datos de patron
+master.menu.user-account.become-patron = Hazte patron

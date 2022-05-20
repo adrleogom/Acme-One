@@ -1,4 +1,3 @@
-
 package acme.features.administrator.announcement;
 
 import java.util.List;

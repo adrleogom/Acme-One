@@ -1,0 +1,4 @@
+recordIndex,title,author,body,email,confirmation
+0,create chirp 0,autor c0,Chirp c0 con Autor Chirp c0,chirp@gmail.com,true
+1,create chirp 1,autor c1,Chirp c1 con Autor Chirp c1 Chirp c1 con Autor Chirp c1,chirp@gmail.com,true
+2,create chirp 2,autor c2,cuerpo chirp c2,chirp@gmail.com,true

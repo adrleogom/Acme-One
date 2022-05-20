@@ -22,3 +22,10 @@ inventor.item.form.label.published=Publicado
 inventor.item.form.label.description=Descripción
 inventor.item.form.label.retailPrice= Precio al por menor
 inventor.item.form.label.furtherInfo= Más Info
+
+inventor.item.form.button.create=Crear
+inventor.item.list.button.create=Crear
+
+inventor.item.form.button.publish=Publicar
+inventor.item.form.button.delete=Eliminar
+inventor.item.form.button.update=Actualizar

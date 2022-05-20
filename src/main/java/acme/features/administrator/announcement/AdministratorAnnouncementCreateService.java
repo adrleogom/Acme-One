@@ -27,7 +27,6 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
 		assert request != null;
-
 		return true;
 	}
 
@@ -68,7 +67,6 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		moment = new Date(System.currentTimeMillis() - 1);
 		result.setMoment(moment);
 		result.setAdministrator(admin);
-		result.setId(999);
 		return result;
 	}
 

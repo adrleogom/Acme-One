@@ -15,9 +15,17 @@ inventor.toolkit.list.label.published=Published
 inventor.toolkit.form.label.code= Code
 inventor.toolkit.form.label.title=Title
 inventor.toolkit.form.label.description=Description
-inventor.toolkit.form.label.assemblyNotes=Assemby Notes
+inventor.toolkit.form.label.assemblyNotes=Assembly Notes
 inventor.toolkit.form.label.furtherInfo=Further Info
 inventor.toolkit.form.label.retailPrice= Retail Price
 inventor.toolkit.form.label.published=Published
 
 inventor.toolkit.form.button.items=Components and Tools
+inventor.toolkit.form.button.create = Create toolkit
+inventor.toolkit.form.button.update = Update toolkit
+inventor.toolkit.form.button.delete = Delete toolkit
+inventor.toolkit.form.button.publish = Publish toolkit
+inventor.toolkit.form.button.quantity = Add component or tool
+
+inventor.toolkit.form.error.itemNoPublished = Items associated to this toolkit have not been published
+inventor.toolkit.form.error.emptyItems = There is no item associated to this toolkit

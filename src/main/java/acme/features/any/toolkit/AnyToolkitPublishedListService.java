@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.item.Item;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -46,6 +47,14 @@ public class AnyToolkitPublishedListService implements AbstractListService<Any, 
 		assert entity != null;
 		assert model != null;
 
+		final String payload;
+		
 		request.unbind(entity, model, "code", "title");
+		final Collection<Item> items = this.repository.findManyItemsByToolkitId(entity.getId());
+		
+		System.out.println(this.repository.findManyItemsByToolkitId(22));
+		
+		payload = String.format("%s", items);
+		model.setAttribute("payload", payload);
 	}
 }
