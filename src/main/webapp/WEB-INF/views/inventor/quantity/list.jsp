@@ -16,11 +16,11 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="inventor.toolkit.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="inventor.toolkit.list.label.title" path="title" width="60%"/>
-	<acme:list-column code="inventor.toolkit.list.label.published" path="published" width="20%"/>
+	<acme:list-column code="inventor.quantity.list.label.item-type" path="item.itemType" width="30%"/>
+	<acme:list-column code="inventor.quantity.list.label.item-name" path="item.name" width="40%"/>
+	<acme:list-column code="inventor.quantity.list.label.number" path="number" width="30%"/>
 </acme:list>
-<acme:button code = "inventor.toolkit.list.button.create" action = "/inventor/toolkit/create"/>
+<acme:button code = "inventor.quantity.list.button.create" action = "/inventor/quantity/create?masterId=${masterId}"/>
 
 	
 

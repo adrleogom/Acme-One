@@ -8,24 +8,26 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-inventor.toolkit.list.label.code=Code
-inventor.toolkit.list.label.title=Title
-inventor.toolkit.list.label.published=Published
+inventor.toolkit.list.label.code = Code
+inventor.toolkit.list.label.title = Title
+inventor.toolkit.list.label.published = Published
+inventor.toolkit.list.button.create = New toolkit
 
-inventor.toolkit.form.label.code= Code
-inventor.toolkit.form.label.title=Title
-inventor.toolkit.form.label.description=Description
-inventor.toolkit.form.label.assemblyNotes=Assembly Notes
-inventor.toolkit.form.label.furtherInfo=Further Info
-inventor.toolkit.form.label.retailPrice= Retail Price
-inventor.toolkit.form.label.published=Published
+inventor.toolkit.form.label.code = Code
+inventor.toolkit.form.label.title = Title
+inventor.toolkit.form.label.description = Description
+inventor.toolkit.form.label.assemblyNotes = Assembly Notes
+inventor.toolkit.form.label.furtherInfo = Further Info
+inventor.toolkit.form.label.retailPrice = Retail Price
+inventor.toolkit.form.label.published = Published
 
-inventor.toolkit.form.button.items=Components and Tools
+inventor.toolkit.form.button.items = Components and Tools
 inventor.toolkit.form.button.create = Create toolkit
 inventor.toolkit.form.button.update = Update toolkit
 inventor.toolkit.form.button.delete = Delete toolkit
 inventor.toolkit.form.button.publish = Publish toolkit
-inventor.toolkit.form.button.quantity = Add component or tool
+inventor.toolkit.form.button.quantity = Quantities list
 
-inventor.toolkit.form.error.itemNoPublished = Items associated to this toolkit have not been published
-inventor.toolkit.form.error.emptyItems = There is no item associated to this toolkit
+
+inventor.toolkit.form.error.item-no-published = Tools or components associated to this toolkit have not been published
+inventor.toolkit.form.error.empty-items = There is no tool or component associated to this toolkit
