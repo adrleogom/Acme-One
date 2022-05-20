@@ -82,8 +82,9 @@ public class InventorPatronageReportListService implements AbstractListService<I
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		request.unbind(entity, model, "sNumber", "creationMoment");
+		
+		model.setAttribute("sequenceNumber", entity.sequenceNumber());
+		request.unbind(entity, model, "creationMoment");
 	}
 
 
