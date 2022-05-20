@@ -1,16 +1,17 @@
 package acme.features.inventor.item;
 
-import java.util.Random;
+import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.item.Item;
+import acme.features.authenticated.systemConfiguration.AuthenticatedSystemConfigurationRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
-//import acme.helper.toolkit.ItemAndToolkitCodeGenerator;
 import acme.roles.Inventor;
 
 @Service
@@ -19,10 +20,10 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 	@Autowired
 	protected InventorItemRepository repository;
 	
-//	@Autowired
-//	protected ItemAndToolkitCodeGenerator codeGenerator;
-	
-	final Random random = new Random();
+
+	@Autowired
+	protected AuthenticatedSystemConfigurationRepository helperRepository;
+
 	
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -41,26 +42,6 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		inventor= this.repository.findInventorById(request.getPrincipal().getAccountId());
 		result = new Item();
 		
-		String code;
-		final String setOfChars = "ABCDEFGHIJLMNOPQRSTUVWXYZ";
-        final StringBuilder  string1 = new StringBuilder();;
-        char char2;
-        int int1;
-      
-     
-        for(int i=0 ; i<=2; i++) {
-            final int randomInt = this.random.nextInt(setOfChars.length());
-            string1.append(setOfChars.charAt(randomInt));
-        }
-        char2 = setOfChars.charAt(this.random.nextInt(setOfChars.length()));
-        
-        int1 = this.random.nextInt(899)    + 100;
-        
-        code = string1 + "-" + int1 + "-" + char2;
-        
-
-	
-        result.setCode(code);
         result.setPublished(false);
 		result.setInventor(inventor);
 		
@@ -73,9 +54,9 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 		assert request != null;
 		assert entity != null;
-		assert errors != null;
+		assert errors != null;					
 		
-		request.bind(entity, errors, "name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
+		request.bind(entity, errors, "code" ,"name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
 	}
 	
 	@Override
@@ -84,10 +65,26 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 		
-		
+		if(!errors.hasErrors("code")) {
+			 
+			Item existing;
+			
+			existing = this.repository.findItemByCode(entity.getCode());
+			
+			errors.state(request, existing == null, "code", "inventor.item.form.error.duplicated");
+		}
 		
 		 if(!errors.hasErrors("retailPrice")) {
 			 errors.state(request, entity.getRetailPrice().getAmount()>0, "retailPrice", "inventor.item.form.error.negative-retailPrice");
+			  
+			final String [] currencies = this.helperRepository.findAllSystemConfiguration().getSystemCurrency().split(",");
+			  
+			List<String> acceptedCurrencies;
+			
+			acceptedCurrencies=Arrays.asList(currencies);
+			
+			 
+		    errors.state(request, acceptedCurrencies.contains(entity.getRetailPrice().getCurrency()), "retailPrice", "inventor.item.form.error.invalid-currency");
 			 
 		 }
 	}
@@ -98,7 +95,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
+		request.unbind(entity, model, "code" ,"name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
 	}
 
 

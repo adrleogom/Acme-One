@@ -27,7 +27,7 @@ public class InventorItemListService implements AbstractListService<Inventor, It
 		
 		boolean result;
 		int masterId;
-		Toolkit toolkit;
+		Toolkit toolkit;        
 		
 		masterId = request.getModel().getInteger("masterId");
 		toolkit =this.repository.findOneToolkitById(masterId);

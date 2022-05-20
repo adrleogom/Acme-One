@@ -1,9 +1,14 @@
 package acme.features.inventor.item;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.item.Item;
+import acme.features.authenticated.systemConfiguration.AuthenticatedSystemConfigurationRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -15,6 +20,9 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected AuthenticatedSystemConfigurationRepository helperRepository;
 	
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -36,7 +44,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		request.bind(entity, errors, "name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
+		request.bind(entity, errors, "code", "name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
 		
 	}
 
@@ -46,7 +54,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
+		request.unbind(entity, model, "code", "name", "itemType", "technology", "description", "retailPrice", "furtherInfo");
 
 	}
 
@@ -63,11 +71,31 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		return result;
 	}
 
+	
 	@Override
 	public void validate(final Request<Item> request, final Item entity, final Errors errors) {
 		
-		 if(errors.hasErrors("retailPrice")) {
+		if(!errors.hasErrors("code")) {
+			 
+			Item existing;
+			
+			existing = this.repository.findItemByCode(entity.getCode());
+			final String actualCode = entity.getCode();
+			
+			errors.state(request, existing == null || Objects.equals(existing.getCode(), actualCode), "code", "inventor.item.form.error.duplicated");
+		}
+		
+		 if(!errors.hasErrors("retailPrice")) {
 			 errors.state(request, entity.getRetailPrice().getAmount()>0, "retailPrice", "inventor.item.form.error.negative-retailPrice");
+			  
+			final String [] currencies = this.helperRepository.findAllSystemConfiguration().getSystemCurrency().split(",");
+			  
+			List<String> acceptedCurrencies;
+			
+			acceptedCurrencies=Arrays.asList(currencies);
+			
+			 
+		    errors.state(request, acceptedCurrencies.contains(entity.getRetailPrice().getCurrency()), "retailPrice", "inventor.item.form.error.invalid-currency");
 			 
 		 }
 		
