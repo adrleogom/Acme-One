@@ -30,7 +30,7 @@ public class InventorToolkitPublishTest extends TestHarness{
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/toolkit/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
+	@Order(20)
 	public void negativeTest(final int recordIndex, final String reference) {
 		super.signIn("inventor1", "inventor1");
 		
@@ -47,5 +47,6 @@ public class InventorToolkitPublishTest extends TestHarness{
 
 		super.signOut();
 	}
+	
 
 }
