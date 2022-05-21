@@ -1,6 +1,7 @@
 package acme.testing.inventor.toolkit;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -76,4 +77,11 @@ public class InventorToolkitCreateTest extends TestHarness{
 			super.signOut();
 
 	}
+	
+	@Test
+    @Order(30)
+    public void hackingTest() {
+        super.navigate("/inventor/toolkit/create");
+        super.checkPanicExists();
+    }
 }
