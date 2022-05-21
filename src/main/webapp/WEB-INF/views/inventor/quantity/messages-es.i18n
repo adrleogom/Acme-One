@@ -8,7 +8,16 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+inventor.quantity.list.label.item-name = Nombre del ítem
+inventor.quantity.list.label.item-type = Tipo del ítem
+inventor.quantity.list.label.number = Número
+inventor.quantity.list.button.create = Añade el componente o herramienta
+
 inventor.quantity.form.label.number = Número
 inventor.quantity.form.label.item = Componente o herramienta
 
-inventor.quantity.form.buttton.create = Añade el componente o herramienta
+inventor.quantity.form.button.create = Añade el componente o herramienta
+inventor.quantity.form.button.update = Actualizar cantidad
+inventor.quantity.form.button.delete = Borrar cantidad
+
+inventor.quantity.form.error.more-than-one = Las herramientas no pueden tener más de 1

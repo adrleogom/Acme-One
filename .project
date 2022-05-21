@@ -45,5 +45,10 @@
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-22.5.1/target/classes</locationURI>
 		</link>
+		<link>
+			<name>acme-framework22.5.2</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-22.5.2/target/classes</locationURI>
+		</link>
 	</linkedResources>
 </projectDescription>

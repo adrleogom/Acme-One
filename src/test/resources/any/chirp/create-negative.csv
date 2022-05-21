@@ -1,7 +1,16 @@
 recordIndex,title,author,body,email,confirmation
-0,create chirp 0,,chirp sin autor,chirp@gmail.com,true
-1,,autor c1,chirp sin titulo,chirp@gmail.com,false
-2,chirp sin body,autor c2,,chirp@gmail.com,true
-3,chirpchirp,autor c3,chirp sin correo,,false
-4,,,,,true
-5,,,chirp sin titulo ni autor,,false
+0,,,,,false
+1,,,,,true
+2,,autor c1,chirp sin titulo,chirp@gmail.com,true
+3,chirp sin autor,,body chirp,chirp@gmail.com,true
+4,chirp sin cuerpo,autor c3,,chirp@gmail.com,true
+5,chirp sin correo ni confirmacion,autor,cuerpo,,false
+6,c,autor,chirp con titulo muy corto,,false
+7,chirp con titulo de 100 caracteres exactos chirp con titulo de 100 caracteres exactos chirp con titu,autor,cuerpo,,false
+8,chirp con titulo de 101 caracteres exactos chirp con titulo de 101 caracteres exactos chirp con titul,autor,cuerpo,,true
+8,titulo,a,cuerpo,,false
+9,titulo,chirp con autor de 100 caracteres exactos chirp con autor de 100 caracteres exactos chirp con autorr,cuerpo,,false
+10,titulo,chirp con autor de 101 caracteres exactos chirp con autor de 101 caracteres exactos chirp con autor d,cuerpo,,true
+11,titulo,autor,b,,false
+12,titulo,autor,chirp con body de 255 caracteres exactos chirp con body de 255 caracteres exactos chirp con body de 255 caracteres exactos chirp con body de 255 caracteres exactos chirp con body de 255 caracteres exactos chirp con body de 255 caracteres exactos chirp con,,false
+13,titulo,autor,chirp con body de 256 caracteres exactos chirp con body de 256 caracteres exactos chirp con body de 256 caracteres exactos chirp con body de 256 caracteres exactos chirp con body de 256 caracteres exactos chirp con body de 256 caracteres exactos chirp conn,,true

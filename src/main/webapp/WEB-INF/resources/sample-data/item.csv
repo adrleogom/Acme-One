@@ -4,8 +4,8 @@ item-02,TOOL,C,POL-257-H,2,2,USD 18.5,false,http://www.example.com,inventor-01
 item-03,TOOL,Item 3,VRE-901-A,Tech 3,Tool with Tech 3,GBP 09.6,true,http://www.example.com,inventor-03
 item-04,COMPONENT,Item 4,YYE-140-C,Tech 4,Component with Tech 4,EUR 19.0,true,http://www.example.com,inventor-04
 item-05,COMPONENT,Item 5,TZA-209,Tech 5,Component with Tech 5,GBP 27.9,true,http://www.example.com,inventor-05
-item-06,COMPONENT,Item 6,PLX-209-A,Tech 6,Component with Tech 6,GBP 30,false,null,inventor-05
-item-07,COMPONENT,Item 7,HGS-489-C,Tech 7,Component with Tech 7,USD 30,true,null,inventor-02
+item-06,COMPONENT,Item 6,PLX-209-A,Tech 6,Component with Tech 6,GBP 30,false,null,inventor-01
+item-07,COMPONENT,Item 7,HGS-489-C,Tech 7,Component with Tech 7,USD 30,true,null,inventor-01
 item-08,TOOL,Item 8,REW-267,Tech 8,Component with Tech 8,EUR 25.75,true,null,inventor-01
 item-09,COMPONENT,Item 9,QBU-762-L,Tech 9,Component with Tech 9,GBP 12.6,false,http://www.example.com,inventor-01
 item-10,TOOL,Item 10 con 99 caracteres Item 10 con 99 caracteres Item 10 con 99 caracteres Item 10 con 99 carac,ZGR-538-L,Tech 10 con 99 caracteres Tech 10 con 99 caracteres Tech 10 con 99 caracteres Tech 10 con 99 caract,Component with Tech 10 con 254 caracteres Component with Tech 10 con 254 caracteres Component with Tech 10 con 254 caracteres Component with Tech 10 con 254 caracteres Component with Tech 10 con 254 caracteres Component with Tech 10 con 254 caracteres Co,USD 12.6,true,http://www.example.com,inventor-01
@@ -19,3 +19,4 @@ item-17,COMPONENT,Item 17,YES-638-M,Tech 17,Component with Tech 17,EUR 29.99,tru
 item-18,TOOL,Item 18,PZJ-657,Tech 18,Tool with Tech 18,USD 15.50,false,http://www.example.com,inventor-05
 item-19,COMPONENT,Item 19,ATL-830-A,Tech 19,Component with Tech 19,GBP 18.2,false,null,inventor-02
 item-20,TOOL,Item 20,QYJ-439,Tech 20,Tool with Tech 20,EUR 45.0,false,http://www.example.com,inventor-03
+

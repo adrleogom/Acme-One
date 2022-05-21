@@ -39,6 +39,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		int userAccountId;
 		Principal principal;
 		Inventor inventor;
+		Collection<Item> items;
 
 		
 		masterId = request.getModel().getInteger("masterId");
@@ -46,9 +47,12 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
-		inventor = this.repository.findOneInventorByUserAccountId(userAccountId);
 		
-		result = toolkit.getInventor().getId() == inventor.getId();
+		inventor = this.repository.findOneInventorByUserAccountId(userAccountId);
+		items = this.repository.findManyPublishedItemsByAccountId(userAccountId);
+
+		items.removeAll(this.repository.findManyItemsByToolkitId(masterId));
+		result = toolkit.getInventor().getId() == inventor.getId() && !items.isEmpty() && !toolkit.isPublished();
 			
 		return result;
 	}
@@ -72,12 +76,13 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		
 		Principal principal;
 		int masterId;
-		final Collection<Item> items;
+		Collection<Item> items;
 		
 		masterId = request.getModel().getInteger("masterId");
 		model.setAttribute("masterId", masterId);
 		principal = request.getPrincipal();
-		items = this.repository.findItemsByAccountId(principal.getAccountId());
+		items = this.repository.findManyPublishedItemsByAccountId(principal.getAccountId());
+		items.removeAll(this.repository.findManyItemsByToolkitId(masterId));
 		model.setAttribute("items", items);
 		
 		request.unbind(entity, model, "number");
@@ -106,11 +111,10 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-//		final Integer itemId = Integer.valueOf(request.getModel().getAttribute("item").toString()) ;
-//		if (this.repository.findOneItemById(itemId).getItemType().toString().equals("TOOL") && !errors.hasErrors("highNumber")) {
-//			errors.state(request, entity.getNumber()>1 , "highNumber", "inventor.quantity.form.error.highNumber");
-//		}
-//		
+		final Integer itemId = Integer.valueOf(request.getModel().getAttribute("item").toString()) ;
+		if (this.repository.findOneItemById(itemId).getItemType().toString().equals("TOOL") && !errors.hasErrors("number")) {
+			errors.state(request, entity.getNumber()==1 , "number", "inventor.quantity.form.error.more-than-one");
+		}	
 	}
 
 	@Override

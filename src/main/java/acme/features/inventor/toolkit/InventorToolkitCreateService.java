@@ -1,7 +1,5 @@
 package acme.features.inventor.toolkit;
 
-import java.util.Random;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +21,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 	
 	@Autowired
 	protected InventorToolkitRepository repository;
-	
-	private final Random random = new Random();
-	
+		
 	// AbstractCreateService<Authenticated, Toolkit> interface ---------------
 	
 	@Override
@@ -41,7 +37,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "title", "description", "assemblyNotes", "furtherInfo");
+		request.bind(entity, errors, "title", "description", "assemblyNotes", "furtherInfo", "code");
 		
 	}
 
@@ -51,7 +47,7 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "assemblyNotes", "furtherInfo");
+		request.unbind(entity, model, "title", "description", "assemblyNotes", "furtherInfo", "code");
 		
 	}
 
@@ -63,37 +59,6 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		Principal principal;
 		int userAccountId;
 		Inventor inventor;
-		String code;
-		final String setOfChars = "ABCDEFGHIJLMNOPQRSTUVWXYZ";
-		final StringBuilder  string1 = new StringBuilder();
-		char char2;
-		int int1;
-		
-		//GENERAR CÓDIGO
-
-		
-		for(int i=0 ; i<=2; i++) {
-			final int randomInt = this.random.nextInt(setOfChars.length());
-			string1.append(setOfChars.charAt(randomInt));
-		}
-		char2 = setOfChars.charAt(this.random.nextInt(setOfChars.length()));
-		
-		int1 = this.random.nextInt(899)	+ 100;
-		
-		code = string1 + "-" + int1 + "-" + char2;
-		
-		while(this.repository.findOneToolkitByCode(code)!=null) {
-			for(int i=0 ; i<=2; i++) {
-				final int randomInt = this.random.nextInt(setOfChars.length());
-				string1.append(setOfChars.charAt(randomInt));
-			}
-			char2 = setOfChars.charAt(this.random.nextInt(setOfChars.length()));
-			
-			int1 = this.random.nextInt(899)	+ 100;
-			
-			code = string1 + "-" + int1 + "-" + char2;
-		}
-		//FINALIZA GENERAR CÓDIGO
 		
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
@@ -102,7 +67,6 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		result = new Toolkit();
 		result.setInventor(inventor);
 		result.setPublished(false);
-		result.setCode(code);
 		return result;
 	}
 

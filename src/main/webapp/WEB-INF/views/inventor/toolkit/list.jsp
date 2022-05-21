@@ -20,6 +20,7 @@
 	<acme:list-column code="inventor.toolkit.list.label.title" path="title" width="60%"/>
 	<acme:list-column code="inventor.toolkit.list.label.published" path="published" width="20%"/>
 </acme:list>
-	
+<acme:button code = "inventor.toolkit.list.button.create" action = "/inventor/toolkit/create"/>
+
 	
 

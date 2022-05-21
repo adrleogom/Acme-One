@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-inventor.patronage-report.list.label.sNumber = Número
+inventor.patronage-report.list.label.sequenceNumber = Número de secuencia
 inventor.patronage-report.list.label.creationMoment = Momento de creación
 
 inventor.patronage-report.form.label.creationMoment = Momento de creación

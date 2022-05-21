@@ -15,32 +15,25 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form readonly="${readonly}">
+<acme:form>
 
-	<jstl:if test="${status!='PROPOSED'}">
-		<acme:input-textbox code="inventor.patronage.form.label.status" path="status" readonly="true"/>
-	</jstl:if>
-	
-	<jstl:if test="${status='PROPOSED'}">
-		<acme:input-select path="status" code="inventor.patronage.form.label.status">
-			<acme:input-option code="PROPOSED" value="PROPOSED" selected="true"/>
-			<acme:input-option code="ACCEPTED" value="ACCEPTED"/>
-			<acme:input-option code="DENIED" value="DENIED"/>
-		</acme:input-select>
-	</jstl:if>
+	<acme:input-select path="status" code="inventor.patronage.form.label.status">
+		<acme:input-option code="PROPOSED" value="PROPOSED" selected="${status == 'PROPOSED'}"/>
+		<acme:input-option code="ACCEPTED" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>
+		<acme:input-option code="DENIED" value="DENIED" selected="${status == 'DENIED'}"/>
+	</acme:input-select>
 
-	<acme:input-textbox code="inventor.patronage.form.label.code" path="code"/>	
-	<acme:input-textbox code="inventor.patronage.form.label.status" path="status"/>	
-	<acme:input-textarea code="inventor.patronage.form.label.legalStuff" path="legalStuff"/>	
-	<acme:input-textbox code="inventor.patronage.form.label.budget" path="budget"/>	
-	<acme:input-url code="inventor.patronage.form.label.furtherInfo" path="furtherInfo"/>
-	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>	
-	<acme:input-textarea code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
-	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo"/>	
- 	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name"/>
-	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname"/>
+	<acme:input-textbox code="inventor.patronage.form.label.code" path="code" readonly="true"/>	
+	<acme:input-textarea code="inventor.patronage.form.label.legalStuff" path="legalStuff" readonly="true"/>	
+	<acme:input-textbox code="inventor.patronage.form.label.budget" path="budget" readonly="true"/>	
+	<acme:input-url code="inventor.patronage.form.label.furtherInfo" path="furtherInfo" readonly="true"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company" readonly="true"/>	
+	<acme:input-textarea code="inventor.patronage.form.label.patron.statement" path="patron.statement" readonly="true"/>
+	<acme:input-url code="inventor.patronage.form.label.patron.furtherInfo" path="patron.furtherInfo" readonly="true"/>	
+ 	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name" readonly="true"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname" readonly="true"/>
 	
-	<acme:submit test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
+	<acme:submit test="${acme:anyOf(command, 'update, show') && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
 	<br></br>
 
 </acme:form>

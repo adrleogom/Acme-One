@@ -16,6 +16,6 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="patron.patronage-report.list.label.sNumber" path="sNumber" />
+	<acme:list-column code="patron.patronage-report.list.label.sequenceNumber" path="sequenceNumber" />
 	<acme:list-column code="patron.patronage-report.list.label.creationMoment" path="creationMoment" />
 </acme:list>

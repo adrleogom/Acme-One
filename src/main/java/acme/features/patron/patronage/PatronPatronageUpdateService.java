@@ -46,7 +46,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		userAccountId = principal.getAccountId();
 		patron = this.repository.findOnePatronByUserAccountId(userAccountId);
 		
-		result = patronage.getPatron().getId() == patron.getId();
+		result = patronage != null && patronage.getPatron().getId() == patron.getId() && !patronage.isPublished();
 		
 		return result;
 	}
@@ -57,7 +57,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo");
+		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "code");
 		
 	}
 
@@ -69,7 +69,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		
 		model.setAttribute("inventors", this.repository.findAllInventors());
 		model.setAttribute("inventorId", entity.getInventor().getId());
-		request.unbind(entity, model, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "published");
+		request.unbind(entity, model, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "published", "code");
 		
 	}
 
@@ -92,6 +92,15 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
+		if (!errors.hasErrors("code")) {
+			Patronage patronage;
+			
+			patronage = this.repository.findOnePatronageByCode(entity.getCode());
+			if(patronage!=null) {
+				errors.state(request, patronage.getId()==entity.getId() , "code", "patron.patronage.form.error.existent");
+				}
+		}
+		
 		if(!errors.hasErrors("initialDate")) {
 			final Date minInitialDate= DateUtils.addMonths( new Date(System.currentTimeMillis() - 1),1);
 			errors.state(request,entity.getInitialDate().after(minInitialDate), "initialDate", "patron.patronage.form.error.distance.current.initial");
@@ -101,6 +110,22 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			final Date minFinalDate=DateUtils.addMonths(entity.getInitialDate(), 1);
 			errors.state(request,entity.getFinalDate().after(minFinalDate), "finalDate", "patron.patronage.form.error.distance.initial.final");
 		}
+		
+		if (entity.getBudget()!=null && !errors.hasErrors("budget")) {
+				final String[] currencies=this.repository.getSystemConfiguration().getAcceptedCurrencies().split(",");
+	
+	            Boolean acceptedCurrency=false;
+	            for(int i=0;i<currencies.length;i++) {
+		                if(entity.getBudget().getCurrency().equals(currencies[i].trim())) {
+	                    acceptedCurrency=true;
+	                }
+	            }
+				
+				errors.state(request, entity.getBudget().getAmount() > 0, "budget", "patron.patronage.form.error.negative-budget");
+				errors.state(request, acceptedCurrency, "budget", "patron.patronage.form.error.non-accepted-currency");
+			}
+		
+		
 	}
 
 	@Override

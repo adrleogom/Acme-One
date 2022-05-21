@@ -1,0 +1,13 @@
+recordIndex,accepted-currencies,system-currency,strong-spam-words,strong-spam-threshold,weak-spam-words,weak-spam-threshold
+1,,,,,,
+2,,EUR,"sex, sexo, hard core, viagra, cialis",10.00,"sexy, nigeria, you've won, has ganado, one million, un millón",25.00
+3,"EUR,USD,GBP",,"sex, sexo, hard core, viagra, cialis",10.00,"sexy, nigeria, you've won, has ganado, one million, un millón",25.00
+4,"EUR,USD,GBP",USD,,10.00,"sexy, nigeria, you've won, has ganado, one million, un millón",25.00
+5,"EUR,USD,GBP",EUR,"sex, sexo, hard core, viagra, cialis",,"sexy, nigeria, you've won, has ganado, one million, un millón",25.00
+6,"EUR,USD,GBP",EUR,"sex, sexo, hard core, viagra, cialis",10.00,,25.00
+7,"EUR,USD,GBP",EUR,"sex, sexo, hard core, viagra, cialis",10.00,"sexy, nigeria, you've won, has ganado, one million, un millón",
+8,"EUR,USD,GBP",euro,"sex, sexo, hard core, viagra, cialis",10.00,"sexy, nigeria, you've won, has ganado, one million, un millón",25.00
+9,"EUR,USD,GBP",EUR,"sex, sexo, hard core, viagra, cialis",-1.00,"sexy, nigeria, you've won, has ganado, one million, un millón",25.00
+10,"EUR,USD,GBP",EUR,"sex, sexo, hard core, viagra, cialis",10.00,"sexy, nigeria, you've won, has ganado, one million, un millón",-1.00
+11,"EUR,USD,GBP",EUR,"sex, sexo, hard core, viagra, cialis",101.00,"sexy, nigeria, you've won, has ganado, one million, un millón",25.00
+11,"EUR,USD,GBP",EUR,"sex, sexo, hard core, viagra, cialis",10.00,"sexy, nigeria, you've won, has ganado, one million, un millón",101.00

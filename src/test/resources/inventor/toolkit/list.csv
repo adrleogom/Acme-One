@@ -1,6 +1,8 @@
 recordIndex,code,title,description,assemblyNotes,published,retail-price,furtherInfo
-0,BRX-197-H,Toolkit 8,Toolkit number 8,Assembly notes 8,false,,http://www.example.com
-1,CGT-583-G,Toolkit 7,Toolkit number 7,Assembly notes 7,false,,http://www.example.com
-2,LEP-289-D,Toolkit 4,Toolkit number 4,Assembly notes 1,true,EUR 76.00,http://www.example.com
-3,RDR-241-J,Toolkit 10,Toolkit number 10,Assembly notes 10,false,,http://www.example.com
-4,ZPO-372-I,Toolkit 9,Toolkit number 9,Assembly notes 9,false,,http://www.example.com
+0,BRX-197-H,Toolkit 8 con 99 caracteres Toolkit 8 con 99 caracteres Toolkit 8 con 99 caracteres Toolkit 8 con 9,Toolkit number 8 con 254 caracteres Toolkit number 8 con 254 caracteres Toolkit number 8 con 254 caracteres Toolkit number 8 con 254 caracteres Toolkit number 8 con 254 caracteres Toolkit number 8 con 254 caracteres Toolkit number 8 con 254 caracteres To,Assembly notes 8 con 254 caracteres Assembly notes 8 con 254 caracteres Assembly notes 8 con 254 caracteres Assembly notes 8 con 254 caracteres Assembly notes 8 con 254 caracteres Assembly notes 8 con 254 caracteres Assembly notes 8 con 254 caracteres As,true,,http://www.example.com
+1,CGT-583-G,Toolkit 7,Toolkit number 7,Assembly notes 7,false,,
+2,OPZ-190-A,Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con 100 caracteres Toolkit 1 con,Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Toolkit number 1 con 255 caracteres Too,Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Assembly notes 1 con 255 caracteres Ass,true,,http://www.example.com
+3,RDR-241,Toolkit 10,Toolkit number 10,Assembly notes 10,true,,http://www.example.com
+4,ZJA-774,Toolkit 5,Toolkit number 5,Assembly notes 1,true,GBP 55.80,http://www.example.com
+5,ZJA-776-F,Toolkit 6,Toolkit number 6,Assembly notes 1,false,,null
+6,ZPO-372-I,Toolkit 9,Toolkit number 9,Assembly notes 9,true,,null
