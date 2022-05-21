@@ -23,5 +23,10 @@
 	<acme:input-money code="inventor.toolkit.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-textbox code="any.toolkit.form.label.inventor" path="inventor"/>
 	
+	<jstl:if test="${differentCurrency == true}">
+		<acme:input-money code="inventor.item.form.label.conversion"
+		 path="conversion" readonly="true"/>
+	</jstl:if>
+	
 	<acme:button code="any.toolkit.form.button.items" action="/any/item/list-published?masterId=${id}"/>
 </acme:form>

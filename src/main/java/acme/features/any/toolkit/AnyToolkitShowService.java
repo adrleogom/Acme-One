@@ -2,14 +2,15 @@
 package acme.features.any.toolkit;
 
 import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
+import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -53,38 +54,70 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		return result;
 	}
 
+	public MoneyExchange conversion(final Money money) {
+		
+		final AuthenticatedMoneyExchangePerformService moneyExchange = new AuthenticatedMoneyExchangePerformService();
+		
+		MoneyExchange conversion = new MoneyExchange();
+		
+		final String systemCurrency = this.repository.findSystemCurrency();
+
+		if(!money.getCurrency().equals(systemCurrency)) {
+			conversion = this.repository.findMoneyExchangeByCurrencyAndAmount(money.getCurrency(), money.getAmount());
+			
+			if(conversion == null) {
+				conversion = moneyExchange.computeMoneyExchange(money, systemCurrency);
+				this.repository.save(conversion);
+				
+			}
+			
+		}else {
+			conversion.setSource(money);
+			conversion.setTarget(money);
+			conversion.setTargetCurrency(systemCurrency);
+			conversion.setDate(new Date(System.currentTimeMillis()));
+			
+		}
+		
+		return conversion;
+		
+	}
+	
+	
+	private Money retailPriceOfToolkit(final int toolkitid) {
+		final Money result = new Money();
+		result.setAmount(0.0);
+		result.setCurrency(this.repository.findSystemCurrency());
+		
+		final Collection<Quantity> quantitis = this.repository.findQuantityByToolkitId(toolkitid);
+				
+			for(final Quantity quantity:quantitis) {
+				final Double conversionAmount;
+				final Money itemMoney = quantity.getItem().getRetailPrice();
+				final int itemNumber = quantity.getNumber();
+				
+				conversionAmount = this.conversion(itemMoney).getTarget().getAmount();
+				
+				final Double newAmount = (double) Math.round((result.getAmount() + conversionAmount*itemNumber)*100)/100;
+				result.setAmount(newAmount);
+			}
+		
+		
+		return result;
+
+	}
+	
+	
 	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		int id;
-		id = request.getModel().getInteger("id");
-		Collection<String> currencies;
-		final Money retailPrice= new Money();
 		
-		currencies=this.repository.findCurenciesOfAToolkit(id);
-		final Set<String> currency = currencies.stream().collect(Collectors.toSet());
+		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
 		
-		if(currency.size()==1) {
-			
-			final Optional<String> value = currency.stream().findFirst();
-			final Double amount = this.repository.findToolkitRetailPrice(id);
-			String moneda = null;
-			if(value.isPresent()) {
-				moneda = value.get();
-			}else {
-				moneda = null;
-			}
-			
-			retailPrice.setAmount(amount);
-			retailPrice.setCurrency(moneda);
-			model.setAttribute("retailPrice", retailPrice);
-		}else {
-			model.setAttribute("retailPrice", "");
-		}
+		model.setAttribute("retailPrice",entity.getRetailPrice());
 		
 		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
