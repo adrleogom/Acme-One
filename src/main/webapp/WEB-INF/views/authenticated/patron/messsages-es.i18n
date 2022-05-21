@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.patron.patron.form.title.create = Hazte patron
-authenticated.patron.patron.form.title.update = Actualiza tus datos de patron
+authenticated.patron.patron.form.title.create = Hazte patrocinador
+authenticated.patron.patron.form.title.update = Actualiza tus datos de patrocinador
 
 authenticated.patron.patron.form.label.company = Compañía
 authenticated.patron.patron.form.label.statement = Estado
