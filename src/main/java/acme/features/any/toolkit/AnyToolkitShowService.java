@@ -3,6 +3,7 @@ package acme.features.any.toolkit;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,13 +68,8 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
 
 		if(!money.getCurrency().equals(systemCurrency)) {
-			conversion = this.moneyExchangeRepository.findMoneyExchangeByCurrencyAndAmount(money.getCurrency(), money.getAmount());
 			
-			if(conversion == null) {
-				conversion = moneyExchange.computeMoneyExchange(money, systemCurrency);
-//				this.repository.save(conversion);
-				
-			}
+			conversion = moneyExchange.computeMoneyExchange(money, systemCurrency);
 			
 		}else {
 			conversion.setSource(money);
@@ -90,20 +86,27 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 	
 	private Money retailPriceOfToolkit(final int toolkitid) {
 		final Money result = new Money();
-		result.setAmount(0.0);
-		result.setCurrency(this.moneyExchangeRepository.findSystemCurrency());
+		Money retailPrice= new Money();
+		
+		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
+		Double amount = 0.0;
+		result.setCurrency(systemCurrency);
 		
 		final Collection<Quantity> quantities = this.repository.findQuantitiesByToolkitId(toolkitid);
 		
 		for(final Quantity quantity:quantities) {
-			final Double conversionAmount;
-			final Money itemMoney = quantity.getItem().getRetailPrice();
-			final Integer itemNumber = quantity.getNumber();
+			retailPrice= quantity.getItem().getRetailPrice();
 			
-			conversionAmount = this.conversion(itemMoney).getTarget().getAmount();
+			if(!Objects.equals(retailPrice.getCurrency(), systemCurrency)) {
+				
+				final MoneyExchange conversion= this.conversion(retailPrice);
+				
+				amount= amount+conversion.getTarget().getAmount();
+			}else {
+				amount += amount+retailPrice.getAmount();
+			}
 			
-			final Double finalAmount = result.getAmount() + conversionAmount*itemNumber;
-			result.setAmount(finalAmount);
+			result.setAmount(amount);
 		}
 		return result;
 	}
@@ -116,12 +119,15 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		assert entity != null;
 		assert model != null;
 		
+		final Money retailPrice = this.retailPriceOfToolkit(entity.getId());
+		
+		model.setAttribute("retailPrice", retailPrice);
 		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
 		
 		model.setAttribute("retailPrice", this.retailPriceOfToolkit(entity.getId()));
 		
 		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo","retailPrice");
 	}
 
 }
