@@ -8,13 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.announcement.form.label.title = Title:
-authenticated.announcement.form.label.flag = Status:
-authenticated.announcement.form.label.body = Text:
-authenticated.announcement.form.label.furtherInfo = Info:
-authenticated.announcement.form.label.moment = Moment:
+administrator.announcement.form.label.title = Title
+administrator.announcement.form.label.flag = Critical
+administrator.announcement.form.label.body = Body
+administrator.announcement.form.label.furtherInfo = Further information
+administrator.announcement.form.label.moment = Moment
 
-authenticated.announcement.list.label.moment = Moment
-authenticated.announcement.list.label.flag = Status
-authenticated.announcement.list.label.title = Title
-authenticated.announcement.list.label.body = Text
+administrator.announcement.list.label.moment = Moment
+administrator.announcement.list.label.flag = Status
+administrator.announcement.list.label.title = Title
+administrator.announcement.list.label.body = Body
+
+administrator.announcement.form.label.confirmation = Confirmation
+
+administrator.announcement.form.button.create = Create
+administrator.announcement.button.create.announcement = Create announcement
