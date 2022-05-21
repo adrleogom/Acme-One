@@ -20,9 +20,11 @@ import java.util.Date;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entities.announcement.Announcement;
 import acme.entities.chirp.Chirp;
 import acme.framework.helpers.FactoryHelper;
 import acme.testing.any.chirp.ChirpRepository;
+import acme.testing.authenticated.announcements.AuthenticatedAnnouncementRepositoryTest;
 
 public class TemporalAwareTestHarness extends TestHarness {
 
@@ -31,12 +33,16 @@ public class TemporalAwareTestHarness extends TestHarness {
 	@Autowired
 	private ChirpRepository repository;
 	
+	@Autowired
+	private AuthenticatedAnnouncementRepositoryTest repositoryAnnouncement;
+	
 	@Override
 	@BeforeAll
 	public void beforeAll() {
 		super.beforeAll();
 		FactoryHelper.autowire(this);
 		this.patchChirps();
+		this.patchAnnouncements();
 	}
 
 	// Business methods -------------------------------------------------------
@@ -51,6 +57,18 @@ public class TemporalAwareTestHarness extends TestHarness {
 			moment = this.adjustMoment(chirp.getMoment());
 			chirp.setMoment(moment);
 			this.repository.save(chirp);
+		}
+	}
+	
+	protected void patchAnnouncements() {
+		Collection<Announcement> announcements;
+		Date moment;
+
+		announcements = this.repositoryAnnouncement.findAnnouncementsToPatch();
+		for (final Announcement announcement : announcements) {
+			moment = this.adjustMoment(announcement.getMoment());
+			announcement.setMoment(moment);
+			this.repository.save(announcement);
 		}
 	}
 

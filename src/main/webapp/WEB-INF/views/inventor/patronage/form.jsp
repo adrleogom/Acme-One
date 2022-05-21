@@ -33,8 +33,7 @@
  	<acme:input-textbox code="inventor.patronage.form.label.patron.name" path="patron.identity.name" readonly="true"/>
 	<acme:input-textbox code="inventor.patronage.form.label.patron.surname" path="patron.identity.surname" readonly="true"/>
 	
-	<acme:submit test = "${acme:anyOf(comand, 'update, show') && status == 'PROPOSED'}" code = "inventor.patronage.form.button.update" action = "/inventor/patronage/update"/>
-
+	<acme:submit test="${acme:anyOf(command, 'update, show') && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
 	<br></br>
 
 </acme:form>
