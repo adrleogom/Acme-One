@@ -11,9 +11,9 @@ public class InventorPatronageUpdateTest extends TestHarness{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/inventor/patronage/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String code, final String status, final String initialDate, final String finalDate,
+	public void positiveTest(final int recordIndex, final String code, final String status,
 		final String legalStuff, final String budget, final String furtherInfo, final String company, final String statement, final String pFurtherInformation,
-		final String name, final String surname, final String sNumber, final String creationMoment, final String memorandum, final String rFurtherInfo) {
+		final String name, final String surname) {
 		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "List my patronages");
@@ -48,4 +48,5 @@ public class InventorPatronageUpdateTest extends TestHarness{
 		super.signOut();
 	}
 
+	
 }
