@@ -13,6 +13,6 @@ patron.patronage-report.form.label.creationMoment = Momento de Creación
 patron.patronage-report.form.label.memorandum = Memorandum
 patron.patronage-report.form.label.furtherInfo = Información Adicional
 
-patron.patronage-report.list.label.sNumber = Número de secuencia
+patron.patronage-report.list.label.sequenceNumber = Número de secuencia
 patron.patronage-report.list.label.creationMoment = Momento de Creación
 patron.patronage-report.list.label.furtherInfo = Información Adicional
