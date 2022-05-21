@@ -23,5 +23,20 @@ public class InventorQuantityUpdateTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex2, recordIndex3, numero);
 		super.signOut();
 	}
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/inventor/quantity/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)
+	public void negativeQuantityUpdateTest(final int recordIndex1, final int recordIndex2, final int recordIndex3, final String numero) {
+		super.signIn("inventor1", "inventor1");
+		super.clickOnMenu("Inventor", "List my toolkits");
+		super.clickOnListingRecord(recordIndex1);
+		super.clickOnButton("Quantities list");
+		super.clickOnListingRecord(recordIndex2);
+		super.fillInputBoxIn("number", numero);
+		super.clickOnSubmit("Update quantity");
+		super.checkErrorsExist();
+		super.signOut();
+	}
 
 }

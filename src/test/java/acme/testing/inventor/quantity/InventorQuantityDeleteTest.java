@@ -2,6 +2,7 @@
 package acme.testing.inventor.quantity;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -21,5 +22,14 @@ public class InventorQuantityDeleteTest extends TestHarness {
 		super.clickOnSubmit("Delete quantity");
 		super.checkListingEmpty();
 		super.signOut();
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Inventor");
+		super.navigate("/inventor/quantity/delete");
+		super.checkPanicExists();
+		
 	}
 }

@@ -1,6 +1,7 @@
 package acme.testing.inventor.quantity;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -19,5 +20,14 @@ public class InventorQuantityShowTest extends TestHarness{
 		super.clickOnListingRecord(recordIndex2);
 		super.checkFormExists();
 		super.signOut();
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Inventor");
+		super.navigate("/inventor/quantity/show");
+		super.checkPanicExists();
+		
 	}
 }
