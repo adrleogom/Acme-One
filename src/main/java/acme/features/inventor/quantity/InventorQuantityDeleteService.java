@@ -97,7 +97,7 @@ public class InventorQuantityDeleteService implements AbstractDeleteService<Inve
 		assert errors != null;
 
 		final Integer itemId = Integer.valueOf(request.getModel().getAttribute("item").toString()) ;
-		if (this.repository.findOneItemById(itemId).getItemType().toString().equals("TOOL") && !errors.hasErrors("number")) {
+		if (this.repository.findOneItemById(itemId).getItemType().toString().equals("TOOL") && errors.hasErrors("number")) {
 			errors.state(request, entity.getNumber()==1 , "number", "inventor.quantity.form.error.more-than-one");
 		}	
 	}
