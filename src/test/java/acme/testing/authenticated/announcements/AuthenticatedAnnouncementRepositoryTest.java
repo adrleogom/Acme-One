@@ -10,10 +10,7 @@ import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AuthenticatedAnnouncementRepositoryTest extends AbstractRepository {
-	@Query("select a from Announcement a where a.title = :title")
-	Announcement findOneAnnouncementByTitle(String title);
-	
-	@Query("select a from Announcement a")
-	Collection<Announcement> findAllAnnouncements();
+	@Query("select a from Announcement a where a.moment between '1900/01/01' and '1900/01/31'")
+	Collection<Announcement> findAnnouncementsToPatch();
 	
 }

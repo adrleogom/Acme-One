@@ -9,3 +9,5 @@ announcement-07,2017/09/17 00:20,Anuncio 7,Anuncio numero 7,false,null,administr
 announcement-08,2021/05/20 12:30,Anuncio con 99 caracteres Anuncio con 99 caracteres Anuncio con 99 caracteres Anuncio con 99 Anunci,Anuncio numero 8 con 254 caracteres Anuncio numero 8 con 254 caracteres Anuncio numero 8 con 254 caracteres Anuncio numero 8 con 254 caracteres Anuncio numero 8 con 254 caracteres Anuncio numero 8 con 254 caracteres Anuncio numero 8 con 254 caracteres An,true,null,administrator-01
 announcement-09,2012/09/17 03:12,Anuncio 9,Anuncio numero 9,false,null,administrator-01
 announcement-10,2012/09/18 03:12,Anuncio 10,Anuncio numero 10,false,http://www.google.es,administrator-01
+announcement-11,1900/01/01 12:00,Anuncio 11,Anuncio numero 11,false,null,administrator-01
+announcement-12,1900/01/02 12:00,Anuncio 12,Anuncio numero 12,false,null,administrator-01
