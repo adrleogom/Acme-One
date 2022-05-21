@@ -54,7 +54,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model,"code", "itemType", "technology", "description", "retailPrice", "furtherInfo");
+		request.unbind(entity, model,"code", "itemType", "technology", "description", "retailPrice", "furtherInfo", "published");
 		
 	}
 
@@ -90,7 +90,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		 if(!errors.hasErrors("retailPrice")) {
 			 errors.state(request, entity.getRetailPrice().getAmount()>0, "retailPrice", "inventor.item.form.error.negative-retailPrice");
 			  
-			final String [] currencies = this.helperRepository.findAllSystemConfiguration().getSystemCurrency().split(",");
+			final String [] currencies = this.helperRepository.findAllSystemConfiguration().getAcceptedCurrencies().split(",");
 			  
 			List<String> acceptedCurrencies;
 			

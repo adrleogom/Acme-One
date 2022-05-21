@@ -1,6 +1,7 @@
 package acme.testing.inventor.item;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -14,7 +15,7 @@ public class InventorItemListMineShowTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String itemType, final String name, final String code, final String technology, 
 		final String description, final String retailPrice,final String published, final String furtherInfo) {
-		super.signIn("inventor3", "inventor3");
+		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "List my components and tools");
 		super.checkListingExists();
@@ -38,6 +39,24 @@ public class InventorItemListMineShowTest extends TestHarness{
 		
 		
 
+		super.signOut();
+	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Account");
+		super.navigate("/inventor/item/list-mine");
+		super.checkPanicExists();
+
+		super.signIn("administrator", "administrator");
+		super.navigate("/inventor/item/list-mine");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("patron1", "patron1");
+		super.navigate("/inventor/item/list-mine");
+		super.checkPanicExists();
 		super.signOut();
 	}
 }
