@@ -1,0 +1,11 @@
+recordIndex,item-type,name,code,technology,description,retail-price,further-info
+0,COMPONENT,,,,,,
+1,TOOL,aaa2,,,,,http://www.example.com
+2,COMPONENT,aaa3,A,Tech with 100 characters,,,
+3,TOOL,aaa4,AD,Tech 1,Description with 255 characters,,http://www.example.com
+4,COMPONENT,b,SRT,Tech 1,Component with Tech 1,EUR 78.00,
+5,TOOL,bbb2,DTF-,T,Tool with T,GBP 5.39,http://www.example.com
+6,COMPONENT,bbb3,GBN-6,Tech 1,D,USD 45.00,
+7,TOOL,bbb4,GBN-62,Tech 1,D,USD 45.00,http://www.example.com
+8,COMPONENT,bbb5,NJY-547,Tech 1,D,USD -45.00,
+9,TOOL,bbb6,TGI-014-L,Tech 1,D,XXX 45.00,http://www.example.com
