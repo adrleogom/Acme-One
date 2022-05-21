@@ -62,12 +62,4 @@ public class PatronPatronageReportListShowButtonListShowTest extends TestHarness
 			super.checkPanicExists();
 		}
 		
-		@Test
-		@Order(30)
-		public void hackingTest2() {
-			super.checkNotLinkExists("Patron");
-			super.navigate("/patronage/patronage-report/list");
-			super.checkPanicExists();
-		}
-
 }
