@@ -1,11 +1,9 @@
 recordIndex,item-type,name,code,technology,description,retail-price,further-info
 0,COMPONENT,aaa1,RSD-458-D,Tech 1,Component with Tech 1,EUR 12.30,
 1,TOOL,aaa2,FDJ-214,Tech 1,Tool with Tech 1,USD 7.25,http://www.example.com
-2,COMPONENT,aaa3,DER-478-L,Tech with 100 characters Tech with 100 characters Tech with 100 characters Tech with 100 characters ,Component 2 with Tech 1,GBP 56.00, 
+2,COMPONENT,aaa3,DER-478-L,Tech with 100 characters Tech with 100 characters Tech with 100 characters Tech with 100 characters,Component 2 with Tech 1,GBP 56.00,
 3,TOOL,aaa4,ACV-739-M,Tech 1,Description with 255 characters Description with 255 characters Description with 255 characters Desc,EUR 45.12,http://www.example.com
 4,COMPONENT,b,SRT-732,Tech 1,Component with Tech 1,EUR 78.00,
 5,TOOL,bbb2,DTF-147-Y,T,Tool with T,GBP 5.39,http://www.example.com
 6,COMPONENT,bbb3,GBN-621,Tech 1,D,USD 45.00,
-7,TOOL,bbb4,GBN-627,Tech 1,D,EUR 00.01,
-
-
+7,TOOL,bbb4,GBN-627,Tech 1,D,EUR 0.01,
