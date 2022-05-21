@@ -27,17 +27,10 @@ public interface AnyToolkitRepository extends AbstractRepository{
 	Double findToolkitRetailPrice(int id);
 	
 	@Query("select q from Quantity q where q.toolkit.id = :id")
-	Collection<Quantity> findQuantityByToolkitId(int id);
+	Collection<Quantity> findQuantitiesByToolkitId(int id);
 	
 	@Query("select q.item from Quantity q where q.toolkit.id= :id")
 	Collection<Item> findManyItemsByToolkitId(int id);
-	
-	@Query("select sc.systemCurrency from SystemConfiguration sc")
-	String findSystemCurrency();
-	
-	@Query("select moneyExchange from MoneyExchange moneyExchange where moneyExchange.source.currency = :currency and moneyExchange.source.amount = :amount")
-	MoneyExchange findMoneyExchangeByCurrencyAndAmount(String currency, Double amount);
-
 	
 	void save(MoneyExchange conversion);
 	

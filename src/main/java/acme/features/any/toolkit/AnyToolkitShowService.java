@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangeRepository;
 import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -24,6 +25,9 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 
 	@Autowired
 	protected AnyToolkitRepository repository;
+	
+	@Autowired
+	protected AuthenticatedMoneyExchangeRepository moneyExchangeRepository;
 
 	// AbstractShowService<Any, Toolkit> interface --------------
 
@@ -60,14 +64,14 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		
 		MoneyExchange conversion = new MoneyExchange();
 		
-		final String systemCurrency = this.repository.findSystemCurrency();
+		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
 
 		if(!money.getCurrency().equals(systemCurrency)) {
-			conversion = this.repository.findMoneyExchangeByCurrencyAndAmount(money.getCurrency(), money.getAmount());
+			conversion = this.moneyExchangeRepository.findMoneyExchangeByCurrencyAndAmount(money.getCurrency(), money.getAmount());
 			
 			if(conversion == null) {
 				conversion = moneyExchange.computeMoneyExchange(money, systemCurrency);
-				this.repository.save(conversion);
+//				this.repository.save(conversion);
 				
 			}
 			
@@ -87,24 +91,21 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 	private Money retailPriceOfToolkit(final int toolkitid) {
 		final Money result = new Money();
 		result.setAmount(0.0);
-		result.setCurrency(this.repository.findSystemCurrency());
+		result.setCurrency(this.moneyExchangeRepository.findSystemCurrency());
 		
-		final Collection<Quantity> quantitis = this.repository.findQuantityByToolkitId(toolkitid);
-				
-			for(final Quantity quantity:quantitis) {
-				final Double conversionAmount;
-				final Money itemMoney = quantity.getItem().getRetailPrice();
-				final int itemNumber = quantity.getNumber();
-				
-				conversionAmount = this.conversion(itemMoney).getTarget().getAmount();
-				
-				final Double newAmount = (double) Math.round((result.getAmount() + conversionAmount*itemNumber)*100)/100;
-				result.setAmount(newAmount);
-			}
+		final Collection<Quantity> quantities = this.repository.findQuantitiesByToolkitId(toolkitid);
 		
-		
+		for(final Quantity quantity:quantities) {
+			final Double conversionAmount;
+			final Money itemMoney = quantity.getItem().getRetailPrice();
+			final Integer itemNumber = quantity.getNumber();
+			
+			conversionAmount = this.conversion(itemMoney).getTarget().getAmount();
+			
+			final Double finalAmount = result.getAmount() + conversionAmount*itemNumber;
+			result.setAmount(finalAmount);
+		}
 		return result;
-
 	}
 	
 	
