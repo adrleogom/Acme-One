@@ -98,8 +98,9 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 			Patronage patronage;
 			
 			patronage = this.repository.findOnePatronageByCode(entity.getCode());
-			
-			errors.state(request, patronage == null, "code", "patron.patronage.form.error.existent");
+			if(patronage!=null) {
+				errors.state(request, patronage.getId()==entity.getId() , "code", "patron.patronage.form.error.existent");
+				}
 		}
 		
 		if(!errors.hasErrors("initialDate")) {

@@ -57,7 +57,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo");
+		request.bind(entity, errors, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "code");
 		
 	}
 
@@ -69,7 +69,7 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		
 		model.setAttribute("inventors", this.repository.findAllInventors());
 		model.setAttribute("inventorId", entity.getInventor().getId());
-		request.unbind(entity, model, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "published");
+		request.unbind(entity, model, "legalStuff", "budget", "initialDate", "finalDate", "furtherInfo", "published", "code");
 		
 	}
 
@@ -96,8 +96,9 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 			Patronage patronage;
 			
 			patronage = this.repository.findOnePatronageByCode(entity.getCode());
-			
-			errors.state(request, patronage == null, "code", "patron.patronage.form.error.existent");
+			if(patronage!=null) {
+				errors.state(request, patronage.getId()==entity.getId() , "code", "patron.patronage.form.error.existent");
+				}
 		}
 		
 		if(!errors.hasErrors("initialDate")) {
