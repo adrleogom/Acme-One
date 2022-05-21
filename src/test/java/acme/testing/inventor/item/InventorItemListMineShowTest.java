@@ -14,7 +14,7 @@ public class InventorItemListMineShowTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String itemType, final String name, final String code, final String technology, 
 		final String description, final String retailPrice,final String published, final String furtherInfo) {
-		super.signIn("inventor3", "inventor3");
+		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "List my components and tools");
 		super.checkListingExists();
