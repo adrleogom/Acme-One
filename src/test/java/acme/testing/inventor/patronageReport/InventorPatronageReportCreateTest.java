@@ -25,7 +25,9 @@ public class InventorPatronageReportCreateTest extends TestHarness{
 		super.fillInputBoxIn("confirmation", "true");
 		super.clickOnSubmit("Create");
 		super.clickOnButton("Patronage reports");
-		super.clickOnListingRecord(recordIndex);
+		super.checkListingExists();
+		super.sortListing(0, "desc");
+		super.clickOnListingRecord(0);
 		super.checkInputBoxHasValue("memorandum", memorandum);
 		super.checkInputBoxHasValue("furtherInfo", furtherInfo);
 		super.signOut();

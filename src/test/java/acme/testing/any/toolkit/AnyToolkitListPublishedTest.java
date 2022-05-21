@@ -14,7 +14,7 @@ public class AnyToolkitListPublishedTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String code, final String title,
 		final String description, final String assemblyNotes, final String furtherInfo,
-		final String retailPrice, final String inventor) {
+		final String inventor) {
 		
 
 		super.clickOnMenu("Anonymous", "List published toolkits");
@@ -32,7 +32,6 @@ public class AnyToolkitListPublishedTest extends TestHarness{
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("assemblyNotes", assemblyNotes);
 		super.checkInputBoxHasValue("furtherInfo", furtherInfo);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("inventor", inventor);
 
 	}
