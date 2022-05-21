@@ -1,2 +1,2 @@
-recordIndex,item-type,name,code,technology,description,retail-price,further-info
-0,TOOL,C,POL-257-H,2,2,USD,http://www.example.com
+recordIndex,item-type,name,code,technology,description,retailPrice,furtherInfo
+0,COMPONENT,Item 11,TBL-614,Tech 11,Component with Tech 11,EUR 34.0,http://www.example.com

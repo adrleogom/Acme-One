@@ -1,6 +1,7 @@
 package acme.testing.inventor.item;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -12,16 +13,14 @@ public class InventorItemUpdateTest  extends TestHarness {
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String itemType, final String name,final String code, final String technology, 
 		final String description, final String retailPrice,final String furtherInfo) {
-		super.signIn("inventor1", "inventor1");
+		super.signIn("inventor3", "inventor3");
 		
 		super.clickOnMenu("Inventor", "List my components and tools");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
 		
 
-		super.checkColumnHasValue(recordIndex, 0, itemType);
-		super.checkColumnHasValue(recordIndex, 1, name);
-		super.checkColumnHasValue(recordIndex, 2, code);
+		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		
@@ -34,16 +33,12 @@ public class InventorItemUpdateTest  extends TestHarness {
 		super.fillInputBoxIn("furtherInfo", furtherInfo);
 		super.clickOnSubmit("Update");
 
-		//super.checkListingExists();
+		super.checkListingExists();
 		super.sortListing(1, "asc");
-		super.checkColumnHasValue(recordIndex, 0, itemType);
-		super.checkColumnHasValue(recordIndex, 1, name);
-		super.checkColumnHasValue(recordIndex, 2, code);
-		super.clickOnListingRecord(recordIndex);
-		//super.checkFormExists();
+	
 
 		super.clickOnListingRecord(recordIndex);
-		//super.checkFormExists();
+		super.checkFormExists();
 		super.checkInputBoxHasValue("itemType", itemType);
 		super.checkInputBoxHasValue("name", name);
 		super.checkInputBoxHasValue("code", code);
@@ -60,18 +55,15 @@ public class InventorItemUpdateTest  extends TestHarness {
 	@Order(20)
 	public void negativeTest(final int recordIndex, final String itemType, final String name,final String code, final String technology, 
 		final String description, final String retailPrice,final String furtherInfo) {
-		super.signIn("inventor1", "inventor1");
+		super.signIn("inventor3", "inventor3");
 		
 		super.clickOnMenu("Inventor", "List my components and tools");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
-		
-
-		super.checkColumnHasValue(recordIndex, 0, itemType);
-		super.checkColumnHasValue(recordIndex, 1, name);
-		super.checkColumnHasValue(recordIndex, 2, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
+
+	
 		
 		super.fillInputBoxIn("itemType", itemType);
 		super.fillInputBoxIn("code", code);
@@ -86,4 +78,23 @@ public class InventorItemUpdateTest  extends TestHarness {
 
 		super.signOut();
 	}
+	
+	@Test
+	@Order(30)
+	public void hackingTest() {
+		super.checkNotLinkExists("Account");
+		super.navigate("/inventor/item/update");
+		super.checkPanicExists();
+
+		super.signIn("administrator", "administrator");
+		super.navigate("/inventor/item/update");
+		super.checkPanicExists();
+		super.signOut();
+
+		super.signIn("patron1", "patron1");
+		super.navigate("/inventor/item/update");
+		super.checkPanicExists();
+		super.signOut();
+	}
 }
+
