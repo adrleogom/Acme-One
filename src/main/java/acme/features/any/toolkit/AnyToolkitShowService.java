@@ -102,13 +102,15 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 			
 			retailPrice= quantity.getItem().getRetailPrice();
 			
+			final Integer itemNumber = quantity.getNumber();
+			
 			if(!Objects.equals(retailPrice.getCurrency(), systemCurrency)) {
 				
 				final MoneyExchange conversion= this.conversion(retailPrice);
 				
-				amount= amount+conversion.getTarget().getAmount();
+				amount= amount+conversion.getTarget().getAmount()*itemNumber;
 			}else {
-				amount= amount+retailPrice.getAmount();
+				amount= amount+retailPrice.getAmount()*itemNumber;
 			}
 			
 

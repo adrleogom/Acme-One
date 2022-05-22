@@ -103,25 +103,24 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		result.setCurrency(this.moneyExchangeRepository.findSystemCurrency());
 		
 		final Collection<Quantity> quantities = this.toolkitRepository.findQuantitiesByToolkitId(toolkitid);
-		System.out.println(quantities);
 		for(final Quantity quantity:quantities) {
 			
 			retailPrice= quantity.getItem().getRetailPrice();
-			System.out.println(retailPrice);
+			
+			final Integer itemNumber = quantity.getNumber();
 			
 			if(!Objects.equals(retailPrice.getCurrency(), systemCurrency)) {
 				
 				final MoneyExchange conversion= this.conversion(retailPrice);
 				
-				amount= amount+conversion.getTarget().getAmount();
+				amount= amount+conversion.getTarget().getAmount()*itemNumber;
 			}else {
-				amount= amount+retailPrice.getAmount();
+				amount= amount+retailPrice.getAmount()*itemNumber;
 			}
 			
 
 			result.setAmount(amount);
 		}
-		System.out.println(result);
 		return result;
 	}
 	@Override
