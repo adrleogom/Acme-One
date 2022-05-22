@@ -12,6 +12,7 @@ import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
 import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangeRepository;
+import acme.features.inventor.toolkit.InventorToolkitRepository;
 import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -26,6 +27,9 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 
 	@Autowired
 	protected AnyToolkitRepository repository;
+	
+	@Autowired
+	protected InventorToolkitRepository toolkitRepository;
 	
 	@Autowired
 	protected AuthenticatedMoneyExchangeRepository moneyExchangeRepository;
@@ -59,6 +63,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		return result;
 	}
 
+	
 	public MoneyExchange conversion(final Money money) {
 		
 		final AuthenticatedMoneyExchangePerformService moneyExchange = new AuthenticatedMoneyExchangePerformService();
@@ -72,13 +77,13 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 			conversion = moneyExchange.computeMoneyExchange(money, systemCurrency);
 			
 		}else {
+			System.out.println(money);
 			conversion.setSource(money);
 			conversion.setTarget(money);
 			conversion.setTargetCurrency(systemCurrency);
 			conversion.setDate(new Date(System.currentTimeMillis()));
 			
 		}
-		
 		return conversion;
 		
 	}
@@ -86,15 +91,15 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 	
 	private Money retailPriceOfToolkit(final int toolkitid) {
 		final Money result = new Money();
-		Money retailPrice= new Money();
+		Money retailPrice = new Money();
 		
 		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
 		Double amount = 0.0;
-		result.setCurrency(systemCurrency);
+		result.setCurrency(this.moneyExchangeRepository.findSystemCurrency());
 		
-		final Collection<Quantity> quantities = this.repository.findQuantitiesByToolkitId(toolkitid);
-		
+		final Collection<Quantity> quantities = this.toolkitRepository.findQuantitiesByToolkitId(toolkitid);
 		for(final Quantity quantity:quantities) {
+			
 			retailPrice= quantity.getItem().getRetailPrice();
 			
 			if(!Objects.equals(retailPrice.getCurrency(), systemCurrency)) {
@@ -103,9 +108,10 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 				
 				amount= amount+conversion.getTarget().getAmount();
 			}else {
-				amount += amount+retailPrice.getAmount();
+				amount= amount+retailPrice.getAmount();
 			}
 			
+
 			result.setAmount(amount);
 		}
 		return result;
@@ -122,12 +128,8 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		final Money retailPrice = this.retailPriceOfToolkit(entity.getId());
 		
 		model.setAttribute("retailPrice", retailPrice);
-		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
-		
-		model.setAttribute("retailPrice", this.retailPriceOfToolkit(entity.getId()));
-		
-		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo","retailPrice");
+
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
 	}
 
 }
