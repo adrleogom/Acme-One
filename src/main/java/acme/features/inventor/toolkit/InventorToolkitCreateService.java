@@ -1,9 +1,14 @@
 package acme.features.inventor.toolkit;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamDetector;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
+import acme.features.administrator.systemConfiguration.AdministratorSystemConfigurationRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.HttpMethod;
@@ -18,6 +23,9 @@ import acme.roles.Inventor;
 public class InventorToolkitCreateService implements AbstractCreateService<Inventor, Toolkit> {
 	
 	// Internal state ---------------------------------------------------------
+	
+	@Autowired
+	protected AdministratorSystemConfigurationRepository systemRepository;
 	
 	@Autowired
 	protected InventorToolkitRepository repository;
@@ -75,6 +83,29 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		final SystemConfiguration sc;
+		final Optional<SystemConfiguration> scAux = this.systemRepository.systemConfiguration().stream().findFirst();
+		if (scAux.isPresent()) {
+			sc = scAux.get();
+			
+			final double spamT = sc.getStrongSpamThreshold();
+			final double spamW = sc.getWeakSpamThreshold();
+			final String strongSpam = sc.getStrongSpamWords();
+			final String weakSpam = sc.getWeakSpamWords();
+			
+			if (!errors.hasErrors("title")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getTitle(), weakSpam, strongSpam, spamT, spamW), "title", "form.error.spam");
+			}
+			if (!errors.hasErrors("description")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getDescription(), weakSpam, strongSpam, spamT, spamW), "description", "form.error.spam");
+			}
+			if (!errors.hasErrors("assemblyNotes")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getAssemblyNotes(), weakSpam, strongSpam, spamT, spamW), "assemblyNotes", "form.error.spam");
+			}
+			if (!errors.hasErrors("furtherInfo") && !entity.getFurtherInfo().isEmpty()) {
+				errors.state(request, SpamDetector.spamDetect(entity.getFurtherInfo(), weakSpam, strongSpam, spamT, spamW), "furtherInfo", "form.error.spam");
+			}
+		}
 	}
 
 	@Override

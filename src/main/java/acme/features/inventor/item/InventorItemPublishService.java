@@ -3,11 +3,15 @@ package acme.features.inventor.item;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamDetector;
 import acme.entities.item.Item;
+import acme.entities.systemConfiguration.SystemConfiguration;
+import acme.features.administrator.systemConfiguration.AdministratorSystemConfigurationRepository;
 import acme.features.authenticated.systemConfiguration.AuthenticatedSystemConfigurationRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -20,6 +24,10 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 
 	@Autowired
 	protected InventorItemRepository repository;
+	
+	@Autowired
+	protected AdministratorSystemConfigurationRepository systemRepository;
+	
 	@Autowired
 	protected AuthenticatedSystemConfigurationRepository helperRepository;
 	@Override
@@ -75,7 +83,29 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+		final SystemConfiguration sc;
+		final Optional<SystemConfiguration> scAux = this.systemRepository.systemConfiguration().stream().findFirst();
+		if (scAux.isPresent()) {
+			sc = scAux.get();
+			
+			final double spamT = sc.getStrongSpamThreshold();
+			final double spamW = sc.getWeakSpamThreshold();
+			final String strongSpam = sc.getStrongSpamWords();
+			final String weakSpam = sc.getWeakSpamWords();
+			
+			if (!errors.hasErrors("name")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getName(), weakSpam, strongSpam, spamT, spamW), "name", "form.error.spam");
+			}
+			if (!errors.hasErrors("description")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getDescription(), weakSpam, strongSpam, spamT, spamW), "description", "form.error.spam");
+			}
+			if (!errors.hasErrors("technology")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getTechnology(), weakSpam, strongSpam, spamT, spamW), "technology", "form.error.spam");
+			}
+			if (!errors.hasErrors("furtherInfo") && !entity.getFurtherInfo().isEmpty()) {
+				errors.state(request, SpamDetector.spamDetect(entity.getFurtherInfo(), weakSpam, strongSpam, spamT, spamW), "furtherInfo", "form.error.spam");
+			}
+		}
 		
 		if(!errors.hasErrors("code")) {
 			 

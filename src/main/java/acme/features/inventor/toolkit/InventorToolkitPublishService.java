@@ -1,12 +1,16 @@
 package acme.features.inventor.toolkit;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamDetector;
 import acme.entities.item.Item;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.toolkit.Toolkit;
+import acme.features.administrator.systemConfiguration.AdministratorSystemConfigurationRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.HttpMethod;
@@ -22,7 +26,10 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 
 	
 	// Internal state ---------------------------------------------------------
-
+	
+	@Autowired
+	protected AdministratorSystemConfigurationRepository systemRepository;
+	
 	@Autowired
 	protected InventorToolkitRepository repository;
 	
@@ -89,13 +96,35 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+		final SystemConfiguration sc;
+		final Optional<SystemConfiguration> scAux = this.systemRepository.systemConfiguration().stream().findFirst();
+		if (scAux.isPresent()) {
+			sc = scAux.get();
+			
+			final double spamT = sc.getStrongSpamThreshold();
+			final double spamW = sc.getWeakSpamThreshold();
+			final String strongSpam = sc.getStrongSpamWords();
+			final String weakSpam = sc.getWeakSpamWords();
+			
+			if (!errors.hasErrors("title")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getTitle(), weakSpam, strongSpam, spamT, spamW), "title", "form.error.spam");
+			}
+			if (!errors.hasErrors("description")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getDescription(), weakSpam, strongSpam, spamT, spamW), "description", "form.error.spam");
+			}
+			if (!errors.hasErrors("assemblyNotes")) {
+				errors.state(request, SpamDetector.spamDetect(entity.getAssemblyNotes(), weakSpam, strongSpam, spamT, spamW), "assemblyNotes", "form.error.spam");
+			}
+			if (!errors.hasErrors("furtherInfo") && !entity.getFurtherInfo().isEmpty()) {
+				errors.state(request, SpamDetector.spamDetect(entity.getFurtherInfo(), weakSpam, strongSpam, spamT, spamW), "furtherInfo", "form.error.spam");
+			}
+		}
 		Collection<Item> items;
 		
 		items = this.repository.findManyItemsByToolkitId(entity.getId());
 		Boolean published = true;
 		
-		if (!errors.hasErrors("emptyItems")) {
+		if (!errors.hasErrors("*")) {
 			errors.state(request, items!=null && !items.isEmpty() , "*", "inventor.toolkit.form.error.empty-items");
 		}
 		
@@ -103,7 +132,7 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 			published = published && item.isPublished();
 		}
 		
-		if (!errors.hasErrors("itemNoPublished")) {
+		if (!errors.hasErrors("*")) {
 			errors.state(request, published , "*", "inventor.toolkit.form.error.item-no-published");
 		}
 		
