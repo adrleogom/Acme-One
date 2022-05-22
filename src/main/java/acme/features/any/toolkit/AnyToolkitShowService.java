@@ -2,14 +2,18 @@
 package acme.features.any.toolkit;
 
 import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.Date;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangeRepository;
+import acme.features.inventor.toolkit.InventorToolkitRepository;
+import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -23,6 +27,12 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 
 	@Autowired
 	protected AnyToolkitRepository repository;
+	
+	@Autowired
+	protected InventorToolkitRepository toolkitRepository;
+	
+	@Autowired
+	protected AuthenticatedMoneyExchangeRepository moneyExchangeRepository;
 
 	// AbstractShowService<Any, Toolkit> interface --------------
 
@@ -53,40 +63,72 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 		return result;
 	}
 
+	
+	public MoneyExchange conversion(final Money money) {
+		
+		final AuthenticatedMoneyExchangePerformService moneyExchange = new AuthenticatedMoneyExchangePerformService();
+		
+		MoneyExchange conversion = new MoneyExchange();
+		
+		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
+
+		if(!money.getCurrency().equals(systemCurrency)) {
+			
+			conversion = moneyExchange.computeMoneyExchange(money, systemCurrency);
+			
+		}else {
+			System.out.println(money);
+			conversion.setSource(money);
+			conversion.setTarget(money);
+			conversion.setTargetCurrency(systemCurrency);
+			conversion.setDate(new Date(System.currentTimeMillis()));
+			
+		}
+		return conversion;
+		
+	}
+	
+	
+	private Money retailPriceOfToolkit(final int toolkitid) {
+		final Money result = new Money();
+		Money retailPrice = new Money();
+		
+		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
+		Double amount = 0.0;
+		result.setCurrency(this.moneyExchangeRepository.findSystemCurrency());
+		
+		final Collection<Quantity> quantities = this.toolkitRepository.findQuantitiesByToolkitId(toolkitid);
+		for(final Quantity quantity:quantities) {
+			
+			retailPrice= quantity.getItem().getRetailPrice();
+			
+			if(!Objects.equals(retailPrice.getCurrency(), systemCurrency)) {
+				
+				final MoneyExchange conversion= this.conversion(retailPrice);
+				
+				amount= amount+conversion.getTarget().getAmount();
+			}else {
+				amount= amount+retailPrice.getAmount();
+			}
+			
+
+			result.setAmount(amount);
+		}
+		return result;
+	}
+	
+	
 	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		final Money retailPrice = this.retailPriceOfToolkit(entity.getId());
+		
+		model.setAttribute("retailPrice", retailPrice);
 
-		int id;
-		id = request.getModel().getInteger("id");
-		Collection<String> currencies;
-		final Money retailPrice= new Money();
-		
-		currencies=this.repository.findCurenciesOfAToolkit(id);
-		final Set<String> currency = currencies.stream().collect(Collectors.toSet());
-		
-		if(currency.size()==1) {
-			
-			final Optional<String> value = currency.stream().findFirst();
-			final Double amount = this.repository.findToolkitRetailPrice(id);
-			String moneda = null;
-			if(value.isPresent()) {
-				moneda = value.get();
-			}else {
-				moneda = null;
-			}
-			
-			retailPrice.setAmount(amount);
-			retailPrice.setCurrency(moneda);
-			model.setAttribute("retailPrice", retailPrice);
-		}else {
-			model.setAttribute("retailPrice", "");
-		}
-		
-		model.setAttribute("inventor", entity.getInventor().getUserAccount().getUsername());
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "furtherInfo");
 	}
 

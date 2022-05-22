@@ -1,14 +1,17 @@
 package acme.features.inventor.toolkit;
 
 import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.Date;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangePerformService;
+import acme.features.authenticated.moneyExchange.AuthenticatedMoneyExchangeRepository;
+import acme.forms.MoneyExchange;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -19,6 +22,9 @@ import acme.roles.Inventor;
 
 @Service
 public class InventorToolkitShowService implements AbstractShowService<Inventor, Toolkit>{
+
+	@Autowired
+	protected AuthenticatedMoneyExchangeRepository moneyExchangeRepository;
 
 	@Autowired
 	protected InventorToolkitRepository toolkitRepository;
@@ -62,39 +68,71 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	}
 
 	
+	public MoneyExchange conversion(final Money money) {
+		
+		final AuthenticatedMoneyExchangePerformService moneyExchange = new AuthenticatedMoneyExchangePerformService();
+		
+		MoneyExchange conversion = new MoneyExchange();
+		
+		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
+
+		if(!money.getCurrency().equals(systemCurrency)) {
+			
+			conversion = moneyExchange.computeMoneyExchange(money, systemCurrency);
+			
+		}else {
+			System.out.println(money);
+			conversion.setSource(money);
+			conversion.setTarget(money);
+			conversion.setTargetCurrency(systemCurrency);
+			conversion.setDate(new Date(System.currentTimeMillis()));
+			
+		}
+		System.out.println(conversion.getTarget());
+		return conversion;
+		
+	}
 	
+	
+	private Money retailPriceOfToolkit(final int toolkitid) {
+		final Money result = new Money();
+		Money retailPrice = new Money();
+		
+		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
+		Double amount = 0.0;
+		result.setCurrency(this.moneyExchangeRepository.findSystemCurrency());
+		
+		final Collection<Quantity> quantities = this.toolkitRepository.findQuantitiesByToolkitId(toolkitid);
+		System.out.println(quantities);
+		for(final Quantity quantity:quantities) {
+			
+			retailPrice= quantity.getItem().getRetailPrice();
+			System.out.println(retailPrice);
+			
+			if(!Objects.equals(retailPrice.getCurrency(), systemCurrency)) {
+				
+				final MoneyExchange conversion= this.conversion(retailPrice);
+				
+				amount= amount+conversion.getTarget().getAmount();
+			}else {
+				amount= amount+retailPrice.getAmount();
+			}
+			
+
+			result.setAmount(amount);
+		}
+		System.out.println(result);
+		return result;
+	}
 	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		int id;
+
+		final Money retailPrice = this.retailPriceOfToolkit(entity.getId());
 		
-		id = request.getModel().getInteger("id");
-		Collection<String> currencies;
-		final Money retailPrice= new Money();
-		
-		currencies=this.helperRepository.findAllCurenciesOfAToolkit(id);
-		final Set<String> currency = currencies.stream().collect(Collectors.toSet());
-		
-		
-		if(currency.size()==1) {
-			final Optional<String> value = currency.stream().findFirst();
-			final Double amount = this.helperRepository.amountOfToolkitRetailPrice(id);
-			String moneda = null;
-			if(value.isPresent()) {
-				moneda = value.get();
-			}else {
-				moneda = null;
-			}
-			
-			retailPrice.setAmount(amount);
-			retailPrice.setCurrency(moneda);
-			model.setAttribute("retailPrice", retailPrice);
-		}else {
-			model.setAttribute("retailPrice", "");
-		}
-		
+		model.setAttribute("retailPrice", retailPrice);
 		
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "published","furtherInfo");
 		
