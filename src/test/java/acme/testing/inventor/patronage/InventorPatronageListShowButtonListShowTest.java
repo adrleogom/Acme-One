@@ -2,6 +2,7 @@
 package acme.testing.inventor.patronage;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -40,12 +41,12 @@ public class InventorPatronageListShowButtonListShowTest extends TestHarness {
 
 		super.clickOnButton("Patronage reports");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(0, "desc");
 
-		super.checkColumnHasValue(2, 0, sNumber);
-		super.checkColumnHasValue(2, 1, creationMoment);
+		super.checkColumnHasValue(recordIndex, 0, sNumber);
+		super.checkColumnHasValue(recordIndex, 1, creationMoment);
 
-		super.clickOnListingRecord(2);
+		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("creationMoment", creationMoment);
 		super.checkInputBoxHasValue("memorandum", memorandum);
@@ -53,4 +54,21 @@ public class InventorPatronageListShowButtonListShowTest extends TestHarness {
 
 		super.signOut();
 	}
+	
+	
+		@Test
+		@Order(30)
+		public void hackingTest1() {
+			super.checkNotLinkExists("Inventor");
+			super.navigate("/inventor/patronage/list");
+			super.checkPanicExists();
+		}
+		
+		@Test
+		@Order(30)
+		public void hackingTest2() {
+			super.checkNotLinkExists("Inventor");
+			super.navigate("/inventor/patronage-report/list");
+			super.checkPanicExists();
+		}
 }

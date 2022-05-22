@@ -41,4 +41,3 @@
 <acme:button code="inventor.patronage.form.button.create.patronage-report" action="/inventor/patronage-report/create?masterId=${id}"/>	
 
 <acme:button code="inventor.patronage.form.button.patronage-report" action="/inventor/patronage-report/list?masterId=${id}"/>
-

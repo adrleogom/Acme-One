@@ -1,10 +1,4 @@
 recordIndex,item-type,name,code,technology,description,retail-price,published,further-info
-0,COMPONENT,Item 7,HGS-489-C,Tech 7,Component with Tech 7,USD 30.00,true,
-1,COMPONENT,Item 9,QBU-762-L,Tech 9,Component with Tech 9,GBP 12.60,false,http://www.example.com
-2,TOOL,Item 8,REW-267-N,Tech 8,Component with Tech 8,EUR 25.75,true,
-3,TOOL,Item 10,ZGR-538-L,Tech 10,Component with Tech 10,USD 12.60,true,http://www.example.com
-4,TOOL,Item 3,VRE-901-A,Tech 3,Tool with Tech 3,GBP 9.60,true,http://www.example.com
-
-
-
-
+0,COMPONENT,Item 13,LKM-783,Tech 13,Component with Tech 13,GBP 25.00,false,http://www.example.com
+1,COMPONENT,Item 17,YES-638-M,Tech 17,Component with Tech 17,EUR 29.99,true,http://www.example.com
+2,COMPONENT,Item 4,YYE-140-C,Tech 4,Component with Tech 4,EUR 19.00,true,http://www.example.com

@@ -25,12 +25,14 @@ public class AnyChirpCreateTest extends TestHarness{
 		super.clickOnSubmit("Create Chirp");
 
 		super.checkListingExists();
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, author);
 		super.checkColumnHasValue(recordIndex, 3, body);
 		super.checkColumnHasValue(recordIndex, 4, email);
 
 	}
+	
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/chirp/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -52,5 +54,6 @@ public class AnyChirpCreateTest extends TestHarness{
 		super.checkErrorsExist();
 
 	}
+	
 
 }
