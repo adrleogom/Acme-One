@@ -14,11 +14,11 @@ public class InventorItemListMineShowTest extends TestHarness{
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String itemType, final String name, final String code, final String technology, 
 		final String description, final String retailPrice,final String published, final String furtherInfo) {
-		super.signIn("inventor1", "inventor1");
+		super.signIn("inventor4", "inventor4");
 
 		super.clickOnMenu("Inventor", "List my components and tools");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		
 		super.checkColumnHasValue(recordIndex, 0, itemType);
 		super.checkColumnHasValue(recordIndex, 1, name);
