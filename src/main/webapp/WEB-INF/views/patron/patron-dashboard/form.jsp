@@ -6,15 +6,15 @@
 
 <h2> <acme:message code="patron.patron-dashboard.form.label.totalNumberOfPatronages" /> </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="totalNumberOfPatronagesTable">
 	<jstl:if test="${empty totalNumberOfPatronages}">
 		<acme:message code="patron.patron-dashboard.form.label.noPatronages" />
 		<br>
 		<br>
 	</jstl:if>
 	<tr> 
-		<th><acme:message code="patron.patron-dashboard.form.label.status" /> </th>
-		<th><acme:message code="patron.patron-dashboard.form.label.number" /> </th>
+		<th id="status"><acme:message code="patron.patron-dashboard.form.label.status" /> </th>
+		<th id="number"><acme:message code="patron.patron-dashboard.form.label.number" /> </th>
 	</tr>
 	<jstl:forEach items="${totalNumberOfPatronages}"
 		var="totalNumberOfPatronages">
@@ -27,7 +27,7 @@
 
 <h2> <acme:message code="patron.patron-dashboard.form.label.budgetOfPatronages" /> </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="budgetOfPatronagesTable"> 
 
 
 	<jstl:if test="${empty budgetOfPatronages}">
@@ -36,12 +36,12 @@
 		<br>
 	</jstl:if>
 	<tr>
-		<th><acme:message code="patron.patron-dashboard.form.label.status" /></th>
-		<th><acme:message code="patron.patron-dashboard.form.label.currency" /></th>
-		<th><acme:message code="patron.patron-dashboard.form.label.average" /></th>
-		<th><acme:message code="patron.patron-dashboard.form.label.deviation" /></th>
-		<th><acme:message code="patron.patron-dashboard.form.label.minimum" /></th>
-		<th><acme:message code="patron.patron-dashboard.form.label.maximum" /></th>
+		<th id="status"><acme:message code="patron.patron-dashboard.form.label.status" /></th>
+		<th id="currency"><acme:message code="patron.patron-dashboard.form.label.currency" /></th>
+		<th id="average"><acme:message code="patron.patron-dashboard.form.label.average" /></th>
+		<th id="deviation"><acme:message code="patron.patron-dashboard.form.label.deviation" /></th>
+		<th id="minimum"><acme:message code="patron.patron-dashboard.form.label.minimum" /></th>
+		<th id="maximum"><acme:message code="patron.patron-dashboard.form.label.maximum" /></th>
 	</tr>
 	<jstl:forEach items="${budgetOfPatronages}" var="budgetOfPatronages">
 		<tr>

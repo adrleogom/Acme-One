@@ -6,12 +6,15 @@
 
 <h2> <acme:message code="administrator.administrator-dashboard.form.label.totalNumberOfComponents" /> </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="totalNumberOfComponentsTable">
 	<jstl:if test="${empty totalNumberOfComponents}">
 		<acme:message code="administrator.administrator-dashboard.form.label.noComponents" />
 		<br>
 		<br>
 	</jstl:if>
+	<tr style="display:none">
+		<th id="column"></th>
+	</tr>
 	<tr>
 		<td>
 			<acme:print value="${totalNumberOfComponents}"/>
@@ -22,12 +25,15 @@
 
 <h2> <acme:message code="administrator.administrator-dashboard.form.label.totalNumberOfTools" /> </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="totalNumberOfToolsTable">
 	<jstl:if test="${empty totalNumberOfTools}">
 		<acme:message code="administrator.administrator-dashboard.form.label.noTools" />
 		<br>
 		<br>
 	</jstl:if>
+	<tr style="display:none">
+		<th id="column"></th>
+	</tr>
 	<tr>
 		<td>
 			<acme:print value="${totalNumberOfTools}"/>
@@ -38,15 +44,15 @@
 
 <h2> <acme:message code="administrator.administrator-dashboard.form.label.totalNumberOfPatronages" /> </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="totalNumberOfPatronagesTable">
 	<jstl:if test="${empty totalNumberOfPatronages}">
 		<acme:message code="administrator.administrator-dashboard.form.label.noPatronages" />
 		<br>
 		<br>
 	</jstl:if>
 	<tr> 
-		<th><acme:message code="administrator.administrator-dashboard.form.label.status" /> </th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.number" /> </th>
+		<th id="status"><acme:message code="administrator.administrator-dashboard.form.label.status" /> </th>
+		<th id="number"><acme:message code="administrator.administrator-dashboard.form.label.number" /> </th>
 	</tr>
 	<jstl:forEach items="${totalNumberOfPatronages}"
 		var="totalNumberOfPatronages">
@@ -59,7 +65,7 @@
 
 <h2> <acme:message code="administrator.administrator-dashboard.form.label.budgetOfPatronages" /> </h2>
 
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="budgetOfPatronagesTable">
 
 
 	<jstl:if test="${empty budgetOfPatronages}">
@@ -68,12 +74,12 @@
 		<br>
 	</jstl:if>
 	<tr>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.status" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
+		<th id="status"><acme:message code="administrator.administrator-dashboard.form.label.status" /></th>
+		<th id="currency"><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
+		<th id="average"><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
+		<th id="deviation"><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
+		<th id="minimum"><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
+		<th id="maximum"><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
 	</tr>
 	<jstl:forEach items="${budgetOfPatronages}" var="budgetOfPatronages">
 		<tr>
@@ -90,7 +96,7 @@
 </table>
 
 <h2> <acme:message code="administrator.administrator-dashboard.form.label.retailPriceOfTools" /> </h2>
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="retailPriceOfToolsTable">
 
 
 	<jstl:if test="${empty retailPriceOfTools}">
@@ -99,11 +105,11 @@
 		<br>
 	</jstl:if>
 	<tr>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
+		<th id="currency"><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
+		<th id="average"><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
+		<th id="deviation"><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
+		<th id="minimum"><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
+		<th id="maximum"><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
 	</tr>
 	<jstl:forEach items="${retailPriceOfTools}" var="retailPriceOfTools">
 		<tr>
@@ -118,7 +124,7 @@
 
 
 <h2> <acme:message code="administrator.administrator-dashboard.form.label.retailPriceOfComponents" /> </h2>
-<table class="table table-sm">
+<table class="table table-sm" aria-describedby="retailPriceOfComponentsTable">
 
 
 	<jstl:if test="${empty retailPriceOfComponents}">
@@ -127,12 +133,12 @@
 		<br>
 	</jstl:if>
 	<tr>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.technology" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
-		<th><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
+		<th id="currency"><acme:message code="administrator.administrator-dashboard.form.label.currency" /></th>
+		<th id="technology"><acme:message code="administrator.administrator-dashboard.form.label.technology" /></th>
+		<th id="average"><acme:message code="administrator.administrator-dashboard.form.label.average" /></th>
+		<th id="deviation"><acme:message code="administrator.administrator-dashboard.form.label.deviation" /></th>
+		<th id="minimum"><acme:message code="administrator.administrator-dashboard.form.label.minimum" /></th>
+		<th id="maximum"><acme:message code="administrator.administrator-dashboard.form.label.maximum" /></th>
 	</tr>
 	<jstl:forEach items="${retailPriceOfComponents}" var="retailPriceOfComponents">
 		<tr>
