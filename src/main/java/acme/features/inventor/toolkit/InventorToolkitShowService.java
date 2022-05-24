@@ -96,7 +96,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	
 	private Money retailPriceOfToolkit(final int toolkitid) {
 		final Money result = new Money();
-		Money retailPrice = new Money();
+		Money retailPrice;
 		
 		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
 		Double amount = 0.0;

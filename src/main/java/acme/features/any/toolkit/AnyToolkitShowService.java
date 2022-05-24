@@ -91,7 +91,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit> 
 	
 	private Money retailPriceOfToolkit(final int toolkitid) {
 		final Money result = new Money();
-		Money retailPrice = new Money();
+		Money retailPrice;
 		
 		final String systemCurrency = this.moneyExchangeRepository.findSystemCurrency();
 		Double amount = 0.0;
