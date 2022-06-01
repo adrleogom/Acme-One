@@ -109,7 +109,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		}
 		
 		if(!errors.hasErrors("finalDate")) {
-			final Date minFinalDate=DateUtils.addMonths(entity.getInitialDate(), 1);
+			final Date minFinalDate=DateUtils.addWeeks(entity.getInitialDate(), 1);
 			errors.state(request,entity.getFinalDate().after(minFinalDate), "finalDate", "patron.patronage.form.error.distance.initial.final");
 		}
 		

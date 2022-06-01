@@ -40,5 +40,5 @@ patron.patronage.form.button.publish = Publicar
 patron.patronage.form.error.non-accepted-currency = Divisa no válida
 patron.patronage.form.error.negative-budget = El presupuesto no puede ser negativo
 patron.patronage.form.error.distance.current.initial = La distancia mínima entre la fecha actual y la fecha inicial debe ser de 1 mes
-patron.patronage.form.error.distance.initial.final = La distancia mínima entre la fecha inicial y la fecha final debe ser de 1 mes
+patron.patronage.form.error.distance.initial.final = La duración mínima del patrocinio debe ser de 1 semana
 patron.patronage.form.error.existent = El código ya existe
