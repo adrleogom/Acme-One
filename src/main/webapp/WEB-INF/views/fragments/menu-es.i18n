@@ -57,15 +57,6 @@ master.menu.inventor.toolkit = Ver mis juegos de herramientas
 master.menu.patron = Patron
 master.menu.patron.patronage = Listar mis patronages
 master.menu.patron.patron-dashboard = Panel de patrocinios
-# master.menu.provider ########################################################
-
-master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumidor
-master.menu.consumer.favourite-link = Enlace favorito
 
 # master.menu.authenticated ##########################################################
 
@@ -79,10 +70,6 @@ master.menu.authenticated.money-exchage = Cambio de dinero
 master.menu.user-account.recent-chirps = Lista de chirps recientes
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
-master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
 
 master.menu.user-account.inventor = Datos de inventor
 master.menu.user-account.become-inventor = Hazte inventor
