@@ -40,5 +40,5 @@ patron.patronage.form.button.publish = Publish
 patron.patronage.form.error.non-accepted-currency = Invalid currency
 patron.patronage.form.error.negative-budget = Budget cannot be negative
 patron.patronage.form.error.distance.current.initial = The minimum distance between the current date and the initial date must be 1 month
-patron.patronage.form.error.distance.initial.final = The minimum distance between the initial date and the final date must be 1 month
+patron.patronage.form.error.distance.initial.final = The minimum duration of the patronage must be 1 week
 patron.patronage.form.error.existent = Code already exists
