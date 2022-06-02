@@ -81,7 +81,18 @@ public class InventorToolkitCreateTest extends TestHarness{
 	@Test
     @Order(30)
     public void hackingTest() {
+		super.checkNotLinkExists("Inventor");
         super.navigate("/inventor/toolkit/create");
         super.checkPanicExists();
+        
+		super.signIn("administrator", "administrator");
+		super.navigate("/inventor/toolkit/create");
+		super.checkPanicExists();
+		super.signOut();
+		
+		super.signIn("patron1", "patron1");
+		super.navigate("/inventor/toolkit/create");
+		super.checkPanicExists();
+		super.signOut();
     }
 }

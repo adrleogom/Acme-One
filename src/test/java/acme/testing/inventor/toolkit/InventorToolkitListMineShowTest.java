@@ -50,10 +50,21 @@ public class InventorToolkitListMineShowTest extends TestHarness{
 	}
 	
 	@Test
-    @Order(20)
+    @Order(30)
     public void hackingTest() {
+		super.checkNotLinkExists("Inventor");
         super.navigate("/inventor/toolkit/list");
         super.checkPanicExists();
+        
+		super.signIn("administrator", "administrator");
+		super.navigate("/inventor/toolkit/list");
+		super.checkPanicExists();
+		super.signOut();
+		
+		super.signIn("patron1", "patron1");
+		super.navigate("/inventor/toolkit/list");
+		super.checkPanicExists();
+		super.signOut();
     }
 	
 }

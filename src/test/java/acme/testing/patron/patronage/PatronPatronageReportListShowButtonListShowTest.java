@@ -60,6 +60,16 @@ public class PatronPatronageReportListShowButtonListShowTest extends TestHarness
 			super.checkNotLinkExists("Patron");
 			super.navigate("/patron/patronage/list");
 			super.checkPanicExists();
+			
+			super.signIn("administrator", "administrator");
+			super.navigate("/patron/patronage/list");
+			super.checkPanicExists();
+			super.signOut();
+			
+			super.signIn("inventor1", "inventor1");
+			super.navigate("/patron/patronage/list");
+			super.checkPanicExists();
+			super.signOut();
 		}
 		
 }

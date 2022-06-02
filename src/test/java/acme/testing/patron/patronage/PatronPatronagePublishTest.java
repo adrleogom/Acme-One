@@ -42,6 +42,16 @@ public class PatronPatronagePublishTest extends TestHarness{
 		super.navigate("/patron/patronage/publish");
 		super.checkPanicExists();
 		
+		super.signIn("administrator", "administrator");
+		super.navigate("/patron/patronage/publish");
+		super.checkPanicExists();
+		super.signOut();
+		
+		super.signIn("inventor1", "inventor1");
+		super.navigate("/patron/patronage/publish");
+		super.checkPanicExists();
+		super.signOut();
+		
 	}
 
 }

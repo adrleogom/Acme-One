@@ -76,6 +76,16 @@ public class PatronPatronageUpdateTest extends TestHarness{
 		super.navigate("/patron/patronage/update");
 		super.checkPanicExists();
 		
+		super.signIn("administrator", "administrator");
+		super.navigate("/patron/patronage/update");
+		super.checkPanicExists();
+		super.signOut();
+		
+		super.signIn("inventor1", "inventor1");
+		super.navigate("/patron/patronage/update");
+		super.checkPanicExists();
+		super.signOut();
+		
 	}
 
 }
