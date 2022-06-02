@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.item.Item;
+import acme.entities.quantity.Quantity;
 import acme.entities.toolkit.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
@@ -31,6 +32,9 @@ public interface InventorItemRepository extends AbstractRepository{
 	
 	@Query("select i from Item i where i.code =:code")
 	Item findItemByCode(String code);
+	
+	@Query("select q from Quantity q where q.item.id= :id")
+	Collection<Quantity> findManyQuantitiesByItemId(int id);
 	
 	
 }
