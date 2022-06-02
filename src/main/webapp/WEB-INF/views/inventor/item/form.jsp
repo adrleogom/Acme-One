@@ -30,7 +30,6 @@
 	<acme:submit  test="${command == 'create'}" code="inventor.item.form.button.create" action="/inventor/item/create"/>  
 	
 	<jstl:choose>
-		
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && published == false }">
 			<acme:input-textbox code="inventor.item.form.label.published" path ="published" readonly="true"/>
 			<acme:submit code="inventor.item.form.button.delete" action="/inventor/item/delete"/>
@@ -39,11 +38,7 @@
 		</jstl:when>
 
  		<jstl:when test="${command == 'show'}">
-			<acme:input-textbox code="inventor.item.form.label.code" path="code" readonly="true"/>
-			<acme:input-select code="inventor.item.form.label.published" path="published" readonly="true">
-				<acme:input-option code="false" value="false" selected="${published == 'false'}"/>
-				<acme:input-option code="true" value="true" selected="${published == 'true'}"/>
-			</acme:input-select>
+			<acme:input-textbox code="inventor.item.form.label.published" path="published" />
 		</jstl:when>
 	</jstl:choose>	
 </acme:form>
